@@ -1,3 +1,11 @@
+/* Keller moved body from the index.css file on 6/6/18 since that was the only style there and now the custom styles are all in one place. */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -26,3 +34,23 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* Added by Keller on 6/6/18 */
+
+.PageTitle {
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  width: 100%
+}
+
+.nav {
+  display: flex;
+  align-items: Left;
+  justify-content: space-between;
+  padding: 10px; 
+  text-align: left; 
+  float: left;
+}
+
+/* Above were added by Keller on 6/6/18 */
