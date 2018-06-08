@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import '../../App.css';
 
-export default class About extends Component {
+export default class Buyer extends Component {
     render (){
         return(
             <div className="PageTitle">
-                About
+                Buyer
             </div>
         )
     }
