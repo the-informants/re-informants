@@ -43,17 +43,17 @@ passport.use(
     (accessToken, refreshToken, extraParams, profile, done) => {
       const db = app.get("db");
     
-      db.get_user_by_auth_id({ auth_id: profile.id }).then(results => {
+      db.get_user_by_auth_id({ authid: profile.id }).then(results => {
         let user = results[0];
+        console.log("user", user);
 
         if (user) {
           return done(null, user);
         } else {
           let userObj = {
             name: profile.displayName,
-            auth_id: profile.id,
-            email: profile.emails[0].value,
-            profile_pic: profile.picture
+            authid: profile.id,
+            email: profile.emails[0].value
           };
 
           db.create_user(userObj).then(results => {
@@ -67,7 +67,7 @@ passport.use(
 );
 
 passport.serializeUser((user, done) => {
-  return done(null, user.id);
+  return done(null, user.userid);
 });
 
 passport.deserializeUser((id, done) => {
@@ -83,8 +83,8 @@ app.get("/auth", passport.authenticate("auth0"));
 app.get(
   "/auth/callback",
   passport.authenticate("auth0", {
-    successRedirect: "/",
-    failureRedirect: "/"
+    successRedirect: "http://localhost:3000/Account",
+    failureRedirect: "http://localhost:3000/"
   })
 );
 

@@ -6,6 +6,7 @@ export default class GetStarted extends Component {
         return(
             <div className="PageTitle">
                 Get Started
+                <a href={"http://localhost:4000/auth"}><button >Login</button></a>
             </div>
         )
     }
