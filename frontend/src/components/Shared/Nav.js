@@ -9,9 +9,9 @@ export default function Nav() {
             <Link to="/" className="nav navbar-nav">
                 <div className="nav-item" > Home </div>
             </Link>
-            <Link to="/GetStarted"className="nav navbar-nav">
+            {/* <Link to="/GetStarted"className="nav navbar-nav">
                 <div className="nav-item" > Get Started</div>
-            </Link>
+            </Link> */}
             <Link to="/Buyer"className="nav navbar-nav">
                 <div className="nav-item" > Buyer</div>
             </Link>
