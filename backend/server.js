@@ -70,11 +70,13 @@ passport.serializeUser((user, done) => {
   return done(null, user.userid);
 });
 
-passport.deserializeUser((id, done) => {
+passport.deserializeUser((userid, done) => {
+    console.log("id", userid);
   const db = app.get("db");
 
-  db.get_user_by_id({ id }).then(results => {
+  db.get_user_by_id({ userid }).then(results => {
     let user = results[0];
+    console.log("1111", user)
     return done(null, user);
   });
 });
