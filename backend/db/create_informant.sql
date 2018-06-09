@@ -18,7 +18,7 @@ values
     ${knowreligionflag},
     ${knowcrimeflag},
     ${knowschoolflag},
-    ${availableflag}
+    'true'
 )
 
 RETURNING *;
