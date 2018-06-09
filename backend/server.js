@@ -106,9 +106,11 @@ app.get('/api/logout', function(req,res){
 })
 
 
+const informant_Controller= require('./controllers/informant_controller');
 
-
-
+app.post("/api/informant", informant_Controller.createInformant);
+app.get("/api/informant", informant_Controller.getInformant);
+app.get("/api/informants", informant_Controller.getInformants);
 
 
 
