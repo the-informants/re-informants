@@ -108,13 +108,15 @@ app.get('/api/logout', function(req,res){
 
 const informant_Controller= require('./controllers/informant_controller');
 const buyer_Controller= require('./controllers/buyer_controller');
-
+const order_Controller= require('./controllers/order_controller');
 
 app.post("/api/informant", informant_Controller.createInformant);
 app.get("/api/informant", informant_Controller.getInformant);
 app.get("/api/informants", informant_Controller.getInformants);
 app.post("/api/buyer", buyer_Controller.createBuyer);
 app.get("/api/buyer", buyer_Controller.getBuyer);
+app.post("/api/order", order_Controller.createOrder);
+app.get("/api/orders", order_Controller.getOrders);
 
 
 
