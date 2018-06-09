@@ -9,4 +9,4 @@ select
     buyernotes,
     buyeractiveflag
 from buyers
-where userid=${userid};
+where userid::integer=${userid};
