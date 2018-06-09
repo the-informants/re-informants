@@ -19,8 +19,7 @@ class InformantForm extends Component {
             knowcommunityflag: false,
             knowreligionflag: false,
             knowcrimeflag: false, 
-            knowschoolflag: false,
-            availableflag: false  
+            knowschoolflag: false, 
         }
     }
     handleChange = (e) =>{
@@ -84,8 +83,6 @@ class InformantForm extends Component {
                     <input name = "knowcrimeflag" type = "checkbox" checked = {this.state.knowcrimeflag} onChange={this.handleChange}/>
                     <span>School</span>
                     <input name = "knowschoolflag" type = "checkbox" checked = {this.state.knowschoolflag} onChange={this.handleChange}/>
-                    <span>Available</span>
-                    <input name = "availableflag" type = "checkbox" checked = {this.state.availableflag} onChange={this.handleChange}/>
                 </div>
                 <button onClick={()=>this.submitInfo()}>submit</button>
             </div>
