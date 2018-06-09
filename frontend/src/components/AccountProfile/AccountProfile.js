@@ -3,13 +3,14 @@ import '../../App.css';
 import {connect} from 'react-redux';
 import InformantForm from './InformantForm'
 import BuyerForm from './BuyerForm'
-import {getInformantInfo, getBuyerInfo} from '../../ducks/reducers/user';
+import {getInformantInfo, getBuyerInfo, getInformants} from '../../ducks/reducers/user';
 
 class AccountProfile extends Component {
 
     componentWillMount(){
         this.props.getInformantInfo();
         this.props.getBuyerInfo();
+        this.props.getInformants();
     }
         
     
@@ -27,4 +28,4 @@ function mapStateToProps(state){
     const {user} = state
     return {user};
 }
-export default connect(mapStateToProps, {getInformantInfo, getBuyerInfo})(AccountProfile)
+export default connect(mapStateToProps, {getInformantInfo, getBuyerInfo, getInformants})(AccountProfile)
