@@ -1,0 +1,37 @@
+select 
+    r.orderresultsid,
+    r.orderid,
+    o.ordername,
+    o.address1,
+    o.address2,
+	o.city,
+	o.state,
+	o.zip,
+	o.ordertype,
+	o.ordernotes,
+	o.ordervaliduntil,
+	o.orderdatetime,
+	i.userid,
+	i.firstname,
+	i.lastname,
+	i.informantsincedatetime,
+	i.informantnotes,
+	i.phone, 
+    i.address1,
+    i.address2,
+    i.city,
+    i.state,
+    i.zip,
+    i.knowcommunityflag,
+    i.knowreligionflag,
+    i.knowcrimeflag, 
+    i.knowschoolflag, 
+    i.availableflag,
+    r.distance,
+    r.viewedflag,
+    r.selectedflag,
+    r.orderresultdatetime
+from orderresults as r
+INNER JOIN orders as o on r.orderid::varchar = o.orderid::varchar
+INNER JOIN informants as i on i.informantid::varchar = r.informantid::varchar
+where r.orderid::integer=${orderid}

@@ -3,4 +3,4 @@ select
         address1, address2, city, state, zip, knowcommunityflag, knowreligionflag,
         knowcrimeflag, knowschoolflag, availableflag
 from informants
-where userid=${userid};
+where userid::integer=${userid};

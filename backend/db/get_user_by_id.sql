@@ -1,2 +1,2 @@
 select * from users
-where userid = ${userid}
+where userid::integer = ${userid}
