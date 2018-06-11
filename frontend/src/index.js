@@ -11,9 +11,9 @@ import {Provider} from 'react-redux';
 
 ReactDOM.render(
 <BrowserRouter>
-    {/* <Provider store = {Store}> */}
+    <Provider store = {Store}>
         <App/>
-    {/* </Provider> */}
+    </Provider>
 </BrowserRouter>
 , document.getElementById('root'));
 // registerServiceWorker();
