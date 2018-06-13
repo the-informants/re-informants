@@ -21,7 +21,6 @@ export default function Nav() {
             <Link to="/Account"className="nav navbar-nav">
                 <div className="nav-item" > Account </div>
             </Link>
-
             {/* On 6/6/18, Keller left this code in as a placeholder to enable when we have auth0 working.
             <a className="nav navbar-nav" href={process.env.REACT_APP_LOGIN}>
                 <button className="nav-item" > Sign In </button></a> */}
