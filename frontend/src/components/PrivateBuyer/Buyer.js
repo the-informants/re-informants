@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import '../../App.css';
 
-export default class PublicBuyer extends Component {
+export default class PrivateBuyer extends Component {
     render (){
         return(
             <div className="PageTitle">
-                Public Buyer
+                Private Buyer
             </div>
         )
     }
