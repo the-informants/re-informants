@@ -44,13 +44,7 @@ body {
   width: 100%
 }
 
-.nav {
-  display: flex;
-  align-items: Left;
-  justify-content: space-between;
-  padding: 10px; 
-  text-align: left; 
-  float: left;
-}
+
+
 
 /* Above were added by Keller on 6/6/18 */

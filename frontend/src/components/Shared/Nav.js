@@ -1,29 +1,53 @@
-import React from 'react'
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import '../../App.css';
 
+class Nav extends Component {
+    constructor(props) {
+    super(props);
+        this.toggleNavbar = this.toggleNavbar.bind(this);
+        this.state = {
+            collapsed: true,
+        };
+    }
+    toggleNavbar() {
+        this.setState({
+            collapsed: !this.state.collapsed,
+            });
+        }
+    render() {
+        const collapsed = this.state.collapsed;
+        const classOne = collapsed ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
+        const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
+        return (
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark transparent-nav">
+                <div className="container">
+                    <a className="navbar-brand" href="/">Re-Informants</a>
+                    <button onClick={this.toggleNavbar} className={`${classTwo}`} type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon" />
+                    </button>
+                    <div className={`${classOne}`} id="navbarResponsive">
+                        <ul className="navbar-nav ml-auto">
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/">Home</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/Get Started">Get Started</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/Buyer">Buyer</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/Informant">Informant</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/Account">Account</Link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            );
+    }
+ }
+export default Nav;
 
-export default function Nav() {
-    return (
-        <div className="navbar navbar-light">
-            <Link to="/" className="nav navbar-nav">
-                <div className="nav-item" > Home </div>
-            </Link>
-            {/* <Link to="/GetStarted"className="nav navbar-nav">
-                <div className="nav-item" > Get Started</div>
-            </Link> */}
-            <Link to="/Buyer"className="nav navbar-nav">
-                <div className="nav-item" > Buyer</div>
-            </Link>
-            <Link to="/Informant"className="nav navbar-nav">
-                <div className="nav-item" > Informant </div>
-            </Link>
-            <Link to="/Account"className="nav navbar-nav">
-                <div className="nav-item" > Account </div>
-            </Link>
-            {/* On 6/6/18, Keller left this code in as a placeholder to enable when we have auth0 working.
-            <a className="nav navbar-nav" href={process.env.REACT_APP_LOGIN}>
-                <button className="nav-item" > Sign In </button></a> */}
-        </div> 
-    )
-}
