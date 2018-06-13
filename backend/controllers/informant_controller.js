@@ -3,7 +3,6 @@ module.exports = {
     getInformant: (req,res)=>{
         const db = req.app.get('db');
         const { userid } = req.user;
-        console.log('HERE')
         db.get_informant({userid})
         .then(informant=>{
             res.status(200).send(informant);
