@@ -40,9 +40,12 @@ class AccountProfile extends Component {
             <div className="PageTitle">
                 Account Profile
                 {/* <InformantForm/>
+                
                 <BuyerForm/> */}
                 {/* <BuyerFormValidation mysubmit={this.submitBuyerInformation}/> */}
-                <InformantFormValidation mysubmit={this.submitInformantInformation}/>
+                <div>
+                    <InformantFormValidation mysubmit={this.submitInformantInformation}/>
+                </div>
             </div>
         )
     }

@@ -9,6 +9,7 @@ import PublicInformant from './components/PublicInformant/Informant';
 import PrivateBuyer from './components/PrivateBuyer/Buyer';
 import PrivateInformant from './components/PrivateInformant/Informant';
 import InquiryThankYou from './components/ThankYou/InquiryThankYou';
+import Modal from './components/PublicGetStarted/Modal'
 
 export default (
     <Switch>
@@ -19,6 +20,7 @@ export default (
         <Route component={PrivateBuyer} path='/PrivateBuyer' />
         <Route component={PrivateInformant} path='/PrivateInformant' />
         <Route component={InquiryThankYou} path='/ThankYou' />
+        <Route component={Modal} path='/Modal' />
      
     </Switch>
 )

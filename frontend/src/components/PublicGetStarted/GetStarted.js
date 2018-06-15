@@ -45,17 +45,13 @@ class GetStarted extends Component {
        
         return(
             <div>
-                <div className="PageTitle, row">
-                    Get Started
-                    <a href={"http://localhost:4000/auth"}>
-                    <button >Login</button></a>
-
-
+                <div className="PageTitle, row, col-md-12">
+    
                 </div>
                 <div className="row, col-md-8">
                     <Search />
                     {/* <StandAloneSearch search={this.search}/> */}
-                    <button onClick={()=>this.searchAddress()}>Search</button>
+                    <button onClick={()=>this.searchAddress()} className="btn btn-primary btn-lg btn-block btn-map">Search</button>
 
                     <GoogleMaps
                         containerElement={<div style={{ height: `400px` }} />}

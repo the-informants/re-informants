@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import '../../App.css';
 import { search } from '../../ducks/reducers/search'
 import { Field, reduxForm } from 'redux-form';
+import { renderField } from "../Shared/Forms"
 class Search extends Component {
     renderField(field){
         return (
@@ -11,6 +12,7 @@ class Search extends Component {
                 <input
                     className="form-control"
                     type="text"
+                    placeholder={field.defaultValue}
                     {...field.input}
                 />
             </div>
@@ -20,12 +22,13 @@ class Search extends Component {
 render() {
     return (
         <div>
-            <h1>Map</h1>
+            <h1>Your Local Neighborhood Informant</h1>
             <form>
                 <Field 
-                    label="Search"
+                    defaultValue="Enter an address or zip code"
+                    label="Find people who can inform a real estate purchase"
                     name="searchvalue"
-                    component={this.renderField}
+                    component={renderField}
             />
             </form>
         </div>
