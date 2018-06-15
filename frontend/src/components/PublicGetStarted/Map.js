@@ -4,18 +4,55 @@ import React, {Component} from 'react';
 import '../../App.css';
 
 class GoogleMaps extends Component {
-    render (){
-        const markers = this.props.markers || []
+  constructor(){
+    super()
+    this.state = {
+      map: null
+    }
+  }
+  mapMoved(){
+    const position = (this.state.map.getCenter())
+    const lat = position.lat();
+    const lng = position.lng();
+    console.log('map Moved', lat)
+    this.props.search({lat, lng})
+    
+  }
+  mapLoaded(map){
+    if (this.state.map !=null)
+      return
+    
+    this.setState({
+      map: map
+    })
 
+  }
+  handleClick = (informant)=>{
+    console.log("click", informant)
+  }
+  
+    render (){
+      const markers = this.props.markers.map((informant, i)=>{
+        console.log(informant)
+        const marker = {
+          position: {
+            lat: parseFloat(informant.lat),
+            lng: parseFloat(informant.lng)
+          }
+        }
+        return <Marker onClick={()=>this.handleClick(informant)} key={i}{...marker}/>
+      })
+      console.log("props", this.props.markers)
         return(
         <div>
             <GoogleMap
+              ref={this.mapLoaded.bind(this)}
+              onDragEnd = {()=>this.mapMoved()}
               defaultZoom={14}
-              defaultCenter={{ lat: 40.7608, lng: -111.8910 }}>
-              {markers.map((marker, index) => (
-                <Marker {...marker} />
-              )
-            )}
+              defaultCenter={{ lat: 41.00472, lng: -111.9051596 }}>
+              {markers}
+              
+             
             </GoogleMap>         
           </div>
         )
