@@ -45,6 +45,7 @@ class GetStarted extends Component {
        
         return(
             <div>
+
                 <div className="PageTitle, row, col-md-12">
     
                 </div>

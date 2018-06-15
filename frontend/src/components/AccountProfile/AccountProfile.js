@@ -93,6 +93,10 @@ class AccountProfile extends Component {
             <div className="PageTitle">
                 Account Profile
 
+                {/* <InformantForm/>
+                
+                <BuyerForm/> */}
+
                 {
                 this.props.user.buyerInfo
                 ? <h4>you are a buyer, here is your most recent order <button onClick={this.openBuyerForm}>Edit Buyer Profile</button></h4>
@@ -112,6 +116,7 @@ class AccountProfile extends Component {
                 ? <h4>you are a informant, here is your most recent inquiry <button onClick={this.openInformantForm}>Edit Informant Profile</button></h4>
                 : <h4>you are not an informant yet <button onClick={this.openInformantForm}>Become an Informant</button></h4>
                 }
+
                     <Modal
                     isOpen={this.state.informantFormIsOpen}
                     // onRequestClose={this.closeInformantForm}
@@ -119,6 +124,7 @@ class AccountProfile extends Component {
                     >
                         <InformantFormValidation mysubmit={this.submitInformantInformation} cancel={this.closeInformantForm}/>
                     </Modal>
+
             </div>
         )
     }
