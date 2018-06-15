@@ -1,36 +1,103 @@
 import React, {Component} from 'react';
 import {Field, reduxForm} from "redux-form"
+import { connect } from "react-redux";
 import UsStates from '../../components/Shared/UsStates'
 import {renderField, renderSelectField} from  '../../components/Shared/Forms'
 
 const InformantFormValidation = props=>{
-    const {handleSubmit, pristine, reset, submitting, mysubmit} = props
+    const {handleSubmit, pristine, reset, submitting, mysubmit, cancel, informantInfo } = props
 
     return (
         <form onSubmit={handleSubmit(mysubmit)}>
-            <Field  name="firstname" type = "text" component={renderField} label="First Name"/>
-            <Field  name="lastname" type = "text" component={renderField} label="Last Name"/>
-            <Field  name="phone" type = "number" component={renderField} label="Phone"/>
-            <Field  name="address1" type = "text" component={renderField} label="Address 1"/>
-            <Field  name="address2" type = "text" component={renderField} label="Address 2"/>
-            <Field  name="city" type = "text" component={renderField} label="City"/>
-            <Field  name="state" type = "text" component={renderSelectField} label="State">
+            <button className="btn btn-primary" type = "submit" disabled={pristine || submitting}>{informantInfo?'Submit Changes':'Submit'}</button>
+            <button onClick={cancel}>Cancel</button>
+            <Field  
+                name="firstname" 
+                type = "text" 
+                defaultValue="First name" 
+                component={renderField} 
+                label="First Name"/>
+            <Field  
+                name="lastname" 
+                type = "text" 
+                defaultValue="Last name" 
+                component={renderField} 
+                label="Last Name"/>
+            <Field  
+                name="phone" 
+                type = "number" 
+                defaultValue="Phone number" 
+                component={renderField} 
+                label="Phone"/>
+            <Field  
+                name="address1" 
+                type = "text" 
+                defaultValue="Address 1" 
+                component={renderField} 
+                label="Address 1"/>
+            <Field  
+                name="address2" 
+                type = "text" 
+                defaultValue="Address 2" 
+                component={renderField} 
+                label="Address 2"/>
+            <Field  
+                name="city" 
+                type = "text" 
+                defaultValue="City" 
+                component={renderField} 
+                label="City"/>
+            <Field  
+                name="state" 
+                type = "text" 
+                defaultValue="State" 
+                component={renderSelectField} 
+                label="State">
                 <option/>
                 {UsStates.map(usState=><option key = {usState.name} value = {usState.name}>{usState.abbreviation}</option>)}
             </Field>
-            <Field  name="zip" type = "number" component={renderField} label="Zip"/>
+            <Field  
+                name="zip" 
+                type = "number" 
+                defaultValue="Zip code" 
+                component={renderField} 
+                label="Zip"/>
             Select areas you know about
-            <Field  name="knowcommunityflag" type = "checkbox" component={renderField} label="Community"/>
-            <Field  name="knowschoolflag" type = "checkbox" component={renderField} label="School"/>
-            <Field  name="knowcrimeflag" type = "checkbox" component={renderField} label="Crime"/>
-            <Field  name="knowreligionflag" type = "checkbox" component={renderField} label="Religion"/>
+            <Field  
+                name="knowcommunityflag" 
+                type = "checkbox" 
+                defaultValue="Community" 
+                component={renderField} 
+                label="Community"/>
+            <Field  
+                name="knowschoolflag" 
+                type = "checkbox" 
+                defaultValue="School" 
+                component={renderField} 
+                label="School"/>
+            <Field  
+                name="knowcrimeflag" 
+                type = "checkbox" 
+                defaultValue="Crime" 
+                component={renderField} 
+                label="Crime"/>
+            <Field  
+                name="knowreligionflag" 
+                type = "checkbox" 
+                defaultValue="Religion" 
+                component={renderField} 
+                label="Religion"/>
             <div>
                 <label>Additional Info</label>
                 <div>
-                    <Field name="informantnotes" component="textarea"/>
+                    <Field 
+                        name="informantnotes" 
+                        defaultValue="Additional Info" 
+                        component="textarea"/>
                 </div>
             </div>
-            <button type = "submit" disabled={pristine || submitting}>Submit</button>
+            <button className="btn btn-primary" type = "submit" disabled={pristine || submitting}>{informantInfo?'Submit Changes':'Submit'}</button>
+            <button onClick={cancel}>Cancel</button>
         </form>
     )
 }
@@ -72,7 +139,22 @@ const validate = values =>{
     return errors
 }
 
-export default reduxForm({
+function mapStateToProps(state){
+    return {
+        informantInfo: state.user.informantInfo,
+        initialValues: {firstname: state.user.informantInfo ? state.user.informantInfo.firstname : '',
+                        lastname: state.user.informantInfo ? state.user.informantInfo.lastname : '',
+                        phone: state.user.informantInfo ? state.user.informantInfo.phone : ''
+                        
+                        }
+    }
+}
+
+
+let formComponent = reduxForm({
     form: "InformantForm",
     validate
 })(InformantFormValidation)
+
+
+export default connect(mapStateToProps, {})(formComponent);

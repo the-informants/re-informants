@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import {Field, reduxForm} from "redux-form"
+import { connect } from "react-redux";
 import {renderField, renderSelectField} from '../../components/Shared/Forms'
 
 const BuyerFormValidation = props=>{
-    const {handleSubmit, pristine, reset, submitting, mysubmit} = props
+    const {handleSubmit, pristine, reset, submitting, mysubmit, cancel, buyerInfo } = props
 
     return (
+
         <form onSubmit={handleSubmit(mysubmit)}>
             <Field  name="firstname" type = "text" component={renderField} label="First Name"/>
             <Field  name="lastname" type = "text" component={renderField} label="Last Name"/>
@@ -24,7 +26,8 @@ const BuyerFormValidation = props=>{
                     <Field name="buyernotes" component="textarea"/>
                 </div>
             </div>
-            <button type = "submit">Submit</button>
+            <button type = "submit">{buyerInfo?'Submit Changes':'Submit'}</button>
+            <button onClick={cancel}>Cancel</button>
         </form>
     )
 }
@@ -51,7 +54,24 @@ const validate = values =>{
     return errors
 }
 
-export default reduxForm({
+
+function mapStateToProps(state){
+    return {
+        buyerInfo: state.user.buyerInfo,
+        initialValues: {firstname: state.user.buyerInfo ? state.user.buyerInfo.firstname : '',
+                        lastname: state.user.buyerInfo ? state.user.buyerInfo.lastname : '',
+                        phone: state.user.buyerInfo ? state.user.buyerInfo.phone : '',
+                        buyertype: state.user.buyerInfo ? state.user.buyerInfo.buyertype : '',
+                        buyernotes: state.user.buyerInfo ? state.user.buyerInfo.buyernotes : ''
+                        }
+    }
+}
+
+
+let formComponent = reduxForm({
     form: "BuyerForm",
     validate
-})(BuyerFormValidation)
+})(BuyerFormValidation);
+
+
+export default connect(mapStateToProps, {})(formComponent);

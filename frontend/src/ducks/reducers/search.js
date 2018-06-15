@@ -3,35 +3,31 @@ import axios from 'axios'
 
 const initialState = {
     searchValue: {},
-    informants: []
+    informants: [],
+    searchLat: null,
+    searchLng: null,
+    mapMoveLat: null,
+    mapMoveLng: null,
 }
 
 const SEARCH = 'SEARCH'
 const ADD_SEARCH_VALUE = 'ADD_SEARCH_VALUE'
+const ADD_SEARCH_COORDINATES = "ADD_SEARCH_COORDINATES"
+const ADD_MAP_MOVE_COORDINATES = "ADD_MAP_MOVE_COORDINATES"
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case SEARCH + '_FULFILLED':
-            const markers = [
-            {
-                location: {
-                    lat:  41.00472, 
-                    lng: -111.9051596
-                }
-            },
-            {
-                  location: {
-                    lat:  40.9309812, 
-                    lng: -111.8737504
-                }
-            }
-        ]
-            return { ...state, informants: markers }
+        // case SEARCH + '_FULFILLED':
+        //     return { ...state, informants: markers }
         case ADD_SEARCH_VALUE:
             // console.log(action.payload)
             // const {lat, lng} = action.payload["0"].geometry.locations
             // console.log(lat,lng)
             return {...state, searchValue: action.payload}
+        case ADD_SEARCH_COORDINATES:
+            return {...state, searchLat: action.payload.lat, searchLng: action.payload.lng, mapMoveLat: null, mapMoveLng:null}
+        case ADD_MAP_MOVE_COORDINATES:
+            return {...state, mapMoveLat: action.payload.lat, mapMoveLng: action.payload.lng}
         default:    
             return state;
     }
@@ -50,4 +46,15 @@ export function addSearchLocation(searchValue){
         payload: searchValue
     }
 }
-    //Create a second function that pushes the current search value to the redux store. 
+export function addSearchCoordinates(coordinates){
+    return {
+        type: ADD_SEARCH_COORDINATES,
+        payload: coordinates
+    }
+}
+export function mapMoveCoordinates(coordinates){
+    return {
+        type: ADD_MAP_MOVE_COORDINATES,
+        payload: coordinates
+    }
+}
