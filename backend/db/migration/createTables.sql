@@ -62,7 +62,9 @@ CREATE table informants (
     knowreligionflag varchar(10),
     knowcrimeflag varchar(10),
     knowschoolflag varchar(10),
-    availableflag varchar(10)
+    availableflag varchar(10),
+    lat decimal,
+    lng decimal
     
     )
 ;
