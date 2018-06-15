@@ -56,13 +56,7 @@ class GetStarted extends Component {
        
         return(
             <div>
-                <div className="PageTitle, row">
-                    Get Started
-                    <a href={"http://localhost:4000/auth"}>
-                    <button >Login</button></a>
 
-
-                </div>
                 <div className="row, col-md-8">
                     <Search />
                     {/* <StandAloneSearch search={this.search}/> */}
@@ -88,4 +82,5 @@ function mapStateToProps(state){
     const {search, form} = state
     return {search, form}
 }
+
 export default connect(mapStateToProps,{})(GetStarted)
