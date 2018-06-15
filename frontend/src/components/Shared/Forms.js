@@ -3,13 +3,16 @@ import React from 'react'
 export const renderField = ({
     input,
     label,
+    defaultValue,
     type,
     meta: {touched, error, warning}
 })=>(
-    <div>
-        <label>{label}</label>
+    <div className="form-group">
+        <label>
+        {label}
+        </label>
         <div>
-            <input {...input} placeholder={label} type = {type}/>
+            <input {...input} placeholder={defaultValue} type = {type} className="form-control"/>
             {touched && 
                 ((error && <span>{error}</span>)||
                     (warning && <span>{warning}</span>))}
@@ -23,7 +26,9 @@ export const renderSelectField = ({
     meta: { touched, error }, children
  }) => (
     <div>
-      <label>{label}</label>
+      <label>
+      {label}
+      </label>
       <div>
         <select {...input}>
           {children}

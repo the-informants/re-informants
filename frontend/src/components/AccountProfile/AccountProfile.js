@@ -40,6 +40,7 @@ class AccountProfile extends Component {
             <div className="PageTitle">
                 Account Profile
                 {/* <InformantForm/>
+                
                 <BuyerForm/> */}
                 {
                 this.props.user.buyerInfo
@@ -56,6 +57,7 @@ class AccountProfile extends Component {
                 : <h4>you are not an informant yet <button>Become an Informant</button></h4>
                 }
                 <InformantFormValidation mysubmit={this.submitInformantInformation}/>
+
             </div>
         )
     }

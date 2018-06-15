@@ -42,7 +42,7 @@ class Nav extends Component {
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark transparent-nav">
                     <Redirect to={"/"}/>
                     <div className="container">
-                        <a className="navbar-brand" href="/">Re-Informants</a>
+                        <a className="navbar-brand" href="/">RE-Informants</a>
                         <button onClick={this.toggleNavbar} className={`${classTwo}`} type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
                         </button>
@@ -71,7 +71,7 @@ class Nav extends Component {
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark transparent-nav">
                     <Redirect to={"/Account"}/>
                     <div className="container">
-                        <a className="navbar-brand" href="/">Re-Informants</a>
+                        <a className="navbar-brand" href="/">RE-Informants</a>
                         <button onClick={this.toggleNavbar} className={`${classTwo}`} type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
                         </button>
