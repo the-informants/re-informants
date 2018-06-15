@@ -5,7 +5,7 @@ export default class PrivateBuyer extends Component {
     render (){
         return(
             <div className="PageTitle">
-                Private Buyer
+                Private Buyer text
             </div>
         )
     }
