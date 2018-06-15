@@ -6,14 +6,14 @@ import InformantForm from './InformantForm'
 import BuyerForm from './BuyerForm'
 import BuyerFormValidation from './BuyerFormValidation'
 import InformantFormValidation from './InformantFormValidation'
-import {getInformantInfo, getBuyerInfo, getInformants, submitBuyerInfo, submitInformantInfo} from '../../ducks/reducers/user';
+import {getInformantInfo, getBuyerInfo, submitBuyerInfo, submitInformantInfo} from '../../ducks/reducers/user';
+
 
 class AccountProfile extends Component {
 
     componentWillMount(){
         this.props.getInformantInfo();
         this.props.getBuyerInfo();
-        this.props.getInformants();
     }
 
 
@@ -42,10 +42,22 @@ class AccountProfile extends Component {
                 {/* <InformantForm/>
                 
                 <BuyerForm/> */}
-                {/* <BuyerFormValidation mysubmit={this.submitBuyerInformation}/> */}
-                <div>
-                    <InformantFormValidation mysubmit={this.submitInformantInformation}/>
-                </div>
+                {
+                this.props.user.buyerInfo
+                ? <h4>you are a buyer, here is your most recent order</h4>
+                : <h4>you are not a buyer yet <button>Become a Buyer</button></h4>
+                }
+                <BuyerFormValidation mysubmit={this.submitBuyerInformation}/>
+
+
+
+                {
+                this.props.user.informantInfo
+                ? <h4>you are a informant, here is your most recent inquiry</h4>
+                : <h4>you are not an informant yet <button>Become an Informant</button></h4>
+                }
+                <InformantFormValidation mysubmit={this.submitInformantInformation}/>
+
             </div>
         )
     }
@@ -54,4 +66,4 @@ function mapStateToProps(state){
     const {user, form} = state
     return {user, form};
 }
-export default connect(mapStateToProps, {getInformantInfo, getBuyerInfo, getInformants, submitBuyerInfo, submitInformantInfo})(AccountProfile)
+export default connect(mapStateToProps, {getInformantInfo, getBuyerInfo, submitBuyerInfo, submitInformantInfo})(AccountProfile)

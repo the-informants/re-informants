@@ -45,9 +45,11 @@ class GetStarted extends Component {
        
         return(
             <div>
+
                 <div className="PageTitle, row, col-md-12">
     
                 </div>
+
                 <div className="row, col-md-8">
                     <Search />
                     {/* <StandAloneSearch search={this.search}/> */}
@@ -75,4 +77,6 @@ function mapStateToProps(state){
     const {search, form} = state
     return {search, form}
 }
+
 export default connect(mapStateToProps,{addSearchCoordinates})(GetStarted)
+

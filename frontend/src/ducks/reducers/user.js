@@ -1,32 +1,23 @@
 import axios from 'axios';
 
 const initialState = {
-    informantInfo: {
-        firstname: "",
-        lastname: "",
-        informantnotes: "",
-        phone: "",
-        address1: "",
-        address2: "",
-        city:"",
-        state: "",
-        zip:"",
-        knowcommunityflag: "",
-        knowreligionflag: "",
-        knowcrimeflag: "", 
-        knowschoolflag: "",
-        availableflag: "" 
-    },
-    buyerInfo: {
-
-    },
-    informants: []
+    informantInfo: {},
+    buyerInfo: {},
+    informants: [],
+    user: {
+        userid: "",
+        authid: "",
+        name: "",
+        email: ""
+    }
 }
 const SUBMIT_INFORMANT_INFO = "SUBMIT_INFORMANT_INFO"
 const SUBMIT_BUYER_INFO = "SUBMIT_BUYER_INFO"
 const GET_INFORMANT_INFO = "GET_INFORMANT_INFO"
 const GET_BUYER_INFO = "GET_BUYER_INFO"
 const GET_INFORMANTS = "GET_INFORMANTS"
+const GET_USER_INFO = "GET_USER_INFO"
+const LOGOUT = "LOGOUT"
 
 export default (state = initialState, action) =>{
     switch (action.type) {
@@ -45,6 +36,15 @@ export default (state = initialState, action) =>{
         case GET_INFORMANTS + '_FULFILLED':
             console.log("get INFORMANTS", action.payload.data[0])
             return Object.assign({}, state, {informants: action.payload.data}) 
+        case GET_USER_INFO + '_FULFILLED':
+            console.log("get user payload", action.payload.data[0])
+            return Object.assign({}, state, {user: action.payload.data}) 
+        case LOGOUT + '_FULFILLED':
+            console.log("Logging out", action.payload.data[0])
+            return Object.assign({}, state, {user: {    userid: "",
+                                                        authid: "",
+                                                        name: "",
+                                                        email: ""}})
         default:
             return state
     }
@@ -80,5 +80,16 @@ export function getBuyerInfo(){
         payload: axios.get('/api/buyer')
     }
 }
-
+export function getUserInfo(){
+    return {
+        type: GET_USER_INFO,
+        payload: axios.get('/auth/me')
+    }
+}
+export function logout(){
+    return {
+        type: LOGOUT,
+        payload: axios.get('/api/logout')
+    }
+}
 
