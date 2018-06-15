@@ -2,10 +2,14 @@ import React, {Component} from 'react';
 import '../../App.css';
 import GoogleMaps from './Map' 
 import Search from './Search'
+
 import StandAloneSearch from './StandAloneSearch'
 import {connect} from 'react-redux'
 import axios from 'axios';
 import Geocode from 'react-geocode';
+
+
+import { Link } from 'react-router-dom';
 
 
 class GetStarted extends Component {
@@ -56,6 +60,8 @@ class GetStarted extends Component {
                     Get Started
                     <a href={"http://localhost:4000/auth"}>
                     <button >Login</button></a>
+
+
                 </div>
                 <div className="row, col-md-8">
                     <Search />
