@@ -100,7 +100,7 @@ class AccountProfile extends Component {
                 <BuyerForm/> */}
 
                 {
-                this.props.user.buyerInfo
+                this.props.user.buyerInfo.buyerid
                 ? <h4>you are a buyer, here is your most recent order <button onClick={this.openBuyerForm}>Edit Buyer Profile</button></h4>
                 : <h4>you are not a buyer yet <button onClick={this.openBuyerForm}>Become a Buyer</button> </h4>
                 }
@@ -114,7 +114,7 @@ class AccountProfile extends Component {
 
 
                 {
-                this.props.user.informantInfo
+                this.props.user.informantInfo.informantid
                 ? <h4>you are a informant, here is your most recent inquiry <button onClick={this.openInformantForm}>Edit Informant Profile</button></h4>
                 : <h4>you are not an informant yet <button onClick={this.openInformantForm}>Become an Informant</button></h4>
                 }
