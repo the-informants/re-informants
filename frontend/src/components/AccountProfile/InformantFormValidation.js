@@ -4,13 +4,14 @@ import { connect } from "react-redux";
 import UsStates from '../../components/Shared/UsStates'
 import {renderField, renderSelectField} from  '../../components/Shared/Forms'
 
+
 const InformantFormValidation = props=>{
     const {handleSubmit, pristine, reset, submitting, mysubmit, cancel, informantInfo } = props
 
     return (
         <form onSubmit={handleSubmit(mysubmit)}>
             <button className="btn btn-primary" type = "submit" disabled={pristine || submitting}>{informantInfo?'Submit Changes':'Submit'}</button>
-            <button onClick={cancel}>Cancel</button>
+            <button className="btn btn-danger" onClick={cancel}>Cancel</button>
             <Field  
                 name="firstname" 
                 type = "text" 
@@ -97,7 +98,7 @@ const InformantFormValidation = props=>{
                 </div>
             </div>
             <button className="btn btn-primary" type = "submit" disabled={pristine || submitting}>{informantInfo?'Submit Changes':'Submit'}</button>
-            <button onClick={cancel}>Cancel</button>
+            <button className="btn btn-danger" onClick={cancel}>Cancel</button>
         </form>
     )
 }
@@ -105,37 +106,32 @@ const InformantFormValidation = props=>{
 const validate = values =>{
     const errors = {}
     if (!values.firstname){
-        errors.firstname = 'Required'
+        errors.firstname = 'Enter a first name'
     }
     if (!values.lastname){
-        errors.lastname = 'Required'
+        errors.lastname = 'Enter a last name'
     }
     if(!values.phone){
-        errors.phone = "Required"
-    }else if (isNaN(Number(values.phone))){
-        errors.phone = "Must be a number"
-    }else if (!/^(0|[1-9][0-9]{9})$/i.test(values.phone)){
+    }else if (!/^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/i.test(values.phone)){
         errors.phone = "Invalid phone number, must be 10 digits"
     }
     if(!values.address1){
-        errors.address1 = "Required"
+        errors.address1 = "This is required"
     }
     if(!values.city){
-        errors.city = "Required"
-    }else if (/[^a-zA-Z]/i.test(values.city)){
-        errors.city = "Only alphabetic characters allowed"
+        errors.city = "This is required"
     }
     if(!values.state){
-        errors.state = "Required"
+        errors.state = "This is required"
     }
     if(!values.zip){
-        errors.zip = "Required"
+        errors.zip = "This is required"
     }else if(!/^([0-9]{5})$/i.test(values.zip)){
         errors.zip = "Invalid Zip code, must be 5 digits"
     }else if (isNaN(Number(values.zip))){
         errors.zip = "Must be a number"
     }
-    console.log(1111,errors);
+    console.log('testing the errors',errors);
     return errors
 }
 
