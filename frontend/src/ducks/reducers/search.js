@@ -8,38 +8,40 @@ const initialState = {
     searchLng: null,
     mapMoveLat: null,
     mapMoveLng: null,
+    selectedInformantId: null
 }
 
-const SEARCH = 'SEARCH'
+const SEARCH_ADDRESS = 'SEARCH_ADDRESS'
 const ADD_SEARCH_VALUE = 'ADD_SEARCH_VALUE'
 const ADD_SEARCH_COORDINATES = "ADD_SEARCH_COORDINATES"
 const ADD_MAP_MOVE_COORDINATES = "ADD_MAP_MOVE_COORDINATES"
+const ADD_SELECTED_INFORMANT = "ADD_SELECTED_INFORMANT"
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        // case SEARCH + '_FULFILLED':
-        //     return { ...state, informants: markers }
+        case SEARCH_ADDRESS + '_FULFILLED':
+            console.log("Informants", action.payload.data)
+            return { ...state, informants: action.payload.data }
         case ADD_SEARCH_VALUE:
-            // console.log(action.payload)
-            // const {lat, lng} = action.payload["0"].geometry.locations
-            // console.log(lat,lng)
             return {...state, searchValue: action.payload}
         case ADD_SEARCH_COORDINATES:
             return {...state, searchLat: action.payload.lat, searchLng: action.payload.lng, mapMoveLat: null, mapMoveLng:null}
         case ADD_MAP_MOVE_COORDINATES:
             return {...state, mapMoveLat: action.payload.lat, mapMoveLng: action.payload.lng}
+        case ADD_SELECTED_INFORMANT:
+            return {...state, selectedInformantId: action.payload}
         default:    
             return state;
     }
 }
 
-export function search(searchvalue) {
+export function searchAddress(searchvalue) {
     return {
-      type: SEARCH,
-      payload: axios.get(`/api/informants/search?lat=${searchvalue.lat}&lng=${searchvalue.lng}`)
-    //   payload: axios.get(`/api/search?searchvalue=${searchvalue}`)  
+      type: SEARCH_ADDRESS,
+      payload: axios.get(`/api/informants/search?lat=${searchvalue.lat}&lng=${searchvalue.lng}`)  
     }
 }
+
 export function addSearchLocation(searchValue){
     return {
         type: ADD_SEARCH_VALUE,
@@ -56,5 +58,11 @@ export function mapMoveCoordinates(coordinates){
     return {
         type: ADD_MAP_MOVE_COORDINATES,
         payload: coordinates
+    }
+}
+export function addSelectedInformant(id){
+    return {
+        type: ADD_SELECTED_INFORMANT,
+        payload: id
     }
 }

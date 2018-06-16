@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import '../../App.css';
 import GoogleMaps from './Map' 
 import Search from './Search'
-import { addSearchCoordinates} from '../../ducks/reducers/search'
+import SearchResults from './SearchResults'
+import { addSearchCoordinates, searchAddress} from '../../ducks/reducers/search'
 
 import StandAloneSearch from './StandAloneSearch'
 import {connect} from 'react-redux'
@@ -27,21 +28,11 @@ class GetStarted extends Component {
             const {lat, lng} = response.results[0].geometry.location;
             this.props.addSearchCoordinates({lat, lng})
 
-            this.search({lat, lng})
+            this.props.searchAddress({lat, lng})
         }).catch(e=>console.log(e));
     }
 
-    search = (searchvalue)=>{
-        console.log("SearchValue",searchvalue)
-        axios.get(`/api/informants/search?lat=${searchvalue.lat}&lng=${searchvalue.lng}`).then(informants=>{
-            console.log("informants", informants)
-            this.setState({
-                informants: informants.data
-            })
-        }).catch(err=>{console.error(err)})
-    }
     render (){
-        console.log("Props", this.props)
        
         return(
             <div>
@@ -54,22 +45,21 @@ class GetStarted extends Component {
                     <Search />
                     {/* <StandAloneSearch search={this.search}/> */}
                     <button onClick={()=>this.searchAddress()} className="btn btn-primary btn-lg btn-block btn-map">Search</button>
-
+                    
                     <GoogleMaps
                         containerElement={<div style={{ height: `400px` }} />}
                         mapElement={<div style={{ height: `100%` }} />}
                         // markers={this.state.markers}
-                        markers={this.state.informants}
+                        markers={this.props.search.informants}
                         searchFunction={this.search}
                         center={{lat: this.props.search.searchLat, lng: this.props.search.searchLng}}
                         defaultCenter={{ lat: 41.00472, lng: -111.9051596 }}
                     />
+                    <SearchResults/>
+                    
+
                 </div>
             </div>
-
-
-
-
         )
     }
 }
@@ -78,5 +68,5 @@ function mapStateToProps(state){
     return {search, form}
 }
 
-export default connect(mapStateToProps,{addSearchCoordinates})(GetStarted)
+export default connect(mapStateToProps,{addSearchCoordinates, searchAddress})(GetStarted)
 
