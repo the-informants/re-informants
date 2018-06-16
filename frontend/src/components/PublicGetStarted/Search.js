@@ -22,7 +22,6 @@ class Search extends Component {
 render() {
     return (
         <div>
-            <h1>Your Local Neighborhood Informant</h1>
             <form>
                 <Field 
                     defaultValue="Enter an address or zip code"

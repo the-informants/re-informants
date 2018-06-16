@@ -52,21 +52,22 @@ class GoogleMaps extends Component {
       // console.log("props", this.props)
         return(
         <div>
-            <GoogleMap
-              ref={this.mapLoaded.bind(this)}
-              onDragEnd = {()=>this.mapMoved()}
-              defaultZoom={14}
-              center={{lat: this.props.search.mapMoveLat||this.props.center.lat||this.props.defaultCenter.lat, lng: this.props.search.mapMoveLng||this.props.center.lng||this.props.defaultCenter.lng}}
-              defaultCenter={{ lat: 41.00472, lng: -111.9051596 }}>
-              {this.props.search.searchLat!==null && <Marker position={{lat:this.props.search.searchLat, lng: this.props.search.searchLng}}/>}              
-              {markers}
-              
-             
-            </GoogleMap>         
+            <div>
+              <GoogleMap 
+                ref={this.mapLoaded.bind(this)}
+                onDragEnd = {()=>this.mapMoved()}
+                defaultZoom={14}
+                center={{lat: this.props.search.mapMoveLat||this.props.center.lat||this.props.defaultCenter.lat, lng: this.props.search.mapMoveLng||this.props.center.lng||this.props.defaultCenter.lng}}
+                defaultCenter={{ lat: 41.00472, lng: -111.9051596 }}>
+                {this.props.search.searchLat!==null && <Marker position={{lat:this.props.search.searchLat, lng: this.props.search.searchLng}}/>}              
+                {markers}
+              </GoogleMap>  
+            </div>       
           </div>
         )
     }
 }
+
 function mapStateToProps(state){
   const {search, form} = state
   return {search, form}

@@ -1,47 +1,28 @@
 /* Keller moved body from the index.css file on 6/6/18 since that was the only style there and now the custom styles are all in one place. */
 
 body {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   font-family: sans-serif;
 }
 
 .App {
+  padding: 0px;
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
 
 /* Added by Keller on 6/6/18 */
 
 .PageTitle {
-  font-size: 25px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: 200px;
   display: flex;
   justify-content: center;
-  width: 100%
+  align-content: center;
+  background-image: url(https://wp.zillowstatic.com/trulia/wp-content/uploads/sites/1/2017/04/Home-Prices-HERO.jpg); 
+  background-size: cover;
+  background-blend-mode: lighten;
 }
 
 .btn-map {
