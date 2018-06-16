@@ -48,16 +48,18 @@ class AccountProfile extends Component {
         this.setState({buyerFormIsOpen: false});
     }
     submitInformantInformation = () =>{
+        console.log("props", this.props)
         Geocode.setApiKey("AIzaSyBWRUwhKeGWx_7qra1Mw4TUSjWhZBuqrq4")
         const {address1, city, state, zip} = this.props.form.InformantForm.values
         console.log("address", address1, city, state, zip)
         Geocode.fromAddress(`${address1} ${city} ${state} ${zip}`).then(response=>{
             const {lat, lng} = response.results[0].geometry.location;
             console.log(lat,lng)
+            console.log("props", this.props)
             let informantInfo = Object.assign({}, this.props.form.InformantForm.values, {lat: lat, lng: lng} )
             this.props.submitInformantInfo(informantInfo);
+            this.setState({informantFormIsOpen: false});
         }).catch(e=>console.log(e));
-        this.setState({informantFormIsOpen: false});
     }
         
     
