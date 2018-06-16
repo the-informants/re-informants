@@ -28,9 +28,15 @@ export default (state = initialState, action) =>{
             console.log("buyer info payload",action.payload.data[0])
             return Object.assign({}, state, {buyerInfo: action.payload.data[0]})   
         case GET_INFORMANT_INFO + '_FULFILLED':
+            if (!action.payload.data[0]){
+                return state
+            }
             console.log("get informant payload", action.payload.data[0])
             return Object.assign({}, state, {informantInfo: action.payload.data[0]}) 
         case GET_BUYER_INFO + '_FULFILLED':
+            if (!action.payload.data[0]){
+                return state
+            }
             console.log("get buyer payload", action.payload.data[0])
             return Object.assign({}, state, {buyerInfo: action.payload.data[0]}) 
         case GET_INFORMANTS + '_FULFILLED':
