@@ -23,7 +23,7 @@ values
 	${zip},
 	${ordertype},
 	${ordernotes},
-	CURRENT_TIMESTAMP + (${durationhour} ||' hour')::interval,
+	CURRENT_TIMESTAMP + (${durationday}::integer ||' day')::interval,
 	CURRENT_TIMESTAMP
 )
 
