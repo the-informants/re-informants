@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
 import {Field, reduxForm} from "redux-form"
+import { connect } from "react-redux";
 import UsStates from '../../components/Shared/UsStates'
 import {renderField, renderSelectField} from  '../../components/Shared/Forms'
 
 const InformantFormValidation = props=>{
-    const {handleSubmit, pristine, reset, submitting, mysubmit} = props
+    const {handleSubmit, pristine, reset, submitting, mysubmit, cancel, informantInfo } = props
 
     return (
         <form onSubmit={handleSubmit(mysubmit)}>
+            <button className="btn btn-primary" type = "submit" disabled={pristine || submitting}>{informantInfo?'Submit Changes':'Submit'}</button>
+            <button onClick={cancel}>Cancel</button>
             <Field  
                 name="firstname" 
                 type = "text" 
@@ -93,7 +96,8 @@ const InformantFormValidation = props=>{
                         component="textarea"/>
                 </div>
             </div>
-            <button className="btn btn-primary" type = "submit" disabled={pristine || submitting}>Submit</button>
+            <button className="btn btn-primary" type = "submit" disabled={pristine || submitting}>{informantInfo?'Submit Changes':'Submit'}</button>
+            <button onClick={cancel}>Cancel</button>
         </form>
     )
 }
@@ -135,7 +139,22 @@ const validate = values =>{
     return errors
 }
 
-export default reduxForm({
+function mapStateToProps(state){
+    return {
+        informantInfo: state.user.informantInfo,
+        initialValues: {firstname: state.user.informantInfo ? state.user.informantInfo.firstname : '',
+                        lastname: state.user.informantInfo ? state.user.informantInfo.lastname : '',
+                        phone: state.user.informantInfo ? state.user.informantInfo.phone : ''
+                        
+                        }
+    }
+}
+
+
+let formComponent = reduxForm({
     form: "InformantForm",
     validate
 })(InformantFormValidation)
+
+
+export default connect(mapStateToProps, {})(formComponent);
