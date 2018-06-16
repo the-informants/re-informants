@@ -3,7 +3,7 @@ import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-map
 import React, {Component} from 'react';
 import '../../App.css';
 import {connect} from 'react-redux';
-import {mapMoveCoordinates} from '../../ducks/reducers/search'
+import {mapMoveCoordinates, searchAddress, addSelectedInformant} from '../../ducks/reducers/search'
 
 class GoogleMaps extends Component {
   constructor(){
@@ -21,8 +21,8 @@ class GoogleMaps extends Component {
     
     this.props.mapMoveCoordinates({lat, lng})
 
-    console.log('map Moved', lat)
-    this.props.searchFunction({lat, lng})
+    console.log('map Moved', lat, lng)
+    this.props.searchAddress({lat, lng})
     
   }
   mapLoaded(map){
@@ -35,6 +35,7 @@ class GoogleMaps extends Component {
 
   }
   handleClick = (informant)=>{
+    this.props.addSelectedInformant(informant.informantid)
     console.log("click", informant)
   }
   
@@ -71,7 +72,7 @@ function mapStateToProps(state){
   const {search, form} = state
   return {search, form}
 }
-export default connect(mapStateToProps,{mapMoveCoordinates})(withGoogleMap(GoogleMaps))
+export default connect(mapStateToProps,{mapMoveCoordinates, searchAddress, addSelectedInformant})(withGoogleMap(GoogleMaps))
 
 
 // export default withGoogleMap(GoogleMaps)
