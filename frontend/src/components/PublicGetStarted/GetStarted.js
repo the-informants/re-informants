@@ -47,7 +47,7 @@ class GetStarted extends Component {
         return(
             <div>
                 <div className="row container-fluid">
-                    <div className="PageTitle col-md-12">
+                    <div className="pageTitle col-md-12">
                         <h1>Your Local Neighborhood Informant</h1>
                     </div>
 

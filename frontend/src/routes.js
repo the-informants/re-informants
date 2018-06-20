@@ -9,7 +9,8 @@ import PublicInformant from './components/PublicInformant/Informant';
 import PrivateBuyer from './components/PrivateBuyer/Buyer';
 import PrivateInformant from './components/PrivateInformant/Informant';
 import InquiryThankYou from './components/ThankYou/InquiryThankYou';
-import Modal from './components/PublicGetStarted/Modal'
+import Modal from './components/PublicGetStarted/Modal';
+// import Opening from './components/PublicGetStarted/Opening';
 
 export default (
     <Switch>

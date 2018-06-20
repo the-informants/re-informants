@@ -4,6 +4,8 @@ body {
   margin: 0px;
   padding: 0px;
   font-family: sans-serif;
+  background-color: lightgrey;
+  ;   
 }
 
 .App {
@@ -13,16 +15,11 @@ body {
 
 /* Added by Keller on 6/6/18 */
 
-.PageTitle {
+.pageTitle {
   padding-top: 20px;
-  padding-bottom: 20px;
-  height: 200px;
+  padding-bottom: 40px;
   display: flex;
   justify-content: center;
-  align-content: center;
-  background-image: url(https://wp.zillowstatic.com/trulia/wp-content/uploads/sites/1/2017/04/Home-Prices-HERO.jpg); 
-  background-size: cover;
-  background-blend-mode: lighten;
 }
 
 .btn-map {
