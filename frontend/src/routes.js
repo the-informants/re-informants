@@ -10,6 +10,7 @@ import PrivateBuyer from './components/PrivateBuyer/Buyer';
 import PrivateInformant from './components/PrivateInformant/Informant';
 import InquiryThankYou from './components/ThankYou/InquiryThankYou';
 import Modal from './components/PublicGetStarted/Modal';
+import UserReviews from './components/UserReviews/UserReviews';
 // import Opening from './components/PublicGetStarted/Opening';
 
 export default (
@@ -22,6 +23,7 @@ export default (
         <Route component={PrivateInformant} path='/PrivateInformant' />
         <Route component={InquiryThankYou} path='/ThankYou' />
         <Route component={Modal} path='/Modal' />
+        <Route component={UserReviews} path = '/UserReviews/:id'/>
      
     </Switch>
 )

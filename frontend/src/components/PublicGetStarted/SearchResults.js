@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {addToCart, createOrderResults} from '../../ducks/reducers/order'
 import {newInformantsFalse} from '../../ducks/reducers/search'
+import {Link} from 'react-router-dom'
 
 
 class SearchResults extends Component {
@@ -28,7 +29,9 @@ class SearchResults extends Component {
                     console.log("informant mapping", informant )
                     return(
                         <div id={`informant${informant.informantid}`}style={{height: 30}}key={index}  ref={(el)=>{this[`informant${informant.informantid}`] = el}}>
+                            <Link to= {`/UserReviews/${informant.informantid}`}>
                             {`${informant.firstname} ${informant.lastname}`} 
+                            </Link>
 
                             <label>Miles Away</label>
                             {Math.round(informant.distance* 10)/10}
