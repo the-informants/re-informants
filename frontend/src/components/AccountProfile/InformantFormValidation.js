@@ -4,53 +4,54 @@ import { connect } from "react-redux";
 import UsStates from '../../components/Shared/UsStates'
 import {renderField, renderSelectField} from  '../../components/Shared/Forms'
 
+
 const InformantFormValidation = props=>{
     const {handleSubmit, pristine, reset, submitting, mysubmit, cancel, informantInfo } = props
 
     return (
         <form onSubmit={handleSubmit(mysubmit)}>
             <button className="btn btn-primary" type = "submit" disabled={pristine || submitting}>{informantInfo?'Submit Changes':'Submit'}</button>
-            <button onClick={cancel}>Cancel</button>
+            <button className="btn btn-danger" onClick={cancel}>Cancel</button>
             <Field  
                 name="firstname" 
                 type = "text" 
-                defaultValue="First name" 
+                placeholder="First name" 
                 component={renderField} 
                 label="First Name"/>
             <Field  
                 name="lastname" 
                 type = "text" 
-                defaultValue="Last name" 
+                placeholder="Last name" 
                 component={renderField} 
                 label="Last Name"/>
             <Field  
                 name="phone" 
                 type = "number" 
-                defaultValue="Phone number" 
+                placeholder="Phone number" 
                 component={renderField} 
                 label="Phone"/>
             <Field  
                 name="address1" 
                 type = "text" 
-                defaultValue="Address 1" 
+                placeholder="Address 1" 
                 component={renderField} 
                 label="Address 1"/>
             <Field  
                 name="address2" 
                 type = "text" 
-                defaultValue="Address 2" 
+                placeholder="Address 2" 
                 component={renderField} 
                 label="Address 2"/>
             <Field  
                 name="city" 
                 type = "text" 
-                defaultValue="City" 
+                placeholder="City" 
                 component={renderField} 
                 label="City"/>
             <Field  
                 name="state" 
                 type = "text" 
-                defaultValue="State" 
+                placeholder="State" 
                 component={renderSelectField} 
                 label="State">
                 <option/>
@@ -59,32 +60,32 @@ const InformantFormValidation = props=>{
             <Field  
                 name="zip" 
                 type = "number" 
-                defaultValue="Zip code" 
+                placeholder="Zip code" 
                 component={renderField} 
                 label="Zip"/>
             Select areas you know about
             <Field  
                 name="knowcommunityflag" 
                 type = "checkbox" 
-                defaultValue="Community" 
+                placeholder="Community" 
                 component={renderField} 
                 label="Community"/>
             <Field  
                 name="knowschoolflag" 
                 type = "checkbox" 
-                defaultValue="School" 
+                placeholder="School" 
                 component={renderField} 
                 label="School"/>
             <Field  
                 name="knowcrimeflag" 
                 type = "checkbox" 
-                defaultValue="Crime" 
+                placeholder="Crime" 
                 component={renderField} 
                 label="Crime"/>
             <Field  
                 name="knowreligionflag" 
                 type = "checkbox" 
-                defaultValue="Religion" 
+                placeholder="Religion" 
                 component={renderField} 
                 label="Religion"/>
             <div>
@@ -92,12 +93,12 @@ const InformantFormValidation = props=>{
                 <div>
                     <Field 
                         name="informantnotes" 
-                        defaultValue="Additional Info" 
+                        placeholder="Additional Info" 
                         component="textarea"/>
                 </div>
             </div>
             <button className="btn btn-primary" type = "submit" disabled={pristine || submitting}>{informantInfo?'Submit Changes':'Submit'}</button>
-            <button onClick={cancel}>Cancel</button>
+            <button className="btn btn-danger" onClick={cancel}>Cancel</button>
         </form>
     )
 }
@@ -105,37 +106,32 @@ const InformantFormValidation = props=>{
 const validate = values =>{
     const errors = {}
     if (!values.firstname){
-        errors.firstname = 'Required'
+        errors.firstname = 'Enter a first name'
     }
     if (!values.lastname){
-        errors.lastname = 'Required'
+        errors.lastname = 'Enter a last name'
     }
     if(!values.phone){
-        errors.phone = "Required"
-    }else if (isNaN(Number(values.phone))){
-        errors.phone = "Must be a number"
-    }else if (!/^(0|[1-9][0-9]{9})$/i.test(values.phone)){
+    }else if (!/^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/i.test(values.phone)){
         errors.phone = "Invalid phone number, must be 10 digits"
     }
     if(!values.address1){
-        errors.address1 = "Required"
+        errors.address1 = "This is required"
     }
     if(!values.city){
-        errors.city = "Required"
-    }else if (/[^a-zA-Z]/i.test(values.city)){
-        errors.city = "Only alphabetic characters allowed"
+        errors.city = "This is required"
     }
     if(!values.state){
-        errors.state = "Required"
+        errors.state = "This is required"
     }
     if(!values.zip){
-        errors.zip = "Required"
+        errors.zip = "This is required"
     }else if(!/^([0-9]{5})$/i.test(values.zip)){
         errors.zip = "Invalid Zip code, must be 5 digits"
     }else if (isNaN(Number(values.zip))){
         errors.zip = "Must be a number"
     }
-    console.log(1111,errors);
+    console.log('testing the errors',errors);
     return errors
 }
 
@@ -144,7 +140,17 @@ function mapStateToProps(state){
         informantInfo: state.user.informantInfo,
         initialValues: {firstname: state.user.informantInfo ? state.user.informantInfo.firstname : '',
                         lastname: state.user.informantInfo ? state.user.informantInfo.lastname : '',
-                        phone: state.user.informantInfo ? state.user.informantInfo.phone : ''
+                        phone: state.user.informantInfo ? state.user.informantInfo.phone : '',
+                        address1: state.user.informantInfo ? state.user.informantInfo.address1 : '',
+                        address2: state.user.informantInfo ? state.user.informantInfo.address2 : '',
+                        city: state.user.informantInfo ? state.user.informantInfo.city : '',
+                        state: state.user.informantInfo ? state.user.informantInfo.state : '',
+                        zip: state.user.informantInfo ? state.user.informantInfo.zip : '',
+                        knowcommunityflag: state.user.informantInfo ? state.user.informantInfo.knowcommunityflag : '',
+                        knowschoolflag: state.user.informantInfo ? state.user.informantInfo.knowschoolflag : '',
+                        knowcrimeflag: state.user.informantInfo ? state.user.informantInfo.knowcrimeflag : '',
+                        knowreligionflag: state.user.informantInfo ? state.user.informantInfo.knowreligionflag : '',
+                        informantnotes: state.user.informantInfo ? state.user.informantInfo.informantnotes : ''
                         
                         }
     }

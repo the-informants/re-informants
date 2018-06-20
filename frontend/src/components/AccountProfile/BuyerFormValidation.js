@@ -26,8 +26,8 @@ const BuyerFormValidation = props=>{
                     <Field name="buyernotes" component="textarea"/>
                 </div>
             </div>
-            <button type = "submit">{buyerInfo?'Submit Changes':'Submit'}</button>
-            <button onClick={cancel}>Cancel</button>
+            <button className="btn btn-primary" type = "submit">{buyerInfo?'Submit Changes':'Submit'}</button>
+            <button className="btn btn-danger" onClick={cancel}>Cancel</button>
         </form>
     )
 }
@@ -35,20 +35,17 @@ const BuyerFormValidation = props=>{
 const validate = values =>{
     const errors = {}
     if (!values.firstname){
-        errors.firstname = 'Required'
+        errors.firstname = 'First name is required'
     }
     if (!values.lastname){
-        errors.lastname = 'Required'
+        errors.lastname = 'Last name is required'
     }
     if(!values.phone){
-        errors.phone = "Required"
-    }else if (isNaN(Number(values.phone))){
-        errors.phone = "Must be a number"
-    }else if (!/^(0|[1-9][0-9]{9})$/i.test(values.phone)){
+    }else if (!/^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/i.test(values.phone)){
         errors.phone = "Invalid phone number, must be 10 digits"
     }
     if(!values.buyertype){
-        errors.buyertype = "Required"
+        errors.buyertype = "This is required"
     }
     console.log(1111,errors);
     return errors

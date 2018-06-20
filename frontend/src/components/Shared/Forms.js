@@ -3,7 +3,7 @@ import React from 'react'
 export const renderField = ({
     input,
     label,
-    defaultValue,
+    placeholder,
     type,
     meta: {touched, error, warning}
 })=>(
@@ -12,7 +12,7 @@ export const renderField = ({
         {label}
         </label>
         <div>
-            <input {...input} placeholder={defaultValue} type = {type} className="form-control"/>
+            <input {...input} placeholder={placeholder} type = {type} className="form-control"/>
             {touched && 
                 ((error && <span>{error}</span>)||
                     (warning && <span>{warning}</span>))}
