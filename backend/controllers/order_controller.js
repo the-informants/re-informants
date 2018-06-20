@@ -18,6 +18,14 @@ module.exports = {
         db.create_order(newOrder).then(order => {
             res.send(order)
         });
+    },
+    createOrderResult: (req,res)=>{
+        const db = req.app.get('db');
+        const {buyerid, informantid, distance} = req.body
+        let newOrderResult = {buyerid, informantid, distance}
+        db.create_order_result(newOrderResult).then(orderResult=>{
+            res.send(orderResult)
+        })
     }
 
 }
