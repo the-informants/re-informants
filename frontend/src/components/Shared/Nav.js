@@ -61,7 +61,7 @@ class Nav extends Component {
                                 </li>
                             </ul>
                             
-                                <a href={"http://localhost:4000/auth"}><button >Login</button></a>
+                                <a href={"http://localhost:4000/auth"}><button className="btn btn-primary" >Login</button></a>
 
                         </div>
                     </div>
@@ -94,7 +94,7 @@ class Nav extends Component {
 
                             </ul>
 
-                            <Link to="/"><button onClick={()=>this.logout()}>Logout</button></Link>
+                            <Link to="/"><button className="btn btn-success" onClick={()=>this.logout()}>Logout</button></Link>
                         </div>
                     </div>
                 </nav>

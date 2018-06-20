@@ -25,7 +25,7 @@ render() {
             <form>
                 <Field 
                     defaultValue="Enter an address or zip code"
-                    label="Find people who can inform a real estate purchase"
+                    label=""
                     name="searchvalue"
                     component={renderField}
             />

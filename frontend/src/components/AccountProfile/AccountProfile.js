@@ -96,8 +96,8 @@ class AccountProfile extends Component {
         };
 
         return(
-            <div className="PageTitle">
-                Account Profile
+            <div className="container PageTitle">
+               <h1>Account Profile</h1>
 
                 {/* <InformantForm/>
                 
@@ -126,14 +126,14 @@ class AccountProfile extends Component {
                         </div>
                         :   <div>"You don't have any order"
                                 <Link to="/PrivateBuyer">
-                                    <button>
+                                    <button className="btn btn-primary">
                                         Submit an Order
                                     </button>
                                 </Link>
                             </div>
                     }
                 </div>
-                : <h4>you are not a buyer yet <button onClick={this.openBuyerForm}>Become a Buyer</button> </h4>
+                : <p>You are not a buyer yet <button className="btn btn-default" onClick={this.openBuyerForm}>Become a Buyer</button> </p>
                 }
                     <Modal
                     isOpen={this.state.buyerFormIsOpen}
@@ -151,8 +151,8 @@ class AccountProfile extends Component {
 
                 {
                 this.props.user.informantInfo.informantid
-                ? <h4>you are a informant, here is your most recent inquiry <button onClick={this.openInformantForm}>Edit Informant Profile</button></h4>
-                : <h4>you are not an informant yet <button onClick={this.openInformantForm}>Become an Informant</button></h4>
+                ? <p>You are an informant. Here is your most recent inquiry. <button className="btn btn-default" onClick={this.openInformantForm}>Edit Informant Profile</button></p>
+                : <p>You are not an informant yet <button className="btn btn-default" onClick={this.openInformantForm}>Become an Informant</button></p>
                 }
 
                     <Modal

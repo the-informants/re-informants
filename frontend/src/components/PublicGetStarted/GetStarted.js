@@ -39,16 +39,22 @@ class GetStarted extends Component {
 
        
         return(
-            <div>
+            <div className="getstarted-body">
                 <div className="row container-fluid">
                     <div className="pageTitle col-md-12">
                         <h1>Your Local Neighborhood Informant</h1>
                     </div>
+                    <div className="text-center row col-md-12">
+                        <h2>Find people who can inform a real estate purchase</h2>
+                    </div>
+                    <div className="row, col-md-12 container">
+                        <Search />
+                    </div>
+                        {/* <StandAloneSearch search={this.search}/> */}
+                        <button onClick={()=>this.searchAddress()} className=" btn btn-primary btn-lg btn-block btn-map">Search</button>
 
                     <div className="row, col-md-6">
-                        <Search />
-                        {/* <StandAloneSearch search={this.search}/> */}
-                        <button onClick={()=>this.searchAddress()} className="btn btn-primary btn-lg btn-block btn-map">Search</button>
+                        
                      <GoogleMaps
                         containerElement={<div style={{ height: `400px` }} />}
                         mapElement={<div style={{ height: `100%` }} />}
@@ -69,13 +75,13 @@ class GetStarted extends Component {
                     </div>
                 </div>
 
-                <div className="row">
-                    <div className="col-md-6">
-                        <h2>buyer information</h2>
+                <div className="container row text-center">
+                    <div className="container col-md-6">
+                        <h2>Buyer information</h2>
                         <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h6>
                     </div>
-                    <div className="col-md-6">
-                        <h2>informant information</h2>
+                    <div className="container col-md-6">
+                        <h2>Informant information</h2>
                         <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h6>
                     </div>
 

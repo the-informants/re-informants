@@ -1,5 +1,8 @@
 /* Keller moved body from the index.css file on 6/6/18 since that was the only style there and now the custom styles are all in one place. */
 
+.text-center {
+  text-align: center;
+}
 body {
   margin: 0px;
   padding: 0px;
@@ -10,7 +13,7 @@ body {
 
 .App {
   padding: 0px;
-  text-align: center;
+  /* text-align: center; */
 }
 
 /* Added by Keller on 6/6/18 */
@@ -24,6 +27,7 @@ body {
 
 .btn-map {
   margin-bottom: 10px;
+  margin-left: 15px;
 }
 
 .btn {
@@ -32,3 +36,11 @@ body {
 
 
 /* Above were added by Keller on 6/6/18 */
+
+p {
+  font-size: 16px;
+}
+
+h1 {
+  padding-top: 30px;
+}

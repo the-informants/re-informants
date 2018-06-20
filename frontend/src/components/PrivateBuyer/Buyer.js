@@ -53,9 +53,9 @@ class PrivateBuyer extends Component {
           };
 
         return(
-            <div className="PageTitle">
-                Private Buyer text
-                <button onClick={this.openCreateOrderForm}>New Order</button>
+            <div className="container PageTitle">
+                <h1>Private Buyer</h1>
+                <button className="btn btn-default" onClick={this.openCreateOrderForm}>New Order</button>
 
                 
                 {this.props.order.orders.map((order) => {
