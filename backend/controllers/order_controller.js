@@ -12,8 +12,8 @@ module.exports = {
 
     createOrder: (req,res)=>{
         const db = req.app.get('db');
-        const {buyerid, ordername,address1,address2,city,state,zip,ordertype,ordernotes,durationday} = req.body;
-        let newOrder = {buyerid, ordername,address1,address2,city,state,zip,ordertype,ordernotes,durationday}
+        const {buyerid, ordername,address1,address2,city,state,zip,ordertype,ordernotes,durationday, address, lat, lng, orderresultid} = req.body;
+        let newOrder = {buyerid, ordername,address1,address2,city,state,zip,ordertype,ordernotes,durationday, address, lat, lng, orderresultid}
 
         db.create_order(newOrder).then(order => {
             res.send(order)

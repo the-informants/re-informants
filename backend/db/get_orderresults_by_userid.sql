@@ -1,6 +1,6 @@
 select 
     r.orderresultsid,
-    r.orderid,
+    -- r.orderid,
     o.ordername,
     o.address1,
     o.address2,
@@ -32,6 +32,6 @@ select
     r.selectedflag,
     r.orderresultdatetime
 from orderresults as r
-INNER JOIN orders as o on r.orderid::varchar = o.orderid::varchar
+INNER JOIN orders as o on r.orderresultid::varchar = o.orderresultid::varchar
 INNER JOIN informants as i on i.informantid::varchar = r.informantid::varchar
 where r.userid::integer=${userid}

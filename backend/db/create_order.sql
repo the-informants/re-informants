@@ -9,7 +9,11 @@ insert into orders (
 	ordertype,
 	ordernotes,
 	ordervaliduntil,
-	orderdatetime
+	orderdatetime,
+	address,
+	lat,
+	lng,
+	orderresultid
     )
 
 values
@@ -24,7 +28,11 @@ values
 	${ordertype},
 	${ordernotes},
 	CURRENT_TIMESTAMP + (${durationday}::integer ||' day')::interval,
-	CURRENT_TIMESTAMP
+	CURRENT_TIMESTAMP,
+	${address},
+	${lat},
+	${lng},
+	${orderresultid}
 )
 
 RETURNING *;
