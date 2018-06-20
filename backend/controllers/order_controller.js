@@ -8,17 +8,22 @@ module.exports = {
             res.status(200).send(orders);
         })
         .catch(err=>console.error(err))
-    },
+    }, 
 
     createOrder: (req,res)=>{
         const db = req.app.get('db');
-        const {buyerid, ordername,address1,address2,city,state,zip,ordertype,ordernotes,durationday, address, lat, lng, orderresultid} = req.body;
-        let newOrder = {buyerid, ordername,address1,address2,city,state,zip,ordertype,ordernotes,durationday, address, lat, lng, orderresultid}
+        const {buyerid, ordername,
+            // address1,address2,city,state,zip,
+            ordertype,ordernotes,durationday, address, lat, lng, orderresultid} = req.body;
+        let newOrder = {buyerid, ordername,
+            // address1,address2,city,state,zip,
+            ordertype,ordernotes,durationday, address, lat, lng, orderresultid}
 
         db.create_order(newOrder).then(order => {
             res.send(order)
         });
     },
+
     createOrderResult: (req,res)=>{
         const db = req.app.get('db');
         const {buyerid, informantid, distance} = req.body
@@ -26,6 +31,16 @@ module.exports = {
         db.create_order_result(newOrderResult).then(orderResult=>{
             res.send(orderResult)
         })
-    }
+    },
+
+    getOrderResultsbyInformant: (req,res)=>{
+        const db = req.app.get('db');
+        const { userid } = req.user;
+        db.get_orderresults_by_informant({userid})
+        .then(orderresults=>{
+            res.status(200).send(orderresults);
+        })
+        .catch(err=>console.error(err))
+    },
 
 }
