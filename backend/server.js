@@ -118,7 +118,9 @@ app.post("/api/buyer", buyer_Controller.createBuyer);
 app.get("/api/buyer", buyer_Controller.getBuyer);
 app.post("/api/order", order_Controller.createOrder);
 app.get("/api/orders", order_Controller.getOrders);
+app.post('/api/orderResults', order_Controller.createOrderResult);
 app.get("/api/informants/search")
+
 
 
 
