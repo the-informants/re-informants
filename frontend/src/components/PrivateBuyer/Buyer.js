@@ -33,25 +33,36 @@ class PrivateBuyer extends Component {
 
             <div className="PageTitle">
                 Private Buyer text
-                <Link to="/"><button>New Order</button></Link>
+                <Link to="/">
+                    <button className="btn btn-primary">
+                        New Order
+                    </button>
+                </Link>
                 
                 {/* <button onClick={this.openCreateOrderForm}>New Order</button> */}
 
 
                 
-                {this.props.order.orders.map((order) => {
+                {this.props.order.orders[0]
+                        ?<div>here are your orders:
+                            {this.props.order.orders.map((order) => {
 
-                    return (
-                    <div>
-                        Order Name: {order.ordername}
-                        Order Address: {order.address1+ ' '+order.city+' '+order.state+' '+order.zip}
-                        Order Type: {order.ordertype}
-                        Order Notes: {order.ordernotes}
-                        Order Valida Until: {order.ordervaliduntil}
-                    </div>
-                    )
-                })
-                }
+                            return (
+                            <div>
+                                Order Name: {order.ordername}
+                                Order Address: {order.address}
+                                Order Type: {order.ordertype}
+                                Order Notes: {order.ordernotes}
+                                {/* Order Valid Until: {order.ordervaliduntil} */}
+                                Order Timestamp: {order.orderdatetime}
+                                Order Status: {order.orderstatus}
+                            </div>
+                            )
+                            })
+                            }
+                        </div>
+                        :   <div>You don't have any order</div>
+                    }
                 
 
 

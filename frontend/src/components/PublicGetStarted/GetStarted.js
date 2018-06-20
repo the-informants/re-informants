@@ -15,7 +15,8 @@ import {addSearchLocation} from '../../ducks/reducers/search'
 import { Link } from 'react-router-dom';
 
 import OrderFormValidation from './OrderFormValidation';
-import {submitOrderInfo} from '../../ducks/reducers/order';
+import {getOrders, submitOrderInfo} from '../../ducks/reducers/order';
+
 
 class GetStarted extends Component {
     constructor(props){
@@ -48,28 +49,16 @@ class GetStarted extends Component {
         }
     
     submitOrderInformation = ()=>{
-            const newOrderInfo = Object.assign({}, this.props.form.OrderForm.values, {buyerid: this.props.user.buyerInfo.buyerid})
+            const {searchLat, searchLng, searchValue, mapMoveLat, mapMoveLng} = this.props.search;
+            const {buyerid, orderresultsid} = this.props.order.orderResult;
+            console.log('orderresultid is this one',orderresultsid)
+            const newOrderInfo = Object.assign({}, this.props.form.OrderForm.values, {buyerid: buyerid, address: searchValue, lat: mapMoveLat||searchLat, lng: mapMoveLng||searchLng, orderresultid: orderresultsid})
             console.log(newOrderInfo)
             this.props.submitOrderInfo(newOrderInfo)
             this.setState({createOrderFormIsOpen: false});
             this.props.getOrders();
         }
 
-        
-    // submitInformantInformation = () =>{
-    //     console.log("props", this.props)
-    //     Geocode.setApiKey("AIzaSyBWRUwhKeGWx_7qra1Mw4TUSjWhZBuqrq4")
-    //     const {address1, city, state, zip} = this.props.form.InformantForm.values
-    //     console.log("address", address1, city, state, zip)
-    //     Geocode.fromAddress(`${address1} ${city} ${state} ${zip}`).then(response=>{
-    //         const {lat, lng} = response.results[0].geometry.location;
-    //         console.log(lat,lng)
-    //         console.log("props", this.props)
-    //         let informantInfo = Object.assign({}, this.props.form.InformantForm.values, {lat: lat, lng: lng} )
-    //         this.props.submitInformantInfo(informantInfo);
-    //         this.setState({informantFormIsOpen: false});
-    //     }).catch(e=>console.log(e));
-    // }
 
     render (){
 
@@ -122,7 +111,7 @@ class GetStarted extends Component {
                     </div>
 
                     <div className="row, col-md-6" style={styles.searchResults}>
-                        <SearchResults/>
+                        <SearchResults openOrderForm={this.openCreateOrderForm}/>
                     </div>
 
                     <Modal
@@ -164,9 +153,9 @@ class GetStarted extends Component {
 
 
 function mapStateToProps(state){
-    const {search, form} = state
-    return {search, form}
+    const {search, form, order} = state
+    return {search, form, order}
 }
 
-export default connect(mapStateToProps,{addSearchCoordinates, searchAddress, addSearchLocation, submitOrderInfo})(GetStarted)
+export default connect(mapStateToProps,{addSearchCoordinates, searchAddress, addSearchLocation, submitOrderInfo, getOrders})(GetStarted)
 
