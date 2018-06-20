@@ -3,12 +3,14 @@ import axios from 'axios';
 const initialState = {
     orders: [],
     newOrderInfo: {},
-    cart: []
+    cart: [],
+    orderResult: {}
 }
 
 const GET_ORDERS = "GET_ORDERS";
 const SUBMIT_ORDER_INFO = "SUBMIT_ORDER_INFO"
 const ADD_TO_CART = "ADD_TO_CART"
+const CREATE_ORDER_RESULTS = "CREATE_ORDER_RESULTS"
 
 
 export default (state = initialState, action) =>{
@@ -27,6 +29,10 @@ export default (state = initialState, action) =>{
             let newCart = state.cart
             newCart.push(action.payload)
             return {...state, cart:newCart}
+        case CREATE_ORDER_RESULTS + '_FULFILLED':
+            console.log("created order payload", action.payload.data[0])
+            return Object.assign({}, state, {orderResult: action.payload.data[0]})
+            
         default:
             return state
     }
@@ -50,5 +56,11 @@ export function addToCart(informantId){
     return {
         type: ADD_TO_CART,
         payload: informantId
+    }
+}
+export function createOrderResults(orderResult){
+    return {
+        type: CREATE_ORDER_RESULTS,
+        payload: axios.post('/api/orderResults', orderResult)
     }
 }

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {addToCart} from '../../ducks/reducers/order'
+import {addToCart, createOrderResults} from '../../ducks/reducers/order'
 import {newInformantsFalse} from '../../ducks/reducers/search'
 
 
@@ -14,6 +14,10 @@ class SearchResults extends Component {
             this.props.newInformantsFalse()
         }        
      }
+    selectInformant=(informantid, distance)=>{
+        const orderResult = {informantid, distance, buyerid: this.props.user.buyerInfo.buyerid }
+        this.props.createOrderResults(orderResult)
+    } 
     render(){
         return(
             <div style={{height: 60, overflow: "auto", overflowX: "hidden"}}> 
@@ -35,7 +39,7 @@ class SearchResults extends Component {
                             {informant.knowschoolflag === "true" && <span>School</span>}
                             <span>{informant.informantnotes}</span>
 
-                            <button onClick={()=>this.props.addToCart(informant.informantid)}>Select</button>
+                            <button onClick={()=>this.selectInformant(informant.informantid, informant.distance)}>Select</button>
                             
                             
                         </div>
@@ -46,8 +50,8 @@ class SearchResults extends Component {
     }
 }
 function mapStateToProps(state){
-    const {search, order} = state;
-    return {search, order}
+    const {search, order, user} = state;
+    return {search, order, user}
 }
 
-export default connect(mapStateToProps, {addToCart, newInformantsFalse})(SearchResults)
+export default connect(mapStateToProps, {addToCart, newInformantsFalse, createOrderResults})(SearchResults)

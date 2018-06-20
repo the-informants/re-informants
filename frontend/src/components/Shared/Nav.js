@@ -72,7 +72,6 @@ class Nav extends Component {
                 
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark transparent-nav">
 
-                    <Redirect to={"/Account"}/>
                     <div className="container-fluid">
 
                         <a className="navbar-brand" href="/">RE-Informants</a>
