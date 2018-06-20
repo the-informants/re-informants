@@ -114,12 +114,16 @@ app.post("/api/informant", informant_Controller.createInformant);
 app.get("/api/informant", informant_Controller.getInformant);
 app.get("/api/informants", informant_Controller.getInformants);
 app.get("/api/informants/search", informant_Controller.getInformantsSearch);
+app.post("/api/informant/review", informant_Controller.createInformantReview);
+app.get("/api/informant/review/:id", informant_Controller.getInformantReviews);
+
 app.post("/api/buyer", buyer_Controller.createBuyer);
 app.get("/api/buyer", buyer_Controller.getBuyer);
+
 app.post("/api/order", order_Controller.createOrder);
 app.get("/api/orders", order_Controller.getOrders);
 app.post('/api/orderResults', order_Controller.createOrderResult);
-app.get("/api/informants/search")
+
 
 
 
