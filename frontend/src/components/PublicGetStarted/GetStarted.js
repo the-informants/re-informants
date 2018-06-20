@@ -50,7 +50,9 @@ class GetStarted extends Component {
                         containerElement={<div style={{ height: `400px` }} />}
                         mapElement={<div style={{ height: `100%` }} />}
                         // markers={this.state.markers}
+                        googleMapURL = {"https://maps.googleapis.com/maps/api/js?key=AIzaSyBWRUwhKeGWx_7qra1Mw4TUSjWhZBuqrq4"}
                         markers={this.props.search.informants}
+                        loadingElement={<div style={{ height: `100%` }} />}
                         searchFunction={this.search}
                         center={{lat: this.props.search.searchLat, lng: this.props.search.searchLng}}
                         defaultCenter={{ lat: 41.00472, lng: -111.9051596 }}
