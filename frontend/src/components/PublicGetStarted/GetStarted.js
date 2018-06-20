@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../../App.css';
 import GoogleMaps from './Map' 
+import Modal from 'react-modal';
 import Search from './Search'
 import SearchResults from './SearchResults'
 import { addSearchCoordinates, searchAddress} from '../../ducks/reducers/search'
@@ -9,20 +10,25 @@ import StandAloneSearch from './StandAloneSearch'
 import {connect} from 'react-redux'
 import axios from 'axios';
 import Geocode from 'react-geocode';
-
+import {addSearchLocation} from '../../ducks/reducers/search'
 
 import { Link } from 'react-router-dom';
 
+import OrderFormValidation from './OrderFormValidation';
+import {submitOrderInfo} from '../../ducks/reducers/order';
 
 class GetStarted extends Component {
     constructor(props){
         super(props)
         this.state={
-            informants: []
+            informants: [],
+            createOrderFormIsOpen: false
         }
     }
+
     searchAddress= () =>{
         Geocode.setApiKey("AIzaSyBWRUwhKeGWx_7qra1Mw4TUSjWhZBuqrq4")
+        this.props.addSearchLocation(this.props.form.MapSearch.values.searchvalue);
         // console.log(this.props.form.MapSearch.values.searchvalue)
         Geocode.fromAddress(this.props.form.MapSearch.values.searchvalue).then(response=>{
             const {lat, lng} = response.results[0].geometry.location;
@@ -32,11 +38,56 @@ class GetStarted extends Component {
         }).catch(e=>console.log(e));
     }
 
+
+    openCreateOrderForm=()=>{
+        this.setState({createOrderFormIsOpen: true});
+        }
+    
+    closeCreateOrderForm=()=>{
+        this.setState({createOrderFormIsOpen: false});
+        }
+    
+    submitOrderInformation = ()=>{
+            const newOrderInfo = Object.assign({}, this.props.form.OrderForm.values, {buyerid: this.props.user.buyerInfo.buyerid})
+            console.log(newOrderInfo)
+            this.props.submitOrderInfo(newOrderInfo)
+            this.setState({createOrderFormIsOpen: false});
+            this.props.getOrders();
+        }
+
+        
+    // submitInformantInformation = () =>{
+    //     console.log("props", this.props)
+    //     Geocode.setApiKey("AIzaSyBWRUwhKeGWx_7qra1Mw4TUSjWhZBuqrq4")
+    //     const {address1, city, state, zip} = this.props.form.InformantForm.values
+    //     console.log("address", address1, city, state, zip)
+    //     Geocode.fromAddress(`${address1} ${city} ${state} ${zip}`).then(response=>{
+    //         const {lat, lng} = response.results[0].geometry.location;
+    //         console.log(lat,lng)
+    //         console.log("props", this.props)
+    //         let informantInfo = Object.assign({}, this.props.form.InformantForm.values, {lat: lat, lng: lng} )
+    //         this.props.submitInformantInfo(informantInfo);
+    //         this.setState({informantFormIsOpen: false});
+    //     }).catch(e=>console.log(e));
+    // }
+
     render (){
 
         const styles = this.styles();
         console.log("Props", this.props)
-
+       
+        const orderformStyles = {
+            content : {
+              width                 : '50%',
+              height                : '60%',
+              top                   : '50%',
+              left                  : '50%',
+              right                 : 'auto',
+              bottom                : 'auto',
+            //   marginRight           : '-50%',
+              transform             : 'translate(-50%, -50%)'
+            }
+          };
        
         return(
             <div>
@@ -67,6 +118,16 @@ class GetStarted extends Component {
                     <div className="row, col-md-6" style={styles.searchResults}>
                         <SearchResults/>
                     </div>
+
+                    <Modal
+                        isOpen={this.state.createOrderFormIsOpen}
+                        // onRequestClose={this.closeBuyerForm}
+                        style={orderformStyles}
+                        >
+                                <OrderFormValidation cancel={this.closeCreateOrderForm}
+                                mysubmit={this.submitOrderInformation}  
+                                />
+                    </Modal>
                 </div>
 
                 <div className="row">
@@ -101,5 +162,5 @@ function mapStateToProps(state){
     return {search, form}
 }
 
-export default connect(mapStateToProps,{addSearchCoordinates, searchAddress})(GetStarted)
+export default connect(mapStateToProps,{addSearchCoordinates, searchAddress, addSearchLocation, submitOrderInfo})(GetStarted)
 

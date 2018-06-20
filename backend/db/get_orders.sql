@@ -10,7 +10,11 @@ select
 	o.ordertype,
 	o.ordernotes,
 	o.ordervaliduntil,
-	o.orderdatetime
+	o.orderdatetime,
+	o.address,
+	o.lat,
+	o.lng,
+	o.orderresultid
 from orders as o
 INNER JOIN buyers as b on o.buyerid::varchar = b.buyerid::varchar
 WHERE b.userid::integer=${userid}
