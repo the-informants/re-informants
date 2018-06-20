@@ -61,6 +61,7 @@ class GoogleMaps extends Component {
       
         return(
         <div>
+
             <GoogleMap
               ref={this.mapLoaded.bind(this)}
               onDragEnd = {()=>this.mapMoved()}
@@ -76,6 +77,7 @@ class GoogleMaps extends Component {
         )
     }
 }
+
 function mapStateToProps(state){
   const {search, form} = state
   return {search, form}

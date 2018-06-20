@@ -40,8 +40,10 @@ class Nav extends Component {
             return (
                 
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark transparent-nav">
-                    {/* <Redirect to={"/"}/> */}
-                    <div className="container">
+
+                    <Redirect to={"/"}/>
+                    <div className="container-fluid body">
+
                         <a className="navbar-brand" href="/">RE-Informants</a>
                         <button onClick={this.toggleNavbar} className={`${classTwo}`} type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
@@ -69,8 +71,10 @@ class Nav extends Component {
             return (
                 
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark transparent-nav">
-                    {/* <Redirect to={"/Account"}/> */}
-                    <div className="container">
+
+                    <Redirect to={"/Account"}/>
+                    <div className="container-fluid">
+
                         <a className="navbar-brand" href="/">RE-Informants</a>
                         <button onClick={this.toggleNavbar} className={`${classTwo}`} type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
