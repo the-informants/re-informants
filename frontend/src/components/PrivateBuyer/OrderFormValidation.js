@@ -11,8 +11,7 @@ const OrderFormValidation = props=>{
 
     return (
         <form onSubmit={handleSubmit(mysubmit)}>
-            <button className="btn btn-primary" type = "submit" disabled={pristine || submitting}>Submit</button>
-            <button onClick={cancel}>Cancel</button>
+            <h2>Order Information</h2>
             <Field  
                 name="ordername" 
                 type = "text" 
@@ -78,7 +77,7 @@ const OrderFormValidation = props=>{
 
  
             <button className="btn btn-primary" type = "submit" disabled={pristine || submitting}>Submit</button>
-            <button onClick={cancel}>Cancel</button>
+            <button className="btn btn-danger" onClick={cancel}>Cancel</button>
         </form>
     )
 }

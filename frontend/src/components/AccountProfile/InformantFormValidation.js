@@ -3,6 +3,7 @@ import {Field, reduxForm} from "redux-form"
 import { connect } from "react-redux";
 import UsStates from '../../components/Shared/UsStates'
 import {renderField, renderSelectField} from  '../../components/Shared/Forms'
+// import {formvalidate} from '../Shared/Validate'
 
 
 const InformantFormValidation = props=>{
@@ -10,8 +11,7 @@ const InformantFormValidation = props=>{
 
     return (
         <form onSubmit={handleSubmit(mysubmit)}>
-            <button className="btn btn-primary" type = "submit" disabled={pristine || submitting}>{informantInfo?'Submit Changes':'Submit'}</button>
-            <button className="btn btn-danger" onClick={cancel}>Cancel</button>
+            <h2>Become an Informant</h2>
             <Field  
                 name="firstname" 
                 type = "text" 
@@ -101,6 +101,7 @@ const InformantFormValidation = props=>{
             <button className="btn btn-danger" onClick={cancel}>Cancel</button>
         </form>
     )
+    console.log('field',renderField)
 }
 
 const validate = values =>{
@@ -131,7 +132,7 @@ const validate = values =>{
     }else if (isNaN(Number(values.zip))){
         errors.zip = "Must be a number"
     }
-    console.log('testing the errors',errors);
+    console.log('testing the errors', renderField);
     return errors
 }
 
@@ -153,6 +154,7 @@ function mapStateToProps(state){
                         informantnotes: state.user.informantInfo ? state.user.informantInfo.informantnotes : ''
                         
                         }
+                        
     }
 }
 
@@ -160,6 +162,7 @@ function mapStateToProps(state){
 let formComponent = reduxForm({
     form: "InformantForm",
     validate
+    
 })(InformantFormValidation)
 
 
