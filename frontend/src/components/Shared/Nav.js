@@ -97,6 +97,9 @@ class Nav extends Component {
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/PrivateInformant">Informant</Link>
                                 </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/Cart">Cart</Link>
+                                </li>
 
                             </ul>
 
