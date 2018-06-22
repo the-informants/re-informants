@@ -3,6 +3,7 @@ import axios from 'axios';
 const initialState = {
     orders: [],
     orderResultsbyInformant: [],
+    orderResultsbyBuyer: [],
     newOrderInfo: {},
     cart: [],
     orderResult: {}
@@ -14,6 +15,7 @@ const SUBMIT_ORDER_INFO = "SUBMIT_ORDER_INFO"
 const ADD_TO_CART = "ADD_TO_CART"
 const CREATE_ORDER_RESULTS = "CREATE_ORDER_RESULTS"
 const GET_ORDERRESULTSBYINFORMANT = 'GET_ORDERRESULTSBYINFORMANT'
+const GET_ORDERRESULTSBYBUYER = 'GET_ORDERRESULTSBYBUYER'
 
 
 export default (state = initialState, action) =>{
@@ -37,8 +39,15 @@ export default (state = initialState, action) =>{
             if (!action.payload.data){
                 return state
             }
-            console.log("get orderresults payload", action.payload.data)
+            console.log("get orderresults by informant payload", action.payload.data)
             return Object.assign({}, state, {orderResultsbyInformant: action.payload.data}) 
+
+        case GET_ORDERRESULTSBYBUYER +  '_FULFILLED':
+            if (!action.payload.data){
+                return state
+            }
+            console.log("get orderresults by buyer payload", action.payload.data)
+            return Object.assign({}, state, {orderResultsbyBuyer: action.payload.data}) 
 
         case CREATE_ORDER_RESULTS + '_FULFILLED':
             console.log("created order payload", action.payload.data[0])
@@ -79,6 +88,13 @@ export function createOrderResults(orderResult){
 export function getOrderResultsbyInformant(){
     return {
         type: GET_ORDERRESULTSBYINFORMANT,
-        payload: axios.get('/api/orderResults')
+        payload: axios.get('/api/orderResultsbyInformant')
+    }
+}
+
+export function getOrderResultsbyBuyer(){
+    return {
+        type: GET_ORDERRESULTSBYBUYER,
+        payload: axios.get('/api/orderResultsbybuyer')
     }
 }

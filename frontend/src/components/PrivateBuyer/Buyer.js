@@ -4,7 +4,7 @@ import '../../App.css';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {getInformantInfo, getBuyerInfo, submitBuyerInfo, submitInformantInfo} from '../../ducks/reducers/user';
-import {getOrders, submitOrderInfo} from '../../ducks/reducers/order';
+import {getOrders, submitOrderInfo, getOrderResultsbyBuyer} from '../../ducks/reducers/order';
 
 
 class PrivateBuyer extends Component {
@@ -19,6 +19,7 @@ class PrivateBuyer extends Component {
         // this.props.getInformantInfo();
         // this.props.getBuyerInfo();
         this.props.getOrders();
+        this.props.getOrderResultsbyBuyer();
         // Modal.setAppElement('body');
     }
 
@@ -76,4 +77,4 @@ function mapStateToProps(state){
     const {user, form, order} = state
     return {user, form, order};
 }
-export default connect(mapStateToProps, {getInformantInfo, getBuyerInfo, getOrders})(PrivateBuyer)
+export default connect(mapStateToProps, {getInformantInfo, getBuyerInfo, getOrders, getOrderResultsbyBuyer})(PrivateBuyer)

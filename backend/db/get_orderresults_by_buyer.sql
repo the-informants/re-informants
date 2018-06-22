@@ -19,7 +19,7 @@ select
     r.distance,
     r.viewedflag,
     r.selectedflag,
-    r.paidflag,
+    case when CURRENT_TIMESTAMP>o.ordervaliduntil THEN 'Expired' ELSE r.paidflag END as paidflag,
     r.orderresultdatetime,
 
 	i.firstname,
@@ -42,5 +42,6 @@ select
 from orderresults as r
 INNER JOIN orders as o on r.orderresultsid::varchar = o.orderresultid::varchar
 INNER JOIN informants as i on i.informantid::varchar = r.informantid::varchar
-where i.userid::integer=${userid}
+INNER JOIN buyers as b on b.buyerid::varchar = r.buyerid::varchar
+where b.userid::integer=${userid}
 order by r.orderresultdatetime desc

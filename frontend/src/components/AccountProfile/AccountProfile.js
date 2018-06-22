@@ -9,7 +9,7 @@ import BuyerForm from './BuyerForm'
 import BuyerFormValidation from './BuyerFormValidation'
 import InformantFormValidation from './InformantFormValidation'
 import {getInformantInfo, getBuyerInfo, submitBuyerInfo, submitInformantInfo} from '../../ducks/reducers/user';
-import {getOrders, getOrderResultsbyInformant} from '../../ducks/reducers/order';
+import {getOrders, getOrderResultsbyInformant, getOrderResultsbyBuyer} from '../../ducks/reducers/order';
 
 
 class AccountProfile extends Component {
@@ -26,6 +26,7 @@ class AccountProfile extends Component {
         this.props.getBuyerInfo();
         this.props.getOrders();
         this.props.getOrderResultsbyInformant();
+        this.props.getOrderResultsbyBuyer();
         Modal.setAppElement('body');
     }
 
@@ -208,4 +209,4 @@ function mapStateToProps(state){
     const {user, form, order} = state
     return {user, form, order};
 }
-export default connect(mapStateToProps, {getInformantInfo, getBuyerInfo, submitBuyerInfo, submitInformantInfo, getOrders, getOrderResultsbyInformant})(AccountProfile)
+export default connect(mapStateToProps, {getInformantInfo, getBuyerInfo, submitBuyerInfo, submitInformantInfo, getOrders, getOrderResultsbyInformant, getOrderResultsbyBuyer})(AccountProfile)

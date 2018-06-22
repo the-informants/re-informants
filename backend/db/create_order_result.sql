@@ -4,7 +4,8 @@ insert into orderresults (
     distance,
     viewedflag,
     selectedflag,
-    orderresultdatetime
+    orderresultdatetime,
+    paidflag
 
 )
 values(
@@ -13,6 +14,7 @@ values(
     ${distance},
     'true',
     'true',
-    CURRENT_TIMESTAMP
+    CURRENT_TIMESTAMP,
+    'unpaid'
 )
 RETURNING *;

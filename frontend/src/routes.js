@@ -8,6 +8,7 @@ import PublicGetStarted from './components/PublicGetStarted/GetStarted';
 import PublicInformant from './components/PublicInformant/Informant';
 import PrivateBuyer from './components/PrivateBuyer/Buyer';
 import PrivateInformant from './components/PrivateInformant/Informant';
+import Cart from './components/Cart/Cart';
 import InquiryThankYou from './components/ThankYou/InquiryThankYou';
 import Modal from './components/PublicGetStarted/Modal';
 import UserReviews from './components/UserReviews/UserReviews';
@@ -21,6 +22,7 @@ export default (
         <Route component={PublicInformant} path='/PublicInformant' />
         <Route component={PrivateBuyer} path='/PrivateBuyer' />
         <Route component={PrivateInformant} path='/PrivateInformant' />
+        <Route component={Cart} path='/Cart' />
         <Route component={InquiryThankYou} path='/ThankYou' />
         <Route component={Modal} path='/Modal' />
         <Route component={UserReviews} path = '/UserReviews/:id'/>

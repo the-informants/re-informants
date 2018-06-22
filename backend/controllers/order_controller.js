@@ -43,4 +43,14 @@ module.exports = {
         .catch(err=>console.error(err))
     },
 
+    getOrderResultsbyBuyer: (req,res)=>{
+        const db = req.app.get('db');
+        const { userid } = req.user;
+        db.get_orderresults_by_buyer({userid})
+        .then(orderresults=>{
+            res.status(200).send(orderresults);
+        })
+        .catch(err=>console.error(err))
+    },
+
 }
