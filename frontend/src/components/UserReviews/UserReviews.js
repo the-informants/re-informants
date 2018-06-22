@@ -27,25 +27,14 @@ import {Link, Redirect} from 'react-router-dom';
             // this.getName(this.props.match.params.id);
         }
     }
-    // componentdid(nextProps){
-    //     if (nextProps.match.params.id !== this.props.match.params.id ){
-    //         this.getReviews(nextProps.match.params.id);  
-    //         this.getName(nextProps.match.params.id);         
-    //     }        
-        
-    // }
+
     getReviews=(id)=>{
         axios.get(`/api/informant/review/${id}`).then(response=>{
             console.log("reviews", response.data);
             this.setState({reviews: response.data.reviews, firstname: response.data.name[0].firstname, lastname: response.data.name[0].lastname})
         })
     }
-    // getName = (id) =>{
-    //     axios.get(`/api/getUsername/${id}`).then(response=>{
-    //         console.log("name",response);
-    //         this.setState({name: response.data[0].name});
-    //     })
-    // }
+ 
     
     handleReviewChange = (e)=>{
         this.setState({addedReview: e.target.value});
