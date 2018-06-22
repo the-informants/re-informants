@@ -9,7 +9,7 @@ import BuyerForm from './BuyerForm'
 import BuyerFormValidation from './BuyerFormValidation'
 import InformantFormValidation from './InformantFormValidation'
 import {getInformantInfo, getBuyerInfo, submitBuyerInfo, submitInformantInfo} from '../../ducks/reducers/user';
-import {getOrders} from '../../ducks/reducers/order';
+import {getOrders, getOrderResultsbyInformant} from '../../ducks/reducers/order';
 
 
 class AccountProfile extends Component {
@@ -25,6 +25,7 @@ class AccountProfile extends Component {
         this.props.getInformantInfo();
         this.props.getBuyerInfo();
         this.props.getOrders();
+        this.props.getOrderResultsbyInformant();
         Modal.setAppElement('body');
     }
 
@@ -95,6 +96,9 @@ class AccountProfile extends Component {
         }
         };
 
+        const ActiveOrders = this.props.order.orders.filter(order => order.orderstatus=='Active')
+        const ActiveInquiries = this.props.order.orderResultsbyInformant.filter(inquiry => inquiry.orderresultstatus=='Active')
+
         return(
             <div className="container PageTitle">
                <h1>Account Profile</h1>
@@ -108,28 +112,30 @@ class AccountProfile extends Component {
                 ?
                 <div>
                     <button onClick={this.openBuyerForm}>Edit Buyer Profile</button>
-                    {this.props.order.orders[0]
-                        ?<div>'here is your most recent order:'
-                            {this.props.order.orders.map((order) => {
+                    <Link to="/">
+                                    <button className="btn btn-primary">
+                                        Submit an Order
+                                    </button>
+                    </Link>
+                    {ActiveOrders[0]
+                        ?<div>'here are your active orders:'
+                            {ActiveOrders.map((order) => {
 
                             return (
                             <div>
                                 Order Name: {order.ordername}
-                                Order Address: {order.address1+ ' '+order.city+' '+order.state+' '+order.zip}
+                                Order Address: {order.address}
                                 Order Type: {order.ordertype}
                                 Order Notes: {order.ordernotes}
-                                Order Valida Until: {order.ordervaliduntil}
+                                {/* Order Valid Until: {order.ordervaliduntil} */}
+                                Order Timestamp: {order.orderdatetime}
+                                Order Status: {order.orderstatus}
                             </div>
                             )
                             })
                             }
                         </div>
-                        :   <div>"You don't have any order"
-                                <Link to="/PrivateBuyer">
-                                    <button className="btn btn-primary">
-                                        Submit an Order
-                                    </button>
-                                </Link>
+                        :   <div>"You don't have any active order"
                             </div>
                     }
                 </div>
@@ -148,12 +154,42 @@ class AccountProfile extends Component {
 
 
 
-
                 {
                 this.props.user.informantInfo.informantid
-                ? <p>You are an informant. Here is your most recent inquiry. <button className="btn btn-default" onClick={this.openInformantForm}>Edit Informant Profile</button></p>
-                : <p>You are not an informant yet <button className="btn btn-default" onClick={this.openInformantForm}>Become an Informant</button></p>
-                }
+                ?
+                <div>
+                    <button onClick={this.openInformantForm}>Edit Informant Profile</button>
+                    <Link to="/">
+                                    <button className="btn btn-primary">
+                                        Search for a buyer
+                                    </button>
+                    </Link>
+
+                    {ActiveInquiries[0]
+                        ?<div>'here are your active inquiries:'
+                            {ActiveInquiries.map((inquiry) => {
+
+                            return (
+                            <div>
+                                Inquiry Name: {inquiry.ordername}
+                                Inquiry Address: {inquiry.address}
+                                Inquiry Type: {inquiry.ordertype}
+                                Inquiry Notes: {inquiry.ordernotes}
+                                Inquiry Timestamp: {inquiry.orderdatetime}
+                                Inquiry Distance: {inquiry.distance}
+                                Inquiry Status: {inquiry.orderresultstatus}
+                            </div>
+                            )
+                            })
+                            }
+                        </div>
+                        :   <div>"You don't have any active inquiry"
+                               
+                            </div>
+                    }
+                </div>
+                : <p>You are not a buyer yet <button className="btn btn-default" onClick={this.openBuyerForm}>Become a Buyer</button> </p>
+                }                
 
                     <Modal
                     isOpen={this.state.informantFormIsOpen}
@@ -172,4 +208,4 @@ function mapStateToProps(state){
     const {user, form, order} = state
     return {user, form, order};
 }
-export default connect(mapStateToProps, {getInformantInfo, getBuyerInfo, submitBuyerInfo, submitInformantInfo, getOrders})(AccountProfile)
+export default connect(mapStateToProps, {getInformantInfo, getBuyerInfo, submitBuyerInfo, submitInformantInfo, getOrders, getOrderResultsbyInformant})(AccountProfile)

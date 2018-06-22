@@ -124,6 +124,9 @@ app.post("/api/order", order_Controller.createOrder);
 app.get("/api/orders", order_Controller.getOrders);
 app.post('/api/orderResults', order_Controller.createOrderResult);
 
+app.get('/api/orderResults', order_Controller.getOrderResultsbyInformant);
+app.get("/api/informants/search")
+
 
 
 

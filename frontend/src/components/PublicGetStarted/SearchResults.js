@@ -15,9 +15,13 @@ class SearchResults extends Component {
             this.props.newInformantsFalse()
         }        
      }
+
     selectInformant=(informantid, distance)=>{
+        // const {openOrderForm} = props;
+
         const orderResult = {informantid, distance, buyerid: this.props.user.buyerInfo.buyerid }
-        this.props.createOrderResults(orderResult)
+        this.props.createOrderResults(orderResult);
+        this.props.openOrderForm();
     } 
     render(){
         return(
