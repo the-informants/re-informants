@@ -18,7 +18,7 @@ const OrderFormValidation = props=>{
                 placeholder="Order name" 
                 component={renderField} 
                 label="Order Name"/>
-            <Field  
+            {/* <Field  
                 name="address1" 
                 type = "text" 
                 placeholder="Address 1" 
@@ -50,7 +50,7 @@ const OrderFormValidation = props=>{
                 type = "number" 
                 placeholder="Zip code" 
                 component={renderField} 
-                label="Zip"/>
+                label="Zip"/> */}
             <Field name="orderrtype" component={renderSelectField} label="Order Type">
                 <option/>
                 <option value = "Home Buying">Home Buying</option>
@@ -88,31 +88,33 @@ const validate = values =>{
         errors.ordername = 'Required'
     }
 
-    if (!values.lastname){
-        errors.lastname = 'Required'
-    }
+    // if(!values.address1){
+    //     errors.address1 = "Required"
+    // }
+    // if (/[^a-zA-Z]/i.test(values.city)){
+    //     errors.city = "Only alphabetic characters allowed"
+    // }
+    // if(!values.city){
+    //     errors.city = "Required"
+    // }else if (/[^a-zA-Z]/i.test(values.city)){
+    //     errors.city = "Only alphabetic characters allowed"
+    // }
 
-    if(!values.address1){
-        errors.address1 = "Required"
-    }
-
-    if(!values.city){
-        errors.city = "Required"
-    }else if (/[^a-zA-Z]/i.test(values.city)){
-        errors.city = "Only alphabetic characters allowed"
-    }
-
-    if(!values.state){
-        errors.state = "Required"
-    }
-
-    if(!values.zip){
-        errors.zip = "Required"
-    }else if(!/^([0-9]{5})$/i.test(values.zip)){
-        errors.zip = "Invalid Zip code, must be 5 digits"
-    }else if (isNaN(Number(values.zip))){
-        errors.zip = "Must be a number"
-    }
+    // if(!values.state){
+    //     errors.state = "Required"
+    // }
+    //  if(!/^([0-9]{5})$/i.test(values.zip)){
+    //     errors.zip = "Invalid Zip code, must be 5 digits"
+    // }else if (isNaN(Number(values.zip))){
+    //     errors.zip = "Must be a number"
+    // }
+    // if(!values.zip){
+    //     errors.zip = "Required"
+    // }else if(!/^([0-9]{5})$/i.test(values.zip)){
+    //     errors.zip = "Invalid Zip code, must be 5 digits"
+    // }else if (isNaN(Number(values.zip))){
+    //     errors.zip = "Must be a number"
+    // }
 
     if(!values.orderrtype){
         errors.orderrtype = "Required"
