@@ -37,6 +37,7 @@ class SearchResults extends Component {
                             {`${informant.firstname} ${informant.lastname}`} 
                             </Link>
 
+                            {informant.avgstarrating}
                             <label>Miles Away</label>
                             {Math.round(informant.distance* 10)/10}
                             <label>Knows about</label>
