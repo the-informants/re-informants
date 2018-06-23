@@ -56,7 +56,9 @@ class Cart extends Component {
 
         return(
 
-            <div className="PageTitle">
+            <div className="PageTitle container">
+            <h1>Your Cart
+                </h1>
                 <Link to="/">
                     <button className="btn btn-primary">
                         Continue Shopping
@@ -67,22 +69,53 @@ class Cart extends Component {
 
                 
                 {this.props.order.orderResultsbyBuyer[0]
-                        ?<div>here are your orders:
+                        ?<div className="container">
+                            <h4>
+                            Your Orders:</h4>
                             {ActiveUnpaidOrders.map((result) => {
 
                             return (
-                            <div>
-                                Order Name: {result.ordername}
-                                Order Address: {result.address}
-                                Order Type: {result.ordertype}
-                                Order Notes: {result.ordernotes}
-                                Informant Name: {result.firstname + ' ' + result.lastname}
-                                Order Timestamp: {result.orderdatetime}
-                                Order Status: {result.orderstatus}
-                                Order Status: {result.paidflag}
-                                <button onClick={()=>this.props.cancelOrdeResult(result.orderresultsid)}>
+                            <div className="container">
+                            <div className="order"> 
+                                <dl className="dl-horizontal">
+                                    <dt>Order Name:</dt>
+                                    <dd>{result.ordername}</dd>
+                                </dl>
+                                <dl className="dl-horizontal">
+                                    <dt>Order Address:</dt>
+                                    <dd> {result.address}</dd>
+                                </dl>
+                                <dl className="dl-horizontal">
+                                    <dt>Order Type:</dt>
+                                    <dd> {result.ordertype}</dd>
+                                </dl>
+                                <dl className="dl-horizontal">
+                                    <dt>Order Notes:</dt>
+                                    <dd> {result.ordernotes}</dd>
+                                </dl>
+                                <dl className="dl-horizontal">
+                                    <dt>Informant Name:</dt>
+                                    <dd> {result.firstname + ' ' + result.lastname}</dd>
+                                </dl>
+                                <dl className="dl-horizontal">
+                                    <dt>Order Timestamp:</dt>
+                                    <dd> {result.orderdatetime}</dd>
+                                </dl>
+                                <dl className="dl-horizontal">
+                                    <dt>Order Status:</dt>
+                                    <dd> {result.orderstatus}</dd>
+                                </dl>
+                                <dl className="dl-horizontal">
+                                    <dt>Order Status:</dt>
+                                    <dd> {result.paidflag}</dd>
+                                </dl>
+                                <dl>
+                                <button className="btn btn-danger" onClick={()=>this.props.cancelOrdeResult(result.orderresultsid)}>
+
                                 remove order
                                 </button>
+                                </dl>
+                            </div>
                             </div>
                             )
                             })
@@ -91,9 +124,13 @@ class Cart extends Component {
                         :   <div>You don't have any order in your cart</div>
                     }
 
-                <button className="btn btn-primary" onClick={this.openPaymentForm}>
+               <div className="container"> 
+                    <button className="btn btn-primary" onClick={this.openPaymentForm}>
                         Check Out
-                </button>
+                    </button>
+                </div>
+                
+
 
                  <Modal
                     isOpen={this.state.paymentFormIsOpen}

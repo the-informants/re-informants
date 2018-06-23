@@ -111,37 +111,71 @@ class AccountProfile extends Component {
                 {
                 this.props.user.buyerInfo.buyerid
                 ?
-                <div>
-                    <button onClick={this.openBuyerForm}>Edit Buyer Profile</button>
+                <div className="container">
+                    <button className="btn btn-default" onClick={this.openBuyerForm}>Edit Buyer Profile</button>
                     <Link to="/">
                                     <button className="btn btn-primary">
                                         Submit an Order
                                     </button>
                     </Link>
                     {ActiveOrders[0]
-                        ?<div>'here are your active orders:'
+                        ?<div className="container">
+                            <h4>Your Active Orders:</h4>
+
                             {ActiveOrders.map((order) => {
 
                             return (
-                            <div>
-                                Order Name: {order.ordername}
-                                Order Address: {order.address}
-                                Order Type: {order.ordertype}
-                                Order Notes: {order.ordernotes}
-                                {/* Order Valid Until: {order.ordervaliduntil} */}
-                                Order Timestamp: {order.orderdatetime}
-                                Order Status: {order.orderstatus}
-                                Order Payment Status: {order.paidflag}
+
+                            <div className="container">
+                            <div className="order"> 
+                                <dl className="dl-horizontal">
+                                    <dt>Order Name: </dt>
+                                    <dd>{order.ordername}</dd>
+                                </dl>
+                                <dl className="dl-horizontal">
+                                    <dt>Order Address:</dt>
+                                    <dd>{order.address}</dd>
+                                </dl>
+                                <dl className="dl-horizontal">
+                                    <dt>Order Type:</dt>
+                                    <dd>{order.ordertype}</dd>
+                                </dl>
+                                <dl className="dl-horizontal">
+                                    <dt>Order Notes:</dt>
+                                    <dd>{order.ordernotes}</dd>
+                                </dl>
+                                <dl className="dl-horizontal">
+                                    <dt>{/* Order Valid Until: {order.ordervaliduntil} */}
+                                    Order Timestamp:</dt>
+                                    <dd>{order.orderdatetime}</dd>
+                                </dl>
+                                <dl className="dl-horizontal">
+                                    <dt>Order Status:</dt>
+                                    <dd>{order.orderstatus}</dd>
+                                </dl>
+                                <dl className="dl-horizontal">
+                                    <dt>Order Payment Status:</dt>
+                                    <dd>{order.paidflag}</dd>
+                                </dl>
+                                </div>
                             </div>
                             )
                             })
                             }
                         </div>
-                        :   <div>"You don't have any active order"
+                        :   <div className="container">"You don't have any active order"
                             </div>
                     }
                 </div>
-                : <p>You are not a buyer yet <button className="btn btn-default" onClick={this.openBuyerForm}>Become a Buyer</button> </p>
+                :   
+                <div className="container">
+                    <h4>
+                        You are not a buyer yet
+                    </h4> 
+                    <button className="btn btn-default" onClick={this.openBuyerForm}>
+                        Become a Buyer
+                    </button>
+                </div>
                 }
                     <Modal
                     isOpen={this.state.buyerFormIsOpen}
@@ -172,27 +206,57 @@ class AccountProfile extends Component {
                             {ActiveInquiries.map((inquiry) => {
 
                             return (
-                            <div>
-                                Inquiry Name: {inquiry.ordername}
-                                Inquiry Address: {inquiry.address}
-                                Inquiry Type: {inquiry.ordertype}
-                                Inquiry Notes: {inquiry.ordernotes}
-                                Inquiry Timestamp: {inquiry.orderdatetime}
-                                Inquiry Distance: {inquiry.distance}
-                                Inquiry Status: {inquiry.orderresultstatus}
-                            </div>
+                                <div className="container">
+                                <div className="order"> 
+                                    <dl className="dl-horizontal">
+                                        <dt>Inquiry Name:</dt>
+                                        <dd> {inquiry.ordername}</dd>
+                                    </dl>
+                                    <dl className="dl-horizontal">
+                                        <dt>Inquiry Address:</dt>
+                                        <dd> {inquiry.address}</dd>
+                                    </dl>
+                                    <dl className="dl-horizontal">
+                                        <dt>Inquiry Type:</dt>
+                                        <dd> {inquiry.ordertype}</dd>
+                                    </dl>
+                                    <dl className="dl-horizontal">
+                                        <dt>Inquiry Notes:</dt>
+                                        <dd>{inquiry.ordernotes}</dd>
+                                    </dl>
+                                    <dl className="dl-horizontal">
+                                        <dt>Inquiry Timestamp:</dt>
+                                        <dd> {inquiry.orderdatetime}</dd>
+                                    </dl>
+                                    <dl className="dl-horizontal">
+                                        <dt>Inquiry Distance:</dt>
+                                        <dd> {inquiry.distance}</dd>
+                                    </dl>
+                                    <dl className="dl-horizontal">
+                                        <dt>Inquiry Status:</dt>
+                                        <dd> {inquiry.orderresultstatus}</dd>
+                                    </dl>
+                                    
+                                </div>
+                                </div>
                             )
                             })
                             }
                         </div>
-                        :   <div>"You don't have any active inquiry"
-                               
-                            </div>
+                        :   
+                        <div className="container">
+                            "You don't have any active inquiry"
+                        </div>
                     }
                 </div>
-                : <p>You are not a buyer yet <button className="btn btn-default" onClick={this.openBuyerForm}>Become a Buyer</button> </p>
+                : 
+                <div className="container">
+                    <h4>You are not a buyer yet</h4>
+                    <button className="btn btn-default" onClick={this.openBuyerForm}>
+                        Become a Buyer
+                    </button> 
+                </div>
                 }                
-
                     <Modal
                     isOpen={this.state.informantFormIsOpen}
                     onRequestClose={this.closeInformantForm}
