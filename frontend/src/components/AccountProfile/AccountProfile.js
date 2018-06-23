@@ -97,7 +97,7 @@ class AccountProfile extends Component {
         }
         };
 
-        const ActiveOrders = this.props.order.orders.filter(order => order.orderstatus=='Active')
+        const ActiveOrders = this.props.order.orderResultsbyBuyer.filter(order => order.orderresultstatus=='Active')
         const ActiveInquiries = this.props.order.orderResultsbyInformant.filter(inquiry => inquiry.orderresultstatus=='Active')
 
         return(
@@ -131,6 +131,7 @@ class AccountProfile extends Component {
                                 {/* Order Valid Until: {order.ordervaliduntil} */}
                                 Order Timestamp: {order.orderdatetime}
                                 Order Status: {order.orderstatus}
+                                Order Payment Status: {order.paidflag}
                             </div>
                             )
                             })
@@ -144,7 +145,7 @@ class AccountProfile extends Component {
                 }
                     <Modal
                     isOpen={this.state.buyerFormIsOpen}
-                    // onRequestClose={this.closeBuyerForm}
+                    onRequestClose={this.closeBuyerForm}
                     style={buyerformStyles}
                     >
                         <BuyerFormValidation mysubmit={this.submitBuyerInformation}  cancel={this.closeBuyerForm}/>
@@ -194,7 +195,7 @@ class AccountProfile extends Component {
 
                     <Modal
                     isOpen={this.state.informantFormIsOpen}
-                    // onRequestClose={this.closeInformantForm}
+                    onRequestClose={this.closeInformantForm}
                     style={informantformStyles}
                     >
                         <InformantFormValidation mysubmit={this.submitInformantInformation} cancel={this.closeInformantForm}/>

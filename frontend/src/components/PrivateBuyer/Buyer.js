@@ -46,7 +46,7 @@ class PrivateBuyer extends Component {
                 
                 {this.props.order.orders[0]
                         ?<div>here are your orders:
-                            {this.props.order.orders.map((order) => {
+                            {this.props.order.orderResultsbyBuyer.map((order) => {
 
                             return (
                             <div>
@@ -57,6 +57,7 @@ class PrivateBuyer extends Component {
                                 {/* Order Valid Until: {order.ordervaliduntil} */}
                                 Order Timestamp: {order.orderdatetime}
                                 Order Status: {order.orderstatus}
+                                Order Payment Status: {order.paidflag}
                             </div>
                             )
                             })

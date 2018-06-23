@@ -116,7 +116,7 @@ class GetStarted extends Component {
 
                     <Modal
                         isOpen={this.state.createOrderFormIsOpen}
-                        // onRequestClose={this.closeBuyerForm}
+                        onRequestClose={this.closeCreateOrderForm}
                         style={orderformStyles}
                         >
                                 <OrderFormValidation cancel={this.closeCreateOrderForm}

@@ -1,23 +1,23 @@
 import React from 'react'
 
-export const renderField = (field
-//     {
-//     input,
-//     label,
-//     placeholder,
-//     type,
-//     meta: {touched, error, warning}
-// }
+export const renderField = (
+    {
+    input,
+    label,
+    placeholder,
+    type,
+    meta: {touched, error, warning}
+}
 )=>(
     <div className="form-group">
         <label>
-        {field.label}
+        {label}
         </label>
         <div>
            
-            <input {...field.input} placeholder={field.placeholder} type = {field.type} className="form-control"/>
-            {/* {field.touched && ((error && <span>{field.error}</span>) || 
-            (warning && <span>{field.warning}</span>))} */}
+            <input {...input} placeholder={placeholder} type = {type} className="form-control"/>
+            {touched && ((error && <span>{error}</span>) || 
+            (warning && <span>{warning}</span>))}
         </div>
     </div>)
 
