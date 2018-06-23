@@ -16,6 +16,8 @@ const ADD_TO_CART = "ADD_TO_CART"
 const CREATE_ORDER_RESULTS = "CREATE_ORDER_RESULTS"
 const GET_ORDERRESULTSBYINFORMANT = 'GET_ORDERRESULTSBYINFORMANT'
 const GET_ORDERRESULTSBYBUYER = 'GET_ORDERRESULTSBYBUYER'
+const PAY_ORDERRESULT = 'PAY_ORDERRESULT'
+const CANCEL_ORDERRESULT = 'CANCEL_ORDERRESULT'
 
 
 export default (state = initialState, action) =>{
@@ -52,6 +54,20 @@ export default (state = initialState, action) =>{
         case CREATE_ORDER_RESULTS + '_FULFILLED':
             console.log("created order payload", action.payload.data[0])
             return Object.assign({}, state, {orderResult: action.payload.data[0]})
+        
+        case PAY_ORDERRESULT +  '_FULFILLED':
+            if (!action.payload.data){
+                return state
+            }
+            console.log("pay order results payload", action.payload.data)
+            return Object.assign({}, state, {orderResultsbyBuyer: action.payload.data}) 
+        
+        case CANCEL_ORDERRESULT +  '_FULFILLED':
+            if (!action.payload.data){
+                return state
+            }
+            console.log("cancel order results payload", action.payload.data)
+            return Object.assign({}, state, {orderResultsbyBuyer: action.payload.data}) 
             
         default:
             return state
@@ -98,3 +114,17 @@ export function getOrderResultsbyBuyer(){
         payload: axios.get('/api/orderResultsbybuyer')
     }
 }
+
+export function payOrderResult(){
+    return {
+        type: PAY_ORDERRESULT,
+        payload: axios.put('/api/payorderresult')
+    }
+}
+
+export function cancelOrdeResult(orderresultsid){
+    return {
+        type: CANCEL_ORDERRESULT,
+        payload: axios.put(`/api/payorderresult/paidflag/${orderresultsid}`)
+    }
+};

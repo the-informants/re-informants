@@ -53,4 +53,27 @@ module.exports = {
         .catch(err=>console.error(err))
     },
 
+    payOrderResult: (req,res)=>{
+        const db = req.app.get('db');
+        const { userid } = req.user;
+        db.pay_orderresult({userid})
+        .then(paidflag=>{   
+            console.log('this is the new status for this trigger',paidflag);           
+            res.status(200).send(paidflag);
+        })
+        .catch(err=>console.error(err))
+    },
+
+    cancelOrderResult : (req,res)=>{
+        const db = req.app.get('db');
+        const { orderresultsid } = req.params;
+        const { userid } = req.user;
+        db.cancel_orderresult({orderresultsid, userid })
+        .then(order=>{   
+            console.log('order results with new paid flag',order);           
+            res.status(200).send(order);
+        })
+        .catch(err=>console.error(err))
+    },
+
 }

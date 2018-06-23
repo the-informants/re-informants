@@ -41,9 +41,10 @@ class PrivateBuyer extends Component {
 
                 
                 {this.props.order.orders[0]
+
                         ?<div className="container">
                             <h4>Your Orders:</h4>
-                            {this.props.order.orders.map((order) => {
+                            {this.props.order.orderResultsbyBuyer.map((order) => {
 
                             return (
                             <div className="container">
@@ -72,6 +73,10 @@ class PrivateBuyer extends Component {
                                     <dl className="dl-horizontal">
                                         <dt>Order Status:</dt>
                                         <dd>{order.orderstatus}</dd>
+                                    </dl>
+                                    <dl className="dl-horizontal">
+                                        <dt>Order Payment Status:</dt>
+                                        <dd>{order.paidflag}</dd>
                                     </dl>
                                  </div>
                             </div>

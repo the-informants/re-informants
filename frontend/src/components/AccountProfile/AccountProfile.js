@@ -97,7 +97,7 @@ class AccountProfile extends Component {
         }
         };
 
-        const ActiveOrders = this.props.order.orders.filter(order => order.orderstatus=='Active')
+        const ActiveOrders = this.props.order.orderResultsbyBuyer.filter(order => order.orderresultstatus=='Active')
         const ActiveInquiries = this.props.order.orderResultsbyInformant.filter(inquiry => inquiry.orderresultstatus=='Active')
 
         return(
@@ -125,6 +125,7 @@ class AccountProfile extends Component {
                             {ActiveOrders.map((order) => {
 
                             return (
+
                             <div className="container">
                             <div className="order"> 
                                 <dl className="dl-horizontal">
@@ -152,6 +153,10 @@ class AccountProfile extends Component {
                                     <dt>Order Status:</dt>
                                     <dd>{order.orderstatus}</dd>
                                 </dl>
+                                <dl className="dl-horizontal">
+                                    <dt>Order Payment Status:</dt>
+                                    <dd>{order.paidflag}</dd>
+                                </dl>
                                 </div>
                             </div>
                             )
@@ -174,7 +179,7 @@ class AccountProfile extends Component {
                 }
                     <Modal
                     isOpen={this.state.buyerFormIsOpen}
-                    // onRequestClose={this.closeBuyerForm}
+                    onRequestClose={this.closeBuyerForm}
                     style={buyerformStyles}
                     >
                         <BuyerFormValidation mysubmit={this.submitBuyerInformation}  cancel={this.closeBuyerForm}/>
@@ -254,7 +259,7 @@ class AccountProfile extends Component {
                 }                
                     <Modal
                     isOpen={this.state.informantFormIsOpen}
-                    // onRequestClose={this.closeInformantForm}
+                    onRequestClose={this.closeInformantForm}
                     style={informantformStyles}
                     >
                         <InformantFormValidation mysubmit={this.submitInformantInformation} cancel={this.closeInformantForm}/>
