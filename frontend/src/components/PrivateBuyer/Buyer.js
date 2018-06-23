@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import '../../App.css';
-import Modal from 'react-modal';
+import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {getInformantInfo, getBuyerInfo, submitBuyerInfo, submitInformantInfo} from '../../ducks/reducers/user';
-import {getOrders, submitOrderInfo} from '../../ducks/reducers/order';
-import OrderFormValidation from './OrderFormValidation';
+import {getOrders, submitOrderInfo, getOrderResultsbyBuyer} from '../../ducks/reducers/order';
+
 
 class PrivateBuyer extends Component {
     constructor() {
@@ -18,71 +18,83 @@ class PrivateBuyer extends Component {
         // this.props.getInformantInfo();
         // this.props.getBuyerInfo();
         this.props.getOrders();
+        this.props.getOrderResultsbyBuyer();
         // Modal.setAppElement('body');
     }
 
-    openCreateOrderForm=()=>{
-    this.setState({createOrderFormIsOpen: true});
-    }
 
-    closeCreateOrderForm=()=>{
-    this.setState({createOrderFormIsOpen: false});
-    }
 
-    submitOrderInformation = ()=>{
-        const newOrderInfo = Object.assign({}, this.props.form.OrderForm.values, {buyerid: this.props.user.buyerInfo.buyerid})
-        console.log(newOrderInfo)
-        this.props.submitOrderInfo(newOrderInfo)
-        this.setState({createOrderFormIsOpen: false});
-        this.props.getOrders();
-    }
-
+    
     render (){
-        
-        const orderformStyles = {
-            content : {
-              width                 : '50%',
-              height                : '60%',
-              top                   : '50%',
-              left                  : '50%',
-              right                 : 'auto',
-              bottom                : 'auto',
-            //   marginRight           : '-50%',
-              transform             : 'translate(-50%, -50%)'
-            }
-          };
-
         return(
-            <div className="PageTitle">
-                Private Buyer text
-                <button onClick={this.openCreateOrderForm}>New Order</button>
+            <div className="container PageTitle">
+                <h1>Private Buyer</h1>
+                    <div className="container">
+                        <Link to="/">
+                            <button className="btn btn-primary">
+                            New Order
+                            </button>
+                        </Link>
+                
+                {/* <button onClick={this.openCreateOrderForm}>New Order</button> */}
+
 
                 
-                {this.props.order.orders.map((order) => {
+                {this.props.order.orders[0]
 
-                    return (
-                    <div>
-                        Order Name: {order.ordername}
-                        Order Address: {order.address1+ ' '+order.city+' '+order.state+' '+order.zip}
-                        Order Type: {order.ordertype}
-                        Order Notes: {order.ordernotes}
-                        Order Valida Until: {order.ordervaliduntil}
-                    </div>
-                    )
-                })
-                }
-                
+                        ?<div className="container">
+                            <h4>Your Orders:</h4>
+                            {this.props.order.orderResultsbyBuyer.map((order) => {
 
-                <Modal
-                isOpen={this.state.createOrderFormIsOpen}
-                // onRequestClose={this.closeBuyerForm}
-                style={orderformStyles}
-                >
-                        <OrderFormValidation cancel={this.closeCreateOrderForm}
-                        mysubmit={this.submitOrderInformation}  
-                        />
-                </Modal>
+                            return (
+                            <div className="container">
+                                <div className="order"> 
+                                    <dl className="dl-horizontal">
+                                        <dt>Order Name:</dt>
+                                        <dd> {order.ordername}</dd>
+                                    </dl>
+                                    <dl className="dl-horizontal">
+                                        <dt>Order Address:</dt>
+                                        <dd>{order.address}</dd>
+                                    </dl>
+                                    <dl className="dl-horizontal">
+                                        <dt>Order Type:</dt>
+                                        <dd>{order.ordertype}</dd>
+                                    </dl>
+                                    <dl className="dl-horizontal">
+                                        <dt>Order Notes:</dt>
+                                        <dd>{order.ordernotes}</dd>
+                                    </dl>
+                                    <dl className="dl-horizontal">
+                                        {/* Order Valid Until: {order.ordervaliduntil} */}
+                                        <dt>Order Timestamp:</dt>
+                                        <dd>{order.orderdatetime}</dd>
+                                    </dl>
+                                    <dl className="dl-horizontal">
+                                        <dt>Order Status:</dt>
+                                        <dd>{order.orderstatus}</dd>
+                                    </dl>
+                                    <dl className="dl-horizontal">
+                                        <dt>Order Payment Status:</dt>
+                                        <dd>{order.paidflag}</dd>
+                                    </dl>
+                                 </div>
+                            </div>
+                            )
+                            })
+                            }
+                        </div>
+
+                        :   
+                        <div className="container">
+                            You don't have any orders
+                        </div>
+                    }
             </div>
+                
+
+
+                </div>
         )
     }
 }
@@ -92,4 +104,4 @@ function mapStateToProps(state){
     const {user, form, order} = state
     return {user, form, order};
 }
-export default connect(mapStateToProps, {getInformantInfo, getBuyerInfo, getOrders, submitOrderInfo})(PrivateBuyer)
+export default connect(mapStateToProps, {getInformantInfo, getBuyerInfo, getOrders, getOrderResultsbyBuyer})(PrivateBuyer)

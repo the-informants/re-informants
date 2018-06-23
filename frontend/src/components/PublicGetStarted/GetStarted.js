@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../../App.css';
 import GoogleMaps from './Map' 
+import Modal from 'react-modal';
 import Search from './Search'
 import SearchResults from './SearchResults'
 import { addSearchCoordinates, searchAddress} from '../../ducks/reducers/search'
@@ -9,20 +10,26 @@ import StandAloneSearch from './StandAloneSearch'
 import {connect} from 'react-redux'
 import axios from 'axios';
 import Geocode from 'react-geocode';
-
+import {addSearchLocation} from '../../ducks/reducers/search'
 
 import { Link } from 'react-router-dom';
+
+import OrderFormValidation from './OrderFormValidation';
+import {getOrders, submitOrderInfo} from '../../ducks/reducers/order';
 
 
 class GetStarted extends Component {
     constructor(props){
         super(props)
         this.state={
-            informants: []
+            informants: [],
+            createOrderFormIsOpen: false
         }
     }
+
     searchAddress= () =>{
         Geocode.setApiKey("AIzaSyBWRUwhKeGWx_7qra1Mw4TUSjWhZBuqrq4")
+        this.props.addSearchLocation(this.props.form.MapSearch.values.searchvalue);
         // console.log(this.props.form.MapSearch.values.searchvalue)
         Geocode.fromAddress(this.props.form.MapSearch.values.searchvalue).then(response=>{
             const {lat, lng} = response.results[0].geometry.location;
@@ -32,23 +39,59 @@ class GetStarted extends Component {
         }).catch(e=>console.log(e));
     }
 
+
+    openCreateOrderForm=()=>{
+        this.setState({createOrderFormIsOpen: true});
+        }
+    
+    closeCreateOrderForm=()=>{
+        this.setState({createOrderFormIsOpen: false});
+        }
+    
+    submitOrderInformation = ()=>{
+            const {searchLat, searchLng, searchValue, mapMoveLat, mapMoveLng} = this.props.search;
+            const {buyerid, orderresultsid} = this.props.order.orderResult;
+            console.log('orderresultid is this one',orderresultsid)
+            const newOrderInfo = Object.assign({}, this.props.form.OrderForm.values, {buyerid: buyerid, address: searchValue, lat: mapMoveLat||searchLat, lng: mapMoveLng||searchLng, orderresultid: orderresultsid})
+            console.log(newOrderInfo)
+            this.props.submitOrderInfo(newOrderInfo)
+            this.setState({createOrderFormIsOpen: false});
+            this.props.getOrders();
+        }
+
+
     render (){
 
         const styles = this.styles();
         console.log("Props", this.props)
-
+       
+        const orderformStyles = {
+            content : {
+              width                 : '50%',
+              height                : '60%',
+              top                   : '50%',
+              left                  : '50%',
+              right                 : 'auto',
+              bottom                : 'auto',
+            //   marginRight           : '-50%',
+              transform             : 'translate(-50%, -50%)'
+            }
+          };
        
         return(
-            <div>
+            <div className="getstarted-body">
                 <div className="row container-fluid">
                     <div className="pageTitle col-md-12">
-                        <h1>Your Local Neighborhood Informant</h1>
+                        <h1>Find neighborhood insiders</h1>
                     </div>
+                    <div className="row, col-md-12 container">
+                        <Search />
+                    </div>
+                        {/* <StandAloneSearch search={this.search}/> */}
+                        <button onClick={()=>this.searchAddress()} className=" btn btn-primary btn-lg btn-block btn-map">Search</button>
 
                     <div className="row, col-md-6">
-                        <Search />
-                        {/* <StandAloneSearch search={this.search}/> */}
-                        <button onClick={()=>this.searchAddress()} className="btn btn-primary btn-lg btn-block btn-map">Search</button>
+                        
                      <GoogleMaps
                         containerElement={<div style={{ height: `400px` }} />}
                         mapElement={<div style={{ height: `100%` }} />}
@@ -65,17 +108,27 @@ class GetStarted extends Component {
                     </div>
 
                     <div className="row, col-md-6" style={styles.searchResults}>
-                        <SearchResults/>
+                        <SearchResults openOrderForm={this.openCreateOrderForm}/>
                     </div>
+
+                    <Modal
+                        isOpen={this.state.createOrderFormIsOpen}
+                        onRequestClose={this.closeCreateOrderForm}
+                        style={orderformStyles}
+                        >
+                                <OrderFormValidation cancel={this.closeCreateOrderForm}
+                                mysubmit={this.submitOrderInformation}  
+                                />
+                    </Modal>
                 </div>
 
-                <div className="row">
-                    <div className="col-md-6">
-                        <h2>buyer information</h2>
+                <div className="container row text-center">
+                    <div className="container col-md-6">
+                        <h2>Buyer information</h2>
                         <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h6>
                     </div>
-                    <div className="col-md-6">
-                        <h2>informant information</h2>
+                    <div className="container col-md-6">
+                        <h2>Informant information</h2>
                         <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h6>
                     </div>
 
@@ -97,9 +150,9 @@ class GetStarted extends Component {
 
 
 function mapStateToProps(state){
-    const {search, form} = state
-    return {search, form}
+    const {search, form, order} = state
+    return {search, form, order}
 }
 
-export default connect(mapStateToProps,{addSearchCoordinates, searchAddress})(GetStarted)
+export default connect(mapStateToProps,{addSearchCoordinates, searchAddress, addSearchLocation, submitOrderInfo, getOrders})(GetStarted)
 

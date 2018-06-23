@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import { Redirect, Link } from 'react-router-dom';
 import { connect } from "react-redux";
-import {getUserInfo, logout} from '../../ducks/reducers/user';
+import {getUserInfo, logout, getInformantInfo, getBuyerInfo} from '../../ducks/reducers/user';
 
 class Nav extends Component {
     constructor(props) {
@@ -16,6 +16,8 @@ class Nav extends Component {
 
     componentWillMount(){
         this.props.getUserInfo();
+        this.props.getInformantInfo();
+        this.props.getBuyerInfo();
     }
 
     toggleNavbar() {
@@ -61,7 +63,7 @@ class Nav extends Component {
                                 </li>
                             </ul>
                             
-                                <a href={"http://localhost:4000/auth"}><button >Login</button></a>
+                                <a href={"http://localhost:4000/auth"}><button className="btn btn-primary" >Login</button></a>
 
                         </div>
                     </div>
@@ -72,7 +74,6 @@ class Nav extends Component {
                 
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark transparent-nav">
 
-                    {/* <Redirect to={"/Account"}/> */}
                     <div className="container-fluid">
 
                         <a className="navbar-brand" href="/">RE-Informants</a>
@@ -82,6 +83,10 @@ class Nav extends Component {
                         <div className={`${classOne}`} id="navbarResponsive">
                             <ul className="navbar-nav ml-auto">
 
+                                 <li className="nav-item">
+                                    <Link className="nav-link" to="/">Get Started</Link>
+                                </li>
+                                
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/Account">Account</Link>
                                 </li>
@@ -91,10 +96,13 @@ class Nav extends Component {
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/PrivateInformant">Informant</Link>
                                 </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/Cart">Cart</Link>
+                                </li>
 
                             </ul>
 
-                            <Link to="/"><button onClick={()=>this.logout()}>Logout</button></Link>
+                            <Link to="/"><button className="btn btn-success" onClick={()=>this.logout()}>Logout</button></Link>
                         </div>
                     </div>
                 </nav>
@@ -110,5 +118,5 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect ( mapStateToProps, {getUserInfo: getUserInfo, logout:logout})(Nav);
+export default connect ( mapStateToProps, {getUserInfo: getUserInfo, logout:logout, getInformantInfo, getBuyerInfo})(Nav);
 

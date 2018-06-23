@@ -1,3 +1,10 @@
+
+/* Keller moved body from the index.css file on 6/6/18 since that was the only style there and now the custom styles are all in one place. */
+
+.text-center {
+  text-align: center;
+}
+
 body {
   margin: 0px;
   padding: 0px;
@@ -8,7 +15,7 @@ body {
 
 .App {
   padding: 0px;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .pageTitle {
@@ -20,10 +27,37 @@ body {
 
 .btn-map {
   margin-bottom: 10px;
+  margin-left: 15px;
 }
 
 .btn {
-  margin-right: 10px;
+  margin: 10px;
+}
+
+
+/* Above were added by Keller on 6/6/18 */
+
+p {
+  font-size: 16px;
+}
+
+h1 {
+  padding-top: 30px;
+}
+
+h4 {
+  margin-bottom: 15px;
+}
+
+.container dt,.container dd {
+  width:auto;
+  margin-left:auto;
+  margin-bottom: 0px;
+  display:inline-block;
+}
+
+.container dd {
+  margin-left: 5px;
 }
 
 .openingContainer {
@@ -63,4 +97,16 @@ body {
   .imgContainer {
     height: 350px
   } 
+
+@media (min-width: 450px) { 
+  .container dl { 
+      line-height: .5;  
+  }
+}
+
+.order {
+  border-bottom-color: black;
+  border-bottom: 1px solid;
+  margin-bottom: 15px;
+
 }

@@ -8,8 +8,8 @@ import InformantForm from './InformantForm'
 import BuyerForm from './BuyerForm'
 import BuyerFormValidation from './BuyerFormValidation'
 import InformantFormValidation from './InformantFormValidation'
-import {getInformantInfo, getBuyerInfo, submitBuyerInfo, submitInformantInfo} from '../../ducks/reducers/user';
-import {getOrders} from '../../ducks/reducers/order';
+import {getInformantInfo, getBuyerInfo, submitBuyerInfo, submitInformantInfo, updateBuyerInfo, updateInformantInfo} from '../../ducks/reducers/user';
+import {getOrders, getOrderResultsbyInformant, getOrderResultsbyBuyer} from '../../ducks/reducers/order';
 
 
 class AccountProfile extends Component {
@@ -25,6 +25,8 @@ class AccountProfile extends Component {
         this.props.getInformantInfo();
         this.props.getBuyerInfo();
         this.props.getOrders();
+        this.props.getOrderResultsbyInformant();
+        this.props.getOrderResultsbyBuyer();
         Modal.setAppElement('body');
     }
 
@@ -47,7 +49,12 @@ class AccountProfile extends Component {
     submitBuyerInformation = ()=>{
         const buyerInfo = {...this.props.form.BuyerForm.values}
         console.log(buyerInfo)
-        this.props.submitBuyerInfo(buyerInfo)
+        if(this.props.user.buyerInfo.buyerid){
+            buyerInfo.buyerid = this.props.user.buyerInfo.buyerid
+            this.props.updateBuyerInfo(buyerInfo)
+        } else {
+            this.props.submitBuyerInfo(buyerInfo)
+        }
         this.setState({buyerFormIsOpen: false});
     }
 
@@ -61,7 +68,12 @@ class AccountProfile extends Component {
             console.log(lat,lng)
             console.log("props", this.props)
             let informantInfo = Object.assign({}, this.props.form.InformantForm.values, {lat: lat, lng: lng} )
-            this.props.submitInformantInfo(informantInfo);
+             if(this.props.user.informantInfo.informantid){
+                 informantInfo.informantid = this.props.user.informantInfo.informantid
+                 this.props.updateInformantInfo(informantInfo);
+             }else {
+                 this.props.submitInformantInfo(informantInfo);
+             }
             this.setState({informantFormIsOpen: false});
         }).catch(e=>console.log(e));
     }
@@ -95,69 +107,162 @@ class AccountProfile extends Component {
         }
         };
 
+        const ActiveOrders = this.props.order.orderResultsbyBuyer.filter(order => order.orderresultstatus=='Active')
+        const ActiveInquiries = this.props.order.orderResultsbyInformant.filter(inquiry => inquiry.orderresultstatus=='Active')
+
         return(
-            <div className="PageTitle">
-                Account Profile
-
-                {/* <InformantForm/>
-                
-                <BuyerForm/> */}
-
+            <div className="container PageTitle">
+               <h1>Account Profile</h1>
                 {
                 this.props.user.buyerInfo.buyerid
                 ?
-                <div>
-                    <button onClick={this.openBuyerForm}>Edit Buyer Profile</button>
-                    {this.props.order.orders[0]
-                        ?<div>'here is your most recent order:'
-                            {this.props.order.orders.map((order) => {
+
+                <div className="container">
+                    <button className="btn btn-default" onClick={this.openBuyerForm}>Edit Buyer Profile</button>
+                    <Link to="/">
+                                    <button className="btn btn-primary">
+                                        Submit an Order
+                                    </button>
+                    </Link>
+                    {ActiveOrders[0]
+                        ?<div className="container">
+                            <h4>Your Active Orders:</h4>
+
+                            {ActiveOrders.map((order) => {
 
                             return (
-                            <div>
-                                Order Name: {order.ordername}
-                                Order Address: {order.address1+ ' '+order.city+' '+order.state+' '+order.zip}
-                                Order Type: {order.ordertype}
-                                Order Notes: {order.ordernotes}
-                                Order Valida Until: {order.ordervaliduntil}
+
+                            <div className="container">
+                            <div className="order"> 
+                                <dl className="dl-horizontal">
+                                    <dt>Order Name: </dt>
+                                    <dd>{order.ordername}</dd>
+                                </dl>
+                                <dl className="dl-horizontal">
+                                    <dt>Order Address:</dt>
+                                    <dd>{order.address}</dd>
+                                </dl>
+                                <dl className="dl-horizontal">
+                                    <dt>Order Type:</dt>
+                                    <dd>{order.ordertype}</dd>
+                                </dl>
+                                <dl className="dl-horizontal">
+                                    <dt>Order Notes:</dt>
+                                    <dd>{order.ordernotes}</dd>
+                                </dl>
+                                <dl className="dl-horizontal">
+                                    <dt>{/* Order Valid Until: {order.ordervaliduntil} */}
+                                    Order Timestamp:</dt>
+                                    <dd>{order.orderdatetime}</dd>
+                                </dl>
+                                <dl className="dl-horizontal">
+                                    <dt>Order Status:</dt>
+                                    <dd>{order.orderstatus}</dd>
+                                </dl>
+                                <dl className="dl-horizontal">
+                                    <dt>Order Payment Status:</dt>
+                                    <dd>{order.paidflag}</dd>
+                                </dl>
+                                </div>
                             </div>
                             )
                             })
                             }
                         </div>
-                        :   <div>"You don't have any order"
-                                <Link to="/PrivateBuyer">
-                                    <button>
-                                        Submit an Order
-                                    </button>
-                                </Link>
+                        :   <div className="container">"You don't have any active order"
                             </div>
                     }
                 </div>
-                : <h4>you are not a buyer yet <button onClick={this.openBuyerForm}>Become a Buyer</button> </h4>
+
+                :   
+                <div className="container">
+                    <h4>
+                        You are not a buyer yet
+                    </h4> 
+                    <button className="btn btn-default" onClick={this.openBuyerForm}>
+                        Become a Buyer
+                    </button>
+                </div>
                 }
                     <Modal
                     isOpen={this.state.buyerFormIsOpen}
-                    // onRequestClose={this.closeBuyerForm}
+                    onRequestClose={this.closeBuyerForm}
                     style={buyerformStyles}
                     >
                         <BuyerFormValidation mysubmit={this.submitBuyerInformation}  cancel={this.closeBuyerForm}/>
                     </Modal>
-
-
-
-
-
-
-
+                
                 {
                 this.props.user.informantInfo.informantid
-                ? <h4>you are a informant, here is your most recent inquiry <button onClick={this.openInformantForm}>Edit Informant Profile</button></h4>
-                : <h4>you are not an informant yet <button onClick={this.openInformantForm}>Become an Informant</button></h4>
-                }
+                ?
+                <div>
+                    <button onClick={this.openInformantForm}>Edit Informant Profile</button>
+                    <Link to="/">
+                                    <button className="btn btn-primary">
+                                        Search for a buyer
+                                    </button>
+                    </Link>
 
+                    {ActiveInquiries[0]
+                        ?<div>'here are your active inquiries:'
+                            {ActiveInquiries.map((inquiry) => {
+
+                            return (
+                                <div className="container">
+                                <div className="order"> 
+                                    <dl className="dl-horizontal">
+                                        <dt>Inquiry Name:</dt>
+                                        <dd> {inquiry.ordername}</dd>
+                                    </dl>
+                                    <dl className="dl-horizontal">
+                                        <dt>Inquiry Address:</dt>
+                                        <dd> {inquiry.address}</dd>
+                                    </dl>
+                                    <dl className="dl-horizontal">
+                                        <dt>Inquiry Type:</dt>
+                                        <dd> {inquiry.ordertype}</dd>
+                                    </dl>
+                                    <dl className="dl-horizontal">
+                                        <dt>Inquiry Notes:</dt>
+                                        <dd>{inquiry.ordernotes}</dd>
+                                    </dl>
+                                    <dl className="dl-horizontal">
+                                        <dt>Inquiry Timestamp:</dt>
+                                        <dd> {inquiry.orderdatetime}</dd>
+                                    </dl>
+                                    <dl className="dl-horizontal">
+                                        <dt>Inquiry Distance:</dt>
+                                        <dd> {inquiry.distance}</dd>
+                                    </dl>
+                                    <dl className="dl-horizontal">
+                                        <dt>Inquiry Status:</dt>
+                                        <dd> {inquiry.orderresultstatus}</dd>
+                                    </dl>
+                                    
+                                </div>
+                                </div>
+                            )
+                            })
+                            }
+                        </div>
+                        :   
+                        <div className="container">
+                            "You don't have any active inquiry"
+                        </div>
+                    }
+                </div>
+
+                : 
+                <div className="container">
+                    <h4>You are not an Informant yet</h4>
+                    <button className="btn btn-default" onClick={this.openInformantForm}>
+                        Become an Informant
+                    </button> 
+                </div>
+                }                
                     <Modal
                     isOpen={this.state.informantFormIsOpen}
-                    // onRequestClose={this.closeInformantForm}
+                    onRequestClose={this.closeInformantForm}
                     style={informantformStyles}
                     >
                         <InformantFormValidation mysubmit={this.submitInformantInformation} cancel={this.closeInformantForm}/>
@@ -172,4 +277,4 @@ function mapStateToProps(state){
     const {user, form, order} = state
     return {user, form, order};
 }
-export default connect(mapStateToProps, {getInformantInfo, getBuyerInfo, submitBuyerInfo, submitInformantInfo, getOrders})(AccountProfile)
+export default connect(mapStateToProps, {getInformantInfo, getBuyerInfo, submitBuyerInfo, submitInformantInfo, getOrders, getOrderResultsbyInformant, getOrderResultsbyBuyer, updateBuyerInfo, updateInformantInfo})(AccountProfile)

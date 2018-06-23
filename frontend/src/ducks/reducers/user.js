@@ -12,7 +12,9 @@ const initialState = {
     }
 }
 const SUBMIT_INFORMANT_INFO = "SUBMIT_INFORMANT_INFO"
+const UPDATE_INFORMANT_INFO = "UPDATE_INFORMANT_INFO"
 const SUBMIT_BUYER_INFO = "SUBMIT_BUYER_INFO"
+const UPDATE_BUYER_INFO = "UPDATE_BUYER_INFO"
 const GET_INFORMANT_INFO = "GET_INFORMANT_INFO"
 const GET_BUYER_INFO = "GET_BUYER_INFO"
 const GET_INFORMANTS = "GET_INFORMANTS"
@@ -24,9 +26,19 @@ export default (state = initialState, action) =>{
         case SUBMIT_INFORMANT_INFO + '_FULFILLED': 
             console.log("informnat info payload",action.payload.data[0])
             return Object.assign({}, state, {informantInfo: action.payload.data[0]}) 
+
+        case UPDATE_INFORMANT_INFO + '_FULFILLED': 
+            console.log("informnat info payload",action.payload.data[0])
+            return Object.assign({}, state, {informantInfo: action.payload.data[0]}) 
+
         case SUBMIT_BUYER_INFO + '_FULFILLED': 
             console.log("buyer info payload",action.payload.data[0])
             return Object.assign({}, state, {buyerInfo: action.payload.data[0]})   
+
+        case UPDATE_BUYER_INFO + '_FULFILLED': 
+            console.log("buyer info payload",action.payload.data[0])
+            return Object.assign({}, state, {buyerInfo: action.payload.data[0]})   
+
         case GET_INFORMANT_INFO + '_FULFILLED':
             if (!action.payload.data[0]){
                 return state
@@ -62,6 +74,12 @@ export function submitInformantInfo(informantInfo){
         payload: axios.post('/api/informant', informantInfo)
     }
 }
+export function updateInformantInfo(informantInfo){
+    return {
+        type: UPDATE_INFORMANT_INFO,
+        payload: axios.put('/api/informant', informantInfo)
+    }
+}
 export function getInformantInfo(){
     return {
         type: GET_INFORMANT_INFO,
@@ -78,6 +96,12 @@ export function submitBuyerInfo(buyerInfo){
     return {
         type: SUBMIT_BUYER_INFO,
         payload: axios.post('/api/buyer', buyerInfo)
+    }
+}
+export function updateBuyerInfo(buyerInfo){
+    return {
+        type: UPDATE_BUYER_INFO,
+        payload: axios.put('/api/buyer', buyerInfo)
     }
 }
 export function getBuyerInfo(){

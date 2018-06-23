@@ -64,7 +64,8 @@ CREATE table informants (
     knowschoolflag varchar(10),
     availableflag varchar(10),
     lat decimal,
-    lng decimal
+    lng decimal,
+    years varchar(50)
     
     )
 ;

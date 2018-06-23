@@ -19,6 +19,16 @@ module.exports = {
         db.create_buyer(newBuyer).then(buyer => {
             res.send(buyer)
         });
+    },
+    updateBuyer: (req,res)=>{
+        const db = req.app.get('db');
+        const { userid } = req.user;
+        const {buyerid, firstname,lastname,phone,buyertype,buyernotes} = req.body;
+        let updatedBuyer = {buyerid,firstname,lastname,phone,buyertype,buyernotes}
+
+        db.update_buyer(updatedBuyer).then(buyer => {
+            res.send(buyer)
+        });
     }
 
 }
