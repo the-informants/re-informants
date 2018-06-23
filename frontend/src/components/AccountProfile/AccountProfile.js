@@ -157,7 +157,7 @@ class AccountProfile extends Component {
                                 </dl>
                                 <dl className="dl-horizontal">
                                     <dt>Order Status:</dt>
-                                    <dd>{order.orderstatus}</dd>
+                                    <dd>{order.orderresultstatus}</dd>
                                 </dl>
                                 <dl className="dl-horizontal">
                                     <dt>Order Payment Status:</dt>
