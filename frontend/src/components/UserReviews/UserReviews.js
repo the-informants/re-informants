@@ -13,7 +13,9 @@ import {Link, Redirect} from 'react-router-dom';
             addedReview: "",
             rating: 0,
             firstname: null,
-            lastname: null
+            lastname: null,
+            avgrating: null,
+            numberOfRatings: 0
         }
 
     }
@@ -31,7 +33,12 @@ import {Link, Redirect} from 'react-router-dom';
     getReviews=(id)=>{
         axios.get(`/api/informant/review/${id}`).then(response=>{
             console.log("reviews", response.data);
-            this.setState({reviews: response.data.reviews, firstname: response.data.name[0].firstname, lastname: response.data.name[0].lastname})
+            this.setState({reviews: response.data.reviews, 
+                firstname: response.data.name[0].firstname,
+                lastname: response.data.name[0].lastname,
+                avgrating:parseInt( response.data.rating[0].avg ,10),
+                numberOfRatings:response.data.rating[0].count
+            })
         })
     }
  
@@ -65,7 +72,16 @@ import {Link, Redirect} from 'react-router-dom';
         const styles = this.styles();
         return (
             <div style = {styles.container}>
-
+                AVG RATING
+                <StarRatings
+                            rating={this.state.avgrating === null? 0:this.state.avgrating}
+                            starRatedColor="#163D57"
+                            numberOfStars={5}
+                            starDimension="15px"
+                            starSpacing = "2px"            
+                        />
+                Number of ratings:
+                {this.state.numberOfRatings}
                 
                 <div style={styles.submitReviewContainer}>
                     <div style={styles.leaveReview}>Leave a Review</div>

@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {addToCart, createOrderResults} from '../../ducks/reducers/order'
 import {newInformantsFalse} from '../../ducks/reducers/search'
 import {Link} from 'react-router-dom'
+import StarRatings from 'react-star-ratings';
 
 
 class SearchResults extends Component {
@@ -25,7 +26,7 @@ class SearchResults extends Component {
     } 
     render(){
         return(
-            <div style={{height: 60, overflow: "auto", overflowX: "hidden"}}> 
+            <div style={{height: 400, overflow: "auto", overflowX: "hidden"}}> 
                 <div /* style={{ float:"left", clear: "both" }} */
                         ref={(el) => { this.searchBeginning = el; }}>
                 </div>
@@ -36,8 +37,17 @@ class SearchResults extends Component {
                             <Link to= {`/UserReviews/${informant.informantid}`}>
                             {`${informant.firstname} ${informant.lastname}`} 
                             </Link>
+                            <StarRatings 
+                                rating={informant.avgstarrating === null? 0: parseInt(informant.avgstarrating,10)}
+                                starRatedColor="#163D57"
+                                numberOfStars={5}
+                                starDimension="15px"
+                                starSpacing = "2px"
+                            />
 
                             {informant.avgstarrating}
+                            Years in Neigborhood
+                            {informant.years}
                             <label>Miles Away</label>
                             {Math.round(informant.distance* 10)/10}
                             <label>Knows about</label>
