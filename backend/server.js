@@ -127,7 +127,10 @@ app.post('/api/orderResults', order_Controller.createOrderResult);
 app.get('/api/orderResultsbyInformant', order_Controller.getOrderResultsbyInformant);
 app.get('/api/orderResultsbybuyer', order_Controller.getOrderResultsbyBuyer);
 
-app.get("/api/informants/search")
+app.get("/api/informants/search");
+
+app.put('/api/payorderresult', order_Controller.payOrderResult);
+app.put('/api/payorderresult/paidflag/:orderresultsid', order_Controller.cancelOrderResult);
 
 
 
