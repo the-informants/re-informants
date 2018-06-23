@@ -148,6 +148,7 @@ const validate = values =>{
 }
 
 function mapStateToProps(state){
+    const {user} = state
     return {
         informantInfo: state.user.informantInfo,
         initialValues: {firstname: state.user.informantInfo ? state.user.informantInfo.firstname : '',
@@ -165,7 +166,8 @@ function mapStateToProps(state){
                         knowreligionflag: state.user.informantInfo ? state.user.informantInfo.knowreligionflag : '',
                         informantnotes: state.user.informantInfo ? state.user.informantInfo.informantnotes : ''
                         
-                        }
+                        },
+        user
                         
     }
 }

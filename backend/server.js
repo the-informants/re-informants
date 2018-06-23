@@ -111,6 +111,7 @@ const buyer_Controller= require('./controllers/buyer_controller');
 const order_Controller= require('./controllers/order_controller');
 
 app.post("/api/informant", informant_Controller.createInformant);
+app.put("/api/informant", informant_Controller.updateInformant);
 app.get("/api/informant", informant_Controller.getInformant);
 app.get("/api/informants", informant_Controller.getInformants);
 app.get("/api/informants/search", informant_Controller.getInformantsSearch);
@@ -118,6 +119,7 @@ app.post("/api/informant/review", informant_Controller.createInformantReview);
 app.get("/api/informant/review/:id", informant_Controller.getInformantReviews);
 
 app.post("/api/buyer", buyer_Controller.createBuyer);
+app.put("/api/buyer", buyer_Controller.updateBuyer);
 app.get("/api/buyer", buyer_Controller.getBuyer);
 
 app.post("/api/order", order_Controller.createOrder);

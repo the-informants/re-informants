@@ -8,7 +8,7 @@ import InformantForm from './InformantForm'
 import BuyerForm from './BuyerForm'
 import BuyerFormValidation from './BuyerFormValidation'
 import InformantFormValidation from './InformantFormValidation'
-import {getInformantInfo, getBuyerInfo, submitBuyerInfo, submitInformantInfo} from '../../ducks/reducers/user';
+import {getInformantInfo, getBuyerInfo, submitBuyerInfo, submitInformantInfo, updateBuyerInfo, updateInformantInfo} from '../../ducks/reducers/user';
 import {getOrders, getOrderResultsbyInformant, getOrderResultsbyBuyer} from '../../ducks/reducers/order';
 
 
@@ -49,7 +49,12 @@ class AccountProfile extends Component {
     submitBuyerInformation = ()=>{
         const buyerInfo = {...this.props.form.BuyerForm.values}
         console.log(buyerInfo)
-        this.props.submitBuyerInfo(buyerInfo)
+        if(this.props.user.buyerInfo.buyerid){
+            buyerInfo.buyerid = this.props.user.buyerInfo.buyerid
+            this.props.updateBuyerInfo(buyerInfo)
+        } else {
+            this.props.submitBuyerInfo(buyerInfo)
+        }
         this.setState({buyerFormIsOpen: false});
     }
 
@@ -63,7 +68,12 @@ class AccountProfile extends Component {
             console.log(lat,lng)
             console.log("props", this.props)
             let informantInfo = Object.assign({}, this.props.form.InformantForm.values, {lat: lat, lng: lng} )
-            this.props.submitInformantInfo(informantInfo);
+             if(this.props.user.informantInfo.informantid){
+                 informantInfo.informantid = this.props.user.informantInfo.informantid
+                 this.props.updateInformantInfo(informantInfo);
+             }else {
+                 this.props.submitInformantInfo(informantInfo);
+             }
             this.setState({informantFormIsOpen: false});
         }).catch(e=>console.log(e));
     }
@@ -103,14 +113,10 @@ class AccountProfile extends Component {
         return(
             <div className="container PageTitle">
                <h1>Account Profile</h1>
-
-                {/* <InformantForm/>
-                
-                <BuyerForm/> */}
-
                 {
                 this.props.user.buyerInfo.buyerid
                 ?
+
                 <div>
                     <button onClick={this.openBuyerForm}>Edit Buyer Profile</button>
                     <Link to="/">
@@ -140,6 +146,7 @@ class AccountProfile extends Component {
                             </div>
                     }
                 </div>
+
                 : <p>You are not a buyer yet <button className="btn btn-default" onClick={this.openBuyerForm}>Become a Buyer</button> </p>
                 }
                     <Modal
@@ -149,12 +156,7 @@ class AccountProfile extends Component {
                     >
                         <BuyerFormValidation mysubmit={this.submitBuyerInformation}  cancel={this.closeBuyerForm}/>
                     </Modal>
-
-
-
-
-
-
+                
                 {
                 this.props.user.informantInfo.informantid
                 ?
@@ -209,4 +211,4 @@ function mapStateToProps(state){
     const {user, form, order} = state
     return {user, form, order};
 }
-export default connect(mapStateToProps, {getInformantInfo, getBuyerInfo, submitBuyerInfo, submitInformantInfo, getOrders, getOrderResultsbyInformant, getOrderResultsbyBuyer})(AccountProfile)
+export default connect(mapStateToProps, {getInformantInfo, getBuyerInfo, submitBuyerInfo, submitInformantInfo, getOrders, getOrderResultsbyInformant, getOrderResultsbyBuyer, updateBuyerInfo, updateInformantInfo})(AccountProfile)
