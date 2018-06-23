@@ -96,7 +96,8 @@ h4 {
 @media (max-width: 768px) {
   .imgContainer {
     height: 350px
-  } 
+  }
+} 
 
 @media (min-width: 450px) { 
   .container dl { 

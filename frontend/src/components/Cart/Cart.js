@@ -103,10 +103,10 @@ class Cart extends Component {
                                 </dl>
                                 <dl className="dl-horizontal">
                                     <dt>Order Status:</dt>
-                                    <dd> {result.orderstatus}</dd>
+                                    <dd> {result.orderresultstatus}</dd>
                                 </dl>
                                 <dl className="dl-horizontal">
-                                    <dt>Order Status:</dt>
+                                    <dt>Order Payment Status:</dt>
                                     <dd> {result.paidflag}</dd>
                                 </dl>
                                 <dl>

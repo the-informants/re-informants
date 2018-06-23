@@ -52,7 +52,7 @@ const OrderFormValidation = props=>{
                 placeholder="Zip code" 
                 component={renderField} 
                 label="Zip"/> */}
-            <Field name="orderrtype" component={renderSelectField} label="Order Type">
+            <Field name="ordertype" component={renderSelectField} label="Order Type">
                 <option/>
                 <option value = "Home Buying">Home Buying</option>
                 <option value = "Renting">Renting</option>
