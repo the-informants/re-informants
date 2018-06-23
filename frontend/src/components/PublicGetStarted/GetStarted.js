@@ -82,10 +82,7 @@ class GetStarted extends Component {
             <div className="getstarted-body">
                 <div className="row container-fluid">
                     <div className="pageTitle col-md-12">
-                        <h1>Your Local Neighborhood Informant</h1>
-                    </div>
-                    <div className="text-center row col-md-12">
-                        <h2>Find people who can inform a real estate purchase</h2>
+                        <h1>Find neighborhood insiders</h1>
                     </div>
                     <div className="row, col-md-12 container">
                         <Search />
@@ -116,7 +113,7 @@ class GetStarted extends Component {
 
                     <Modal
                         isOpen={this.state.createOrderFormIsOpen}
-                        // onRequestClose={this.closeBuyerForm}
+                        onRequestClose={this.closeCreateOrderForm}
                         style={orderformStyles}
                         >
                                 <OrderFormValidation cancel={this.closeCreateOrderForm}

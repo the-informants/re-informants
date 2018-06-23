@@ -31,7 +31,7 @@ body {
 }
 
 .btn {
-  margin-right: 10px;
+  margin: 10px;
 }
 
 
@@ -43,4 +43,31 @@ p {
 
 h1 {
   padding-top: 30px;
+}
+
+h4 {
+  margin-bottom: 15px;
+}
+
+.container dt,.container dd {
+  width:auto;
+  margin-left:auto;
+  margin-bottom: 0px;
+  display:inline-block;
+}
+
+.container dd {
+  margin-left: 5px;
+}
+
+@media (min-width: 450px) { 
+  .container dl { 
+      line-height: .5;  
+  }
+}
+
+.order {
+  border-bottom-color: black;
+  border-bottom: 1px solid;
+  margin-bottom: 15px;
 }
