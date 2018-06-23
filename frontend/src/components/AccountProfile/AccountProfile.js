@@ -189,7 +189,7 @@ class AccountProfile extends Component {
                             </div>
                     }
                 </div>
-                : <p>You are not a buyer yet <button className="btn btn-default" onClick={this.openBuyerForm}>Become a Buyer</button> </p>
+                : <p>You are not an Informant <button className="btn btn-default" onClick={this.openInformantForm}>Become an Informant</button> </p>
                 }                
 
                     <Modal

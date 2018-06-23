@@ -37,10 +37,10 @@ module.exports = {
         const { userid } = req.user;
         const {firstname, lastname, informantnotes, phone, 
             address1, address2, city, state, zip, knowcommunityflag, knowreligionflag,
-            knowcrimeflag, knowschoolflag, availableflag, lat, lng} = req.body;
+            knowcrimeflag, knowschoolflag, availableflag, lat, lng, years} = req.body;
         let newInformant = {userid, firstname, lastname, informantnotes, phone, 
             address1, address2, city, state, zip, knowcommunityflag, knowreligionflag,
-            knowcrimeflag, knowschoolflag, lat, lng}
+            knowcrimeflag, knowschoolflag, lat, lng, years}
 
         db.create_informant(newInformant).then(informant => {
             res.send(informant)
