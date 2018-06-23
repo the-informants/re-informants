@@ -74,7 +74,6 @@ class Nav extends Component {
                 
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark transparent-nav">
 
-
                     <div className="container-fluid">
 
                         <a className="navbar-brand" href="/">RE-Informants</a>
