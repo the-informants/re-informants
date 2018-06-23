@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import '../../App.css';
-
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {getInformantInfo, getBuyerInfo, submitBuyerInfo, submitInformantInfo} from '../../ducks/reducers/user';
@@ -27,47 +26,70 @@ class PrivateBuyer extends Component {
 
     
     render (){
-        
- 
-
         return(
-
-            <div className="PageTitle">
-                Private Buyer text
-                <Link to="/">
-                    <button className="btn btn-primary">
-                        New Order
-                    </button>
-                </Link>
+            <div className="container PageTitle">
+                <h1>Private Buyer</h1>
+                    <div className="container">
+                        <Link to="/">
+                            <button className="btn btn-primary">
+                            New Order
+                            </button>
+                        </Link>
                 
                 {/* <button onClick={this.openCreateOrderForm}>New Order</button> */}
 
 
                 
                 {this.props.order.orders[0]
-                        ?<div>here are your orders:
+                        ?<div className="container">
+                            <h4>Your Orders:</h4>
                             {this.props.order.orders.map((order) => {
 
                             return (
-                            <div>
-                                Order Name: {order.ordername}
-                                Order Address: {order.address}
-                                Order Type: {order.ordertype}
-                                Order Notes: {order.ordernotes}
-                                {/* Order Valid Until: {order.ordervaliduntil} */}
-                                Order Timestamp: {order.orderdatetime}
-                                Order Status: {order.orderstatus}
+                            <div className="container">
+                                <div className="order"> 
+                                    <dl className="dl-horizontal">
+                                        <dt>Order Name:</dt>
+                                        <dd> {order.ordername}</dd>
+                                    </dl>
+                                    <dl className="dl-horizontal">
+                                        <dt>Order Address:</dt>
+                                        <dd>{order.address}</dd>
+                                    </dl>
+                                    <dl className="dl-horizontal">
+                                        <dt>Order Type:</dt>
+                                        <dd>{order.ordertype}</dd>
+                                    </dl>
+                                    <dl className="dl-horizontal">
+                                        <dt>Order Notes:</dt>
+                                        <dd>{order.ordernotes}</dd>
+                                    </dl>
+                                    <dl className="dl-horizontal">
+                                        {/* Order Valid Until: {order.ordervaliduntil} */}
+                                        <dt>Order Timestamp:</dt>
+                                        <dd>{order.orderdatetime}</dd>
+                                    </dl>
+                                    <dl className="dl-horizontal">
+                                        <dt>Order Status:</dt>
+                                        <dd>{order.orderstatus}</dd>
+                                    </dl>
+                                 </div>
                             </div>
                             )
                             })
                             }
                         </div>
-                        :   <div>You don't have any order</div>
+
+                        :   
+                        <div className="container">
+                            You don't have any orders
+                        </div>
                     }
+            </div>
                 
 
 
-            </div>
+                </div>
         )
     }
 }
