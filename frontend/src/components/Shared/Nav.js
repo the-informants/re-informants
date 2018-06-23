@@ -41,7 +41,7 @@ class Nav extends Component {
                 
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark transparent-nav">
 
-                    <Redirect to={"/"}/>
+                    {/* <Redirect to={"/"}/> */}
                     <div className="container-fluid body">
 
                         <a className="navbar-brand" href="/">RE-Informants</a>
@@ -72,7 +72,7 @@ class Nav extends Component {
                 
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark transparent-nav">
 
-                    <Redirect to={"/Account"}/>
+                    {/* <Redirect to={"/Account"}/> */}
                     <div className="container-fluid">
 
                         <a className="navbar-brand" href="/">RE-Informants</a>

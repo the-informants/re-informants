@@ -10,11 +10,12 @@ import PrivateBuyer from './components/PrivateBuyer/Buyer';
 import PrivateInformant from './components/PrivateInformant/Informant';
 import InquiryThankYou from './components/ThankYou/InquiryThankYou';
 import Modal from './components/PublicGetStarted/Modal';
-// import Opening from './components/PublicGetStarted/Opening';
+import Opening from './components/PublicGetStarted/Opening';
 
 export default (
     <Switch>
         <Route exact path = '/' component={PublicGetStarted}/>
+        <Route component={Opening} path='/Opening' />
         <Route component={Account} path='/Account' />
         <Route component={PublicBuyer} path='/PublicBuyer' />
         <Route component={PublicInformant} path='/PublicInformant' />
