@@ -70,6 +70,11 @@ class Nav extends Component {
                 </nav>
             )}
         else {
+            const ActiveUnpaidOrders = 
+            this.props.cart.filter(
+                    order =>
+                        order.paidflag==='unpaid'
+                )
             return (
                 
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark transparent-nav">
@@ -97,7 +102,9 @@ class Nav extends Component {
                                     <Link className="nav-link" to="/PrivateInformant">Informant</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="/Cart">Cart</Link>
+                                    <Link className="nav-link" to="/Cart">
+                                        <i className="fas fa-shopping-cart cart-icon"></i>{ActiveUnpaidOrders.length> 0 && <span className="badge badge-pill badge-primary">{ActiveUnpaidOrders.length}</span>}
+                                     </Link>
                                 </li>
 
                             </ul>
@@ -114,7 +121,8 @@ class Nav extends Component {
 
 const mapStateToProps = state => {
     return {
-        user: state.user.user
+        user: state.user.user,
+        cart: state.order.orderResultsbyBuyer
     }
 }
 
