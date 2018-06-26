@@ -15,7 +15,7 @@ import {addSearchLocation} from '../../ducks/reducers/search'
 import { Link } from 'react-router-dom';
 
 import OrderFormValidation from './OrderFormValidation';
-import {getOrders, submitOrderInfo} from '../../ducks/reducers/order';
+import {getOrders, submitOrderInfo, getOrderResultsbyBuyer} from '../../ducks/reducers/order';
 
 
 class GetStarted extends Component {
@@ -55,6 +55,7 @@ class GetStarted extends Component {
             const newOrderInfo = Object.assign({}, this.props.form.OrderForm.values, {buyerid: buyerid, address: searchValue, lat: mapMoveLat||searchLat, lng: mapMoveLng||searchLng, orderresultid: orderresultsid})
             console.log(newOrderInfo)
             this.props.submitOrderInfo(newOrderInfo)
+            this.props.getOrderResultsbyBuyer()
             this.setState({createOrderFormIsOpen: false});
             this.props.getOrders();
         }
@@ -154,5 +155,5 @@ function mapStateToProps(state){
     return {search, form, order}
 }
 
-export default connect(mapStateToProps,{addSearchCoordinates, searchAddress, addSearchLocation, submitOrderInfo, getOrders})(GetStarted)
+export default connect(mapStateToProps,{addSearchCoordinates, searchAddress, addSearchLocation, submitOrderInfo, getOrders, getOrderResultsbyBuyer})(GetStarted)
 
