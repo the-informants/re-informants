@@ -36,27 +36,33 @@ body {
 }
 
 .sliderImgOne {
-  opacity: 0.4;
   background-image: url("http://villageinburnsharbor.com/wp-content/uploads/2010/08/Village-web-page1-1024x513.jpg");
 }
 .sliderImgTwo {
-  opacity: 0.4;
   background-image: url("https://fthmb.tqn.com/N5b7q_f2fVPPqyMsjB_Rcrpeyeo=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/african-american-neighbors-greeting-each-other-over-fence-137924297-5a9863920e23d900370c683e.jpg");
 }
 .sliderImgThree {
-  opacity: 0.4;
   background-image: url("https://c3.dq1.me/uploads/article_block/17169/article_featured_image/3571/thumb_user-1570343-2017-06-16-09-43-18.jpg");
 }
 
 .imgContainer {
-  opacity: 1;
   display: flex;
-  height: 500px;
+  height: 475px;
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
+
+#inputBox {
+  background-color: rgba(128, 128, 128, 1);
+  margin-top: 30px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+}
+
 
 /* mobile phones */
 @media (max-width: 768px) {

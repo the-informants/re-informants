@@ -14,8 +14,11 @@ import Opening from './components/PublicGetStarted/Opening';
 
 export default (
     <Switch>
-        <Route exact path = '/' component={PublicGetStarted}/>
-        <Route component={Opening} path='/Opening' />
+        <Route exact path = '/' component={Opening}/>
+        {/* <Route exact path = '/' component={PublicGetStarted}/> */}
+        {/* <Route component={Opening} path='/Opening' /> */}
+
+        <Route component={PublicGetStarted} path='/PublicGetStarted' />
         <Route component={Account} path='/Account' />
         <Route component={PublicBuyer} path='/PublicBuyer' />
         <Route component={PublicInformant} path='/PublicInformant' />

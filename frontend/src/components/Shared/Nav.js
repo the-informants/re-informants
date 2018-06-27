@@ -51,7 +51,7 @@ class Nav extends Component {
                         <div className={`${classOne}`} id="navbarResponsive">
                             <ul className="navbar-nav ml-auto">
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="/">Get Started</Link>
+                                    <Link className="nav-link" to="/PublicGetStarted">Get Started</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/PublicBuyer">Buyer</Link>
