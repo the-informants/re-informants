@@ -58,7 +58,8 @@ import {Link, Redirect} from 'react-router-dom';
             let reviews = this.state.reviews
             reviews.unshift(response.data[0])
             console.log("RESPONSE", response)
-            this.setState({reviews: reviews, addedReview: ""})
+            this.getReviews(this.props.match.params.id);
+            // this.setState({reviews: reviews, addedReview: ""})
         });
     }
    
@@ -71,62 +72,67 @@ import {Link, Redirect} from 'react-router-dom';
    
         const styles = this.styles();
         return (
-            <div style = {styles.container}>
-                AVG RATING
+            <div className="container PageTitle">
+                <h1>{`${this.state.firstname} ${this.state.lastname}`}</h1>
+                Avg Rating
                 <StarRatings
                             rating={this.state.avgrating === null? 0:this.state.avgrating}
-                            starRatedColor="#163D57"
+                            starRatedColor="#FFBD00"
+                            starEmptyColor="#FFFFFF"
                             numberOfStars={5}
-                            starDimension="15px"
+                            starDimension="25px"
                             starSpacing = "2px"            
                         />
-                Number of ratings:
-                {this.state.numberOfRatings}
+                {`${this.state.numberOfRatings} Reviews`}
                 
-                <div style={styles.submitReviewContainer}>
-                    <div style={styles.leaveReview}>Leave a Review</div>
-                    <div style={styles.starRatingContainer}>
-                    {this.state.firstname}
-                    {this.state.lastname}
+                <div className="container review rounded" style={styles.submitReviewContainer}>
+                    <h4>Leave a Review</h4>
+                    {/* <div style={styles.starRatingContainer}> */}
                         <StarRatings
                             rating={this.state.rating}
                             changeRating={this.changeRating}    
-                            numberOfStars = {5}                
+                            numberOfStars = {5}
+                            starEmptyColor="#FFFFFF"  
+                            starHoverColor="#FFBD00"
+                            starRatedColor="#FFBD00"
+                            starDimension="45px"              
                         />
-                    </div>
+                    {/* </div> */}
                 
-                    <textarea style={styles.textarea} placeholder={'Write your review here'}type="text" value={this.state.addedReview} onChange={this.handleReviewChange}></textarea>
+                    <textarea className="form-control"/* style={styles.textarea} */ placeholder={'Write your review here'}type="text" value={this.state.addedReview} onChange={this.handleReviewChange}></textarea>
                     <div style={styles.buttonContainer}>
-                        <button style={styles.submitButton} className={"button"} onClick={()=>this.createReview()}>Submit</button>
+                        <button className="btn btn-outline-dark" /* style={styles.submitButton} className={"button"}  */onClick={()=>this.createReview()}>Submit</button>
                     </div>
                 </div>
                 {this.state.reviews.map((review, index)=>{
+                    console.log("REVEIW", review)
                     return (
-                        <div style={styles.reviewContainer} key={review.informantreviewid}>
-                            <div style={styles.userContainer}>
-                                
-                                {/* <i style={{fontSize: "30px"}}className="fas fa-user-circle"></i>
-                                <Link to={`/userReviews/${review.reviewer_id}`}>
-                                    <span style={styles.reviewer}>
-                                        {`${review.name}`}
-                                    </span>
-                                </Link> */}
-                            </div>
-                            <StarRatings 
-                                rating={review.starrating === null? 0: review.starrating}
-                                starRatedColor="#163D57"
-                                numberOfStars={5}
-                                starDimension="15px"
-                                starSpacing = "2px"
-                            />
-                            {/* <span>
-                                {`${review.date_recorded === null? 0: review.date_recorded.substring(0,12)}`}
-                             </span> */}
-                            <p>
-                            {review.reviewcomment}
-                            </p>
-                            
-                            
+                        <div className="container"  key={review.informantreviewid}>
+                            <div className="order">
+                                <div /* className = "container" */ style={styles.userContainer}>
+                                    
+                                    <i style={{fontSize: "30px"}}className="fas fa-user-circle"></i>
+                                    
+                                        <span style={styles.reviewer}>
+                                            {`${review.firstname} ${review.lastname}`}
+                                        </span>
+                                    
+                                </div>
+                                <StarRatings 
+                                    rating={review.starrating === null? 0: review.starrating}
+                                    starRatedColor="#FFBD00"
+                                    starEmptyColor="#FFFFFF"
+                                    numberOfStars={5}
+                                    starDimension="15px"
+                                    starSpacing = "2px"
+                                />
+                                {/* <span>
+                                    {`${review.date_recorded === null? 0: review.date_recorded.substring(0,12)}`}
+                                </span> */}
+                                <p>
+                                {review.reviewcomment}
+                                </p>
+                            </div> 
                         </div>
                         
                     )
@@ -135,20 +141,13 @@ import {Link, Redirect} from 'react-router-dom';
             </div>
         )
     }
+  
     styles = ()=>{
         return {
             submitReviewContainer: {
-                display: "flex",
-                flexDirection: "Column",
-                alignItems: "Center",
-                width: "60%",
-                borderBottom: "1px solid #C9C9C9",
-                padding: "15px",
-                marginBottom: "15px",
-                marginTop: "10px",
-                boxShadow: "0px 2px 8px #C9C9C9",
-                borderRadius: "5px",
-                boxSizing: "border-box",
+                
+                boxShadow: "0px 1px 6px #9a9ca0",
+                
             },
             leaveReview: {
                 display: "flex",
