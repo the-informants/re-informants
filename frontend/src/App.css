@@ -111,3 +111,11 @@ h4 {
   margin-bottom: 15px;
 
 }
+
+.review {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  padding-top: 20px;
+  box-sizing: border-box;
+}
