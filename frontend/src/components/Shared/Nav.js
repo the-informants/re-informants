@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Redirect, Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import {getUserInfo, logout, getInformantInfo, getBuyerInfo} from '../../ducks/reducers/user';
+import {getOrderResultsbyBuyer} from '../../ducks/reducers/order';
 
 class Nav extends Component {
     constructor(props) {
@@ -18,6 +19,7 @@ class Nav extends Component {
         this.props.getUserInfo();
         this.props.getInformantInfo();
         this.props.getBuyerInfo();
+        this.props.getOrderResultsbyBuyer();
     }
 
     toggleNavbar() {
@@ -64,6 +66,11 @@ class Nav extends Component {
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/PublicInformant">Informant</Link>
                                 </li>
+                                {this.props.user.userid && 
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/Account">Account</Link>
+                                </li>
+                                }
                                 {this.props.user.userid &&
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/Cart">
@@ -94,5 +101,5 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect ( mapStateToProps, {getUserInfo: getUserInfo, logout:logout, getInformantInfo, getBuyerInfo})(Nav);
+export default connect ( mapStateToProps, {getUserInfo: getUserInfo, logout:logout, getInformantInfo, getBuyerInfo, getOrderResultsbyBuyer})(Nav);
 
