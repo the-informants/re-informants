@@ -55,7 +55,9 @@ class Nav extends Component {
                         <button onClick={this.toggleNavbar} className={`${classTwo}`} type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
                         </button>
+                         {!this.props.user.userid ? 
                         <div className={`${classOne}`} id="navbarResponsive">
+
                             <ul className="navbar-nav ml-auto">
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/">Get Started</Link>
@@ -66,28 +68,40 @@ class Nav extends Component {
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/PublicInformant">Informant</Link>
                                 </li>
-                                {this.props.user.userid && 
+                                }
+                                
+                            </ul>
+                            <a href={"http://localhost:4000/auth"}><button className="btn btn-primary" >Login</button></a>
+                            </div>
+                                :
+                            <div className={`${classOne}`} id="navbarResponsive">
+                                <ul className="navbar-nav ml-auto">
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/">Get Started</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/PrivateBuyer">Buyer</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/PrivateInformant">Informant</Link>
+                                </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/Account">Account</Link>
                                 </li>
-                                }
-                                {this.props.user.userid &&
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/Cart">
                                         <i className="fas fa-shopping-cart cart-icon"></i>{ActiveUnpaidOrders.length> 0 && <span className="badge badge-pill badge-primary">{ActiveUnpaidOrders.length}</span>}
                                      </Link>
-                                </li>}
+                                </li>
                                 
                             </ul>
+                                <Link to="/"><button className="btn btn-success" onClick={()=>this.logout()}>Logout</button></Link>
+                            </div>
+                                }
 
-                             {this.props.user.userid ? 
-                              <Link to="/"><button className="btn btn-success" onClick={()=>this.logout()}>Logout</button></Link>
-                              :
-                                <a href={"http://localhost:4000/auth"}><button className="btn btn-primary" >Login</button></a>
-                             }
+                            
 
                         </div>
-                    </div>
                 </nav>
             )
     }
