@@ -9,8 +9,12 @@ body {
   margin: 0px;
   padding: 0px;
   font-family: sans-serif;
-  background-color: lightgrey;
+  background-color: lightgrey
   ;   
+}
+.primary-color{
+  background-color: #3984D3;
+  color:white
 }
 
 .App {
@@ -25,10 +29,7 @@ body {
   justify-content: center;
 }
 
-.btn-map {
-  margin-bottom: 10px;
-  margin-left: 15px;
-}
+
 
 .btn {
   margin: 10px;
@@ -91,6 +92,15 @@ h4 {
   background-repeat: no-repeat;
   background-position: center;
 }
+.borderless {
+  border: none;
+  border-color: transparent;
+}
+
+.btn-map {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
 /* mobile phones */
 @media (max-width: 768px) {
@@ -98,11 +108,22 @@ h4 {
     height: 350px
   }
 } 
+@media (min-width: 769px){
+
+  .white-background{
+    background-color: white
+  }
+  .btn-map {
+    margin-left: 10px;
+  }
+}
 
 @media (min-width: 450px) { 
   .container dl { 
       line-height: .5;  
   }
+
+
 }
 
 .order {
@@ -111,8 +132,13 @@ h4 {
   margin-bottom: 15px;
 
 }
-
 .review {
+  border-bottom: 1px solid;
+  margin-bottom: 15px;
+  border-color: rgb(168, 169, 170)
+}
+
+.place-review {
   margin-top: 20px;
   margin-bottom: 20px;
   padding-bottom: 10px;
