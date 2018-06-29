@@ -9,8 +9,12 @@ body {
   margin: 0px;
   padding: 0px;
   font-family: sans-serif;
-  background-color: lightgrey;
+  background-color: lightgrey
   ;   
+}
+.primary-color{
+  background-color: #3984D3;
+  color:white
 }
 
 .App {
@@ -25,10 +29,7 @@ body {
   justify-content: center;
 }
 
-.btn-map {
-  margin-bottom: 10px;
-  margin-left: 15px;
-}
+
 
 .btn {
   margin: 5px;
@@ -69,27 +70,42 @@ h4 {
 }
 
 .sliderImgOne {
-  opacity: 0.4;
   background-image: url("http://villageinburnsharbor.com/wp-content/uploads/2010/08/Village-web-page1-1024x513.jpg");
 }
 .sliderImgTwo {
-  opacity: 0.4;
   background-image: url("https://fthmb.tqn.com/N5b7q_f2fVPPqyMsjB_Rcrpeyeo=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/african-american-neighbors-greeting-each-other-over-fence-137924297-5a9863920e23d900370c683e.jpg");
 }
 .sliderImgThree {
-  opacity: 0.4;
   background-image: url("https://c3.dq1.me/uploads/article_block/17169/article_featured_image/3571/thumb_user-1570343-2017-06-16-09-43-18.jpg");
 }
 
 .imgContainer {
-  opacity: 1;
   display: flex;
-  height: 500px;
+  height: 475px;
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
+.borderless {
+  border: none;
+  border-color: transparent;
+}
+
+.btn-map {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#inputBox {
+  background-color: rgba(128, 128, 128, 1);
+  margin-top: 30px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+}
+
 
 /* mobile phones */
 @media (max-width: 768px) {
@@ -97,11 +113,22 @@ h4 {
     height: 350px
   }
 } 
+@media (min-width: 769px){
+
+  .white-background{
+    background-color: white
+  }
+  .btn-map {
+    margin-left: 10px;
+  }
+}
 
 @media (min-width: 450px) { 
   .container dl { 
       line-height: .5;  
   }
+
+
 }
 
 .order {
@@ -110,6 +137,7 @@ h4 {
   margin-bottom: 15px;
 
 }
+
 
 .result {
   /* display: flex; */
@@ -156,4 +184,18 @@ h4 {
 
 .fa-user {
   align-content: center;
+
+.review {
+  border-bottom: 1px solid;
+  margin-bottom: 15px;
+  border-color: rgb(168, 169, 170)
+}
+
+.place-review {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  padding-top: 20px;
+  box-sizing: border-box;
+
 }

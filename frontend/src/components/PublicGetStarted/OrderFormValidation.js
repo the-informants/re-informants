@@ -18,40 +18,8 @@ const OrderFormValidation = props=>{
                 type = "text" 
                 placeholder="Order name" 
                 component={renderField} 
-                label="Order Name"/>
-            {/* <Field  
-                name="address1" 
-                type = "text" 
-                placeholder="Address 1" 
-                component={renderField} 
-                label="Address 1"/>
-            <Field  
-                name="address2" 
-                type = "text" 
-                placeholder="Address 2" 
-                component={renderField} 
-                label="Address 2"/>
-            <Field  
-                name="city" 
-                type = "text" 
-                placeholder="City" 
-                component={renderField} 
-                label="City"/>
-            <Field  
-                name="state" 
-                type = "text" 
-                placeholder="State" 
-                component={renderSelectField} 
-                label="State">
-                <option/>
-                {UsStates.map(usState=><option key = {usState.name} value = {usState.name}>{usState.abbreviation}</option>)}
-            </Field>
-            <Field  
-                name="zip" 
-                type = "number" 
-                placeholder="Zip code" 
-                component={renderField} 
-                label="Zip"/> */}
+                label="Order Name"/> 
+            
             <Field name="ordertype" component={renderSelectField} label="Order Type">
                 <option/>
                 <option value = "Home Buying">Home Buying</option>
