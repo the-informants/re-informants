@@ -88,16 +88,9 @@ class GetStarted extends Component {
         return(
             // <div className="getstarted-body">
                 <div className="container-fluid">
-                    <div className="pageTitle col-md-12">
-                        <h1>Find neighborhood insiders</h1>
-                    </div>
-                    {/* <div className="row, col-md-4 container">
-                        <Search />
-
-
-                    </div> */}
+                    
                     <div className="row align-items-center justify-content-md-center mx-0">
-                        <div className="row col-md-7 justify-content-center align-items-center white-background rounded mb-3 mx-0">
+                        <div className="row col-md-7 justify-content-center align-items-center white-background rounded mt-2 mb-2 mx-0">
                             <div className="d-flex col-12 col-lg-9 align-items-center justify-content-center px-0">
                                 <Search />        
                             </div>
@@ -109,13 +102,12 @@ class GetStarted extends Component {
 
                     </div>
                 
-                        {/* <StandAloneSearch search={this.search}/> */}
 
                     <div className="row">
                         <div className="col-12 col-md-6">
                             
                         <GoogleMaps
-                            containerElement={<div style={{ height: `400px` }} />}
+                            containerElement={<div className="google-maps-container" />}
                             mapElement={<div style={{ height: `100%` }} />}
                             // markers={this.state.markers}
                             googleMapURL = {"https://maps.googleapis.com/maps/api/js?key=AIzaSyBWRUwhKeGWx_7qra1Mw4TUSjWhZBuqrq4"}

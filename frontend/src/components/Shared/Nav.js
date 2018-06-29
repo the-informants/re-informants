@@ -55,7 +55,7 @@ class Nav extends Component {
                     {/* <Redirect to={"/"}/> */}
                     <div className="container-fluid body">
 
-                        <a className="navbar-brand" href="/"><img src={logo} alt="RE Informants"/></a>
+                        <a className="navbar-brand" href="/"><img className="logo img-responsive" src={logo} alt="RE Informants"/></a>
                         <button onClick={this.toggleNavbar} className={`${classTwo}`} type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
                         </button>
@@ -80,7 +80,9 @@ class Nav extends Component {
                             <div className={`${classOne}`} id="navbarResponsive">
                                 <ul className="navbar-nav ml-auto">
                                 <li className="nav-item">
-                                    <Link className="nav-link navsize" to="/">Get Started</Link>
+
+                                    <Link className="nav-link navsize" to="/PublicGetStarted">Get Started</Link>
+
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link navsize" to="/PrivateBuyer">Buyer</Link>
