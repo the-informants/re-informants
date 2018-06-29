@@ -155,7 +155,7 @@ class GetStarted extends Component {
     styles = () => {
         return {
             searchResults: {
-                backgroundColor: 'grey'
+                backgroundColor: '#F5F5F5'
             },
             headerContainer: {
                 backgroundImg: "https://wp.zillowstatic.com/trulia/wp-content/uploads/sites/1/2017/04/Home-Prices-HERO.jpg"

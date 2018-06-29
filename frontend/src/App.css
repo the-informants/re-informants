@@ -190,7 +190,8 @@ h4 {
 } */
 
 .name a {
-  color: white;
+  color: black;
+  font-weight: 600;
   margin: 3px;
   
 }
@@ -222,6 +223,43 @@ h4 {
 }
 
 
+
+#eachsearchresult {
+  box-sizing: border-box;
+  border: solid 1px grey;
+  border-radius: 5px;
+  min-height: 170px;
+  width: 45%;
+
+  
+  background-color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+  box-shadow: 6px 6px 6px #999;
+  padding-left: 10px;
+  padding-right: 5px;
+  padding-bottom: 10px;
+
+  /* flex: 50%; */
+
+ 
+}
+
+#searchResultOutterBox {
+  display: flex;
+  flex-direction: row;
+	flex-wrap: wrap;
+  
+}
+
+#searchResultSecondRowSecondCol {
+  margin-left: 60px;
+}
+#searchResultFirstRow {
+  margin-top: 5px;
+}
+
 .navsize {
   font-size: 18px;
 }
@@ -230,4 +268,5 @@ label {
   font-size: 18px;
 
 }
+
 

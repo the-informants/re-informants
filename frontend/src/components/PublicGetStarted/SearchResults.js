@@ -26,7 +26,9 @@ class SearchResults extends Component {
     } 
     render(){
         return(
-            <div className="search-results-container"> 
+
+            <div className="search-results-container" id="searchResultOutterBox"> 
+
                 <div /* style={{ float:"left", clear: "both" }} */
                         ref={(el) => { this.searchBeginning = el; }}>
                 </div>
@@ -34,9 +36,9 @@ class SearchResults extends Component {
                     console.log("informant mapping", informant )
                     return(
 
-                        <div className="container-fluid result">
-                            <div className="row">
-                                <div className="col-md-3">
+                        <div className="container-fluid result" id='eachsearchresult'>
+                            <div className="row" id="searchResultFirstRow">
+                                <div className="col-md-7">
                                     <h5 className="name" id={`informant${informant.informantid}`}       style={{height: 30}}
                                         key={index}  ref={(el)=>{this[`informant${informant.informantid}`] = el}}
                                     >
@@ -45,7 +47,7 @@ class SearchResults extends Component {
                                         </Link>
                                     </h5>
                                 </div>
-                                <div className="star col-md-3"> 
+                                <div className="star col-md-5"> 
                                         <StarRatings 
                                             rating={informant.avgstarrating === null? 0: parseInt(informant.avgstarrating,10)}
                                             starRatedColor="#163D57"
@@ -56,13 +58,16 @@ class SearchResults extends Component {
                                         {informant.avgstarrating}
                                 </div>
                             </div>
-                            <div className="row">
+                            <div className="row" id="searchResultSecondRow">
 {/* first column photo */}
-                                <div className="col-md-2 image">
-                                <i class="fas fa-user fa-5x image"></i>
+                                <div className="col-md-2 image"  id="searchResultSecondRowFirstCol">
+                                    <i class="fas fa-user fa-5x image ml-3 mb-3"></i>
+                                    <button className="btn btn-default ml-2 " onClick={()=>this.selectInformant(informant.informantid, informant.distance)}>
+                                            Select
+                                    </button>
                                 </div>
 {/* second column */}
-                                <div className="col-md-10">
+                                <div className="col-md-6" id="searchResultSecondRowSecondCol">
                                     <div className="row">
                                         <div className="col-md-12">
                                             <dl className="dl-horizontal">
@@ -95,12 +100,7 @@ class SearchResults extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="row">
-                                <div className="col-md-2">
-                                        <button className="btn btn-default" onClick={()=>this.selectInformant(informant.informantid, informant.distance)}>
-                                        Select</button>
-                                </div>
-                            </div>
+                           
                         </div>
                     )
                 })}
