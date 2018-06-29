@@ -10,7 +10,12 @@ import StandAloneSearch from './StandAloneSearch'
 import {connect} from 'react-redux'
 import axios from 'axios';
 import Geocode from 'react-geocode';
+
+import { Field, reduxForm } from 'redux-form';
+import { renderField } from "../Shared/Forms"
+
 import {addSearchLocation} from '../../ducks/reducers/search'
+
 
 import { Link } from 'react-router-dom';
 
@@ -29,6 +34,7 @@ class GetStarted extends Component {
 
     searchAddress= () =>{
         Geocode.setApiKey("AIzaSyBWRUwhKeGWx_7qra1Mw4TUSjWhZBuqrq4")
+
         this.props.addSearchLocation(this.props.form.MapSearch.values.searchvalue);
         // console.log(this.props.form.MapSearch.values.searchvalue)
         Geocode.fromAddress(this.props.form.MapSearch.values.searchvalue).then(response=>{
