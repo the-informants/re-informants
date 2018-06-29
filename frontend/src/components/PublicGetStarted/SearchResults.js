@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {addToCart} from '../../ducks/reducers/order'
+import {addToCart, createOrderResults} from '../../ducks/reducers/order'
 import {newInformantsFalse} from '../../ducks/reducers/search'
+import {Link} from 'react-router-dom'
+import StarRatings from 'react-star-ratings';
 
 
 class SearchResults extends Component {
@@ -14,9 +16,17 @@ class SearchResults extends Component {
             this.props.newInformantsFalse()
         }        
      }
+
+    selectInformant=(informantid, distance)=>{
+        // const {openOrderForm} = props;
+
+        const orderResult = {informantid, distance, buyerid: this.props.user.buyerInfo.buyerid }
+        this.props.createOrderResults(orderResult);
+        this.props.openOrderForm();
+    } 
     render(){
         return(
-            <div style={{height: 60, overflow: "auto", overflowX: "hidden"}}> 
+            <div style={{height: 400, overflow: "auto", overflowX: "hidden"}}> 
                 <div /* style={{ float:"left", clear: "both" }} */
                         ref={(el) => { this.searchBeginning = el; }}>
                 </div>
@@ -24,8 +34,20 @@ class SearchResults extends Component {
                     console.log("informant mapping", informant )
                     return(
                         <div id={`informant${informant.informantid}`}style={{height: 30}}key={index}  ref={(el)=>{this[`informant${informant.informantid}`] = el}}>
+                            <Link to= {`/UserReviews/${informant.informantid}`}>
                             {`${informant.firstname} ${informant.lastname}`} 
+                            </Link>
+                            <StarRatings 
+                                rating={informant.avgstarrating === null? 0: parseInt(informant.avgstarrating,10)}
+                                starRatedColor="#163D57"
+                                numberOfStars={5}
+                                starDimension="15px"
+                                starSpacing = "2px"
+                            />
 
+                            {informant.avgstarrating}
+                            Years in Neigborhood
+                            {informant.years}
                             <label>Miles Away</label>
                             {Math.round(informant.distance* 10)/10}
                             <label>Knows about</label>
@@ -35,7 +57,7 @@ class SearchResults extends Component {
                             {informant.knowschoolflag === "true" && <span>School</span>}
                             <span>{informant.informantnotes}</span>
 
-                            <button onClick={()=>this.props.addToCart(informant.informantid)}>Select</button>
+                            <button onClick={()=>this.selectInformant(informant.informantid, informant.distance)}>Select</button>
                             
                             
                         </div>
@@ -46,8 +68,8 @@ class SearchResults extends Component {
     }
 }
 function mapStateToProps(state){
-    const {search, order} = state;
-    return {search, order}
+    const {search, order, user} = state;
+    return {search, order, user}
 }
 
-export default connect(mapStateToProps, {addToCart, newInformantsFalse})(SearchResults)
+export default connect(mapStateToProps, {addToCart, newInformantsFalse, createOrderResults})(SearchResults)

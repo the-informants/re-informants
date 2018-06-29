@@ -1,30 +1,38 @@
 insert into orders (
     buyerid,
     ordername,
-    address1,
-    address2,
-	city,
-	state,
-	zip,
+    -- address1,
+    -- address2,
+	-- city,
+	-- state,
+	-- zip,
 	ordertype,
 	ordernotes,
 	ordervaliduntil,
-	orderdatetime
+	orderdatetime,
+	address,
+	lat,
+	lng,
+	orderresultid
     )
 
 values
 (
     ${buyerid},
     ${ordername},
-    ${address1},
-    ${address2},
-	${city},
-	${state},
-	${zip},
+    -- ${address1},
+    -- ${address2},
+	-- ${city},
+	-- ${state},
+	-- ${zip},
 	${ordertype},
 	${ordernotes},
 	CURRENT_TIMESTAMP + (${durationday}::integer ||' day')::interval,
-	CURRENT_TIMESTAMP
+	CURRENT_TIMESTAMP,
+	${address},
+	${lat},
+	${lng},
+	${orderresultid}
 )
 
 RETURNING *;

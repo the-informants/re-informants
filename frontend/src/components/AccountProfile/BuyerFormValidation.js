@@ -9,6 +9,7 @@ const BuyerFormValidation = props=>{
     return (
 
         <form onSubmit={handleSubmit(mysubmit)}>
+            <h2>Become a Buyer</h2>
             <Field  name="firstname" type = "text" component={renderField} label="First Name"/>
             <Field  name="lastname" type = "text" component={renderField} label="Last Name"/>
             <Field  name="phone" type = "number" component={renderField} label="Phone"/>

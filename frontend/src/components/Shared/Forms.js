@@ -1,24 +1,26 @@
 import React from 'react'
 
-export const renderField = ({
+export const renderField = (
+    {
     input,
     label,
     placeholder,
     type,
     meta: {touched, error, warning}
-})=>(
+}
+)=>(
     <div className="form-group">
         <label>
         {label}
         </label>
         <div>
+           
             <input {...input} placeholder={placeholder} type = {type} className="form-control"/>
-            {touched && 
-                ((error && <span>{error}</span>)||
-                    (warning && <span>{warning}</span>))}
+            {touched && ((error && <span>{error}</span>) || 
+            (warning && <span>{warning}</span>))}
         </div>
-    </div>
-)
+    </div>)
+
 export const renderSelectField = ({ 
     input,
     label,

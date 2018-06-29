@@ -3,6 +3,7 @@ import {Field, reduxForm} from "redux-form"
 import { connect } from "react-redux";
 import UsStates from '../../components/Shared/UsStates'
 import {renderField, renderSelectField} from  '../../components/Shared/Forms'
+// import {formvalidate} from '../Shared/Validate'
 
 
 const InformantFormValidation = props=>{
@@ -10,8 +11,7 @@ const InformantFormValidation = props=>{
 
     return (
         <form onSubmit={handleSubmit(mysubmit)}>
-            <button className="btn btn-primary" type = "submit" disabled={pristine || submitting}>{informantInfo?'Submit Changes':'Submit'}</button>
-            <button className="btn btn-danger" onClick={cancel}>Cancel</button>
+            <h2>Become an Informant</h2>
             <Field  
                 name="firstname" 
                 type = "text" 
@@ -57,6 +57,14 @@ const InformantFormValidation = props=>{
                 <option/>
                 {UsStates.map(usState=><option key = {usState.name} value = {usState.name}>{usState.abbreviation}</option>)}
             </Field>
+            <Field name="years" component={renderSelectField} label="Years in Neighborhood">
+                <option/>
+                <option value = "0-1">0-1</option>
+                <option value = "1-5">1-5</option>
+                <option value = "5-10">5-10</option>
+                <option value = "10-20">10-20</option>
+                <option value = "20+">20 +</option>
+            </Field>
             <Field  
                 name="zip" 
                 type = "number" 
@@ -101,6 +109,7 @@ const InformantFormValidation = props=>{
             <button className="btn btn-danger" onClick={cancel}>Cancel</button>
         </form>
     )
+    console.log('field',renderField)
 }
 
 const validate = values =>{
@@ -131,11 +140,15 @@ const validate = values =>{
     }else if (isNaN(Number(values.zip))){
         errors.zip = "Must be a number"
     }
-    console.log('testing the errors',errors);
+    if(!values.years){
+        errors.years = "This is required"
+    }
+    console.log('testing the errors', renderField);
     return errors
 }
 
 function mapStateToProps(state){
+    const {user} = state
     return {
         informantInfo: state.user.informantInfo,
         initialValues: {firstname: state.user.informantInfo ? state.user.informantInfo.firstname : '',
@@ -146,13 +159,16 @@ function mapStateToProps(state){
                         city: state.user.informantInfo ? state.user.informantInfo.city : '',
                         state: state.user.informantInfo ? state.user.informantInfo.state : '',
                         zip: state.user.informantInfo ? state.user.informantInfo.zip : '',
+                        years: state.user.informantInfo? state.user.informantInfo.years : '',
                         knowcommunityflag: state.user.informantInfo ? state.user.informantInfo.knowcommunityflag : '',
                         knowschoolflag: state.user.informantInfo ? state.user.informantInfo.knowschoolflag : '',
                         knowcrimeflag: state.user.informantInfo ? state.user.informantInfo.knowcrimeflag : '',
                         knowreligionflag: state.user.informantInfo ? state.user.informantInfo.knowreligionflag : '',
                         informantnotes: state.user.informantInfo ? state.user.informantInfo.informantnotes : ''
                         
-                        }
+                        },
+        user
+                        
     }
 }
 
@@ -160,6 +176,7 @@ function mapStateToProps(state){
 let formComponent = reduxForm({
     form: "InformantForm",
     validate
+    
 })(InformantFormValidation)
 
 

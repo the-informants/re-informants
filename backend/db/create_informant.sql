@@ -1,6 +1,6 @@
 insert into informants (userid, firstname, lastname, informantsincedatetime, informantnotes, phone, 
                         address1, address2, city, state, zip, knowcommunityflag, knowreligionflag,
-                        knowcrimeflag, knowschoolflag, availableflag, lat, lng)
+                        knowcrimeflag, knowschoolflag, availableflag, lat, lng, years)
 values
 (
     ${userid},
@@ -20,7 +20,8 @@ values
     ${knowschoolflag},
     'true',
     ${lat},
-    ${lng}
+    ${lng},
+    ${years}
 )
 
 RETURNING *;
