@@ -94,7 +94,7 @@ h4 {
 
 .btn-map {
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 #inputBox {
@@ -105,6 +105,15 @@ h4 {
   margin-right: auto;
   align-content: center;
 }
+.google-maps-container{
+  height: calc((100vh - 230px)/2)
+}
+.search-results-container {
+  height: calc((100vh - 230px)/2);
+  overflow: auto;
+  overflow-x: hidden
+ 
+}
 
 
 /* mobile phones */
@@ -112,14 +121,26 @@ h4 {
   .imgContainer {
     height: 350px
   }
+  .logo{
+    width: calc(100vw - 120px);
+  }
+  
+  
 } 
 @media (min-width: 769px){
-
+  
   .white-background{
     background-color: white
   }
   .btn-map {
     margin-left: 10px;
+    margin-bottom: 10px;
+  }
+  .google-maps-container{
+    height: calc(100vh - 210px)
+  }
+  .search-results-container{
+    height: calc(100vh - 210px)
   }
 }
 
@@ -148,7 +169,7 @@ h4 {
   margin: 5px;
   font-size: 12px;
   display: 'flex';
-  justifyContent: 'space-between';
+  justify-content: 'space-between';
 }
 
 .result dl {
@@ -199,3 +220,4 @@ h4 {
   box-sizing: border-box;
 
 }
+
