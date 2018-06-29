@@ -21,7 +21,7 @@ const BuyerFormValidation = props=>{
                 <option value = "Real Estate Agent">Real Estate Agent</option>
             </Field>
            
-            <div>
+            <div className="pt-3">
                 <label>Additional Info</label>
                 <div>
                     <Field name="buyernotes" component="textarea"/>

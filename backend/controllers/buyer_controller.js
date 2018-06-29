@@ -1,4 +1,6 @@
 module.exports = {
+    buyer: [],
+    buyerCount: 0,
 
     getBuyer: (req,res)=>{
         const db = req.app.get('db');
@@ -6,6 +8,7 @@ module.exports = {
         db.get_buyer({userid})
         .then(buyer=>{
             res.status(200).send(buyer);
+            this.buyerCount = buyer.length;
         })
         .catch(err=>console.error(err))
     },

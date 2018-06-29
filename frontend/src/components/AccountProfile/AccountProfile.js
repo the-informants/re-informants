@@ -118,6 +118,10 @@ class AccountProfile extends Component {
                 ?
 
                 <div className="container">
+                <hr />
+                <h4>
+                    Your Buyer Info 
+                </h4>
                     <button className="btn btn-default" onClick={this.openBuyerForm}>Edit Buyer Profile</button>
                     <Link to="/">
                                     <button className="btn btn-primary">
@@ -169,7 +173,7 @@ class AccountProfile extends Component {
                             })
                             }
                         </div>
-                        :   <div className="container">"You don't have any active order"
+                        :   <div className="container">"You don't have any active orders"
                             </div>
                     }
                 </div>
@@ -195,8 +199,12 @@ class AccountProfile extends Component {
                 {
                 this.props.user.informantInfo.informantid
                 ?
-                <div>
-                    <button onClick={this.openInformantForm}>Edit Informant Profile</button>
+                <div className="container">
+                <hr />
+                <h4>
+                    Your Informant Info
+                </h4>
+                    <button className="btn btn-default" onClick={this.openInformantForm}>Edit Informant Profile</button>
                     <Link to="/">
                                     <button className="btn btn-primary">
                                         Search for a buyer
