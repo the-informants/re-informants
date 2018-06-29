@@ -64,37 +64,36 @@ class Nav extends Component {
 
                             <ul className="navbar-nav ml-auto">
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="/PublicGetStarted">Get Started</Link>
+                                    <Link className="nav-link navsize" to="/PublicGetStarted">Get Started</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="/PublicBuyer">Buyer</Link>
+                                    <Link className="nav-link navsize" to="/PublicBuyer">Buyer</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="/PublicInformant">Informant</Link>
-                                </li>
-                                }
-                                
+                                    <Link className="nav-link navsize" to="/PublicInformant">Informant</Link>
+                                </li>  
                             </ul>
-                            <a href={"http://localhost:4000/auth"}><button className="btn btn-primary" >Login</button></a>
+                            <a href={"http://localhost:4000/auth"}><button className="btn btn-primary" >Sign Up</button></a>
+                            <a href={"http://localhost:4000/auth"}><button className="btn btn-default" >Login</button></a>
                             </div>
                                 :
                             <div className={`${classOne}`} id="navbarResponsive">
                                 <ul className="navbar-nav ml-auto">
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="/">Get Started</Link>
+                                    <Link className="nav-link navsize" to="/">Get Started</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="/PrivateBuyer">Buyer</Link>
+                                    <Link className="nav-link navsize" to="/PrivateBuyer">Buyer</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="/PrivateInformant">Informant</Link>
+                                    <Link className="nav-link navsize" to="/PrivateInformant">Informant</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="/Account">Account</Link>
+                                    <Link className="nav-link navsize" to="/Account">Account</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="/Cart">
-                                        <i className="fas fa-shopping-cart cart-icon"></i>{ActiveUnpaidOrders.length> 0 && <span className="badge badge-pill badge-primary">{ActiveUnpaidOrders.length}</span>}
+                                    <Link className="nav-link navsize" to="/Cart">
+                                        <i className="fas fa-shopping-cart cart-icon navsize"></i>{ActiveUnpaidOrders.length> 0 && <span className="badge badge-pill badge-primary">{ActiveUnpaidOrders.length}</span>}
                                      </Link>
                                 </li>
                                 
