@@ -43,6 +43,8 @@ p {
 
 h1 {
   padding-top: 30px;
+  border-bottom: solid 1px grey;
+  margin-bottom: 10px;
 }
 
 h4 {
@@ -101,8 +103,43 @@ h4 {
   align-content: center;
 }
 
+/* home page style */
 .marketing {
   margin-top: 100px;
+}
+
+/* this is for the cool step list items */
+.step {
+  margin-left: 0;
+  padding-left: 0;
+  margin-top: 10px;
+  counter-reset: item;
+  list-style-type: none;
+  
+}
+
+.step li {
+  margin: 15px;
+  list-style-position: inside;
+  text-indent: -6em;
+  padding-left: 6em;
+}
+
+.step li:before {
+  content: 'Step ' counter(item, decimal) ' - ';
+  counter-increment: item;
+  font-weight: bold;
+  margin-right: 10px;
+  font-size: 100%;
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 3px;
+}
+
+.lead {
+  font-weight: bold;
 }
 
 
