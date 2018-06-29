@@ -48,26 +48,50 @@ class Opening extends Component {
         };
         return (
             <div>
-                <Slider {...settings}>  
-                    <div className="imgContainer sliderImgOne">
-                        <div id="inputBox">
-                            <Search id="inputBox"/>
-                            <Link to="/PublicGetStarted"><button onClick={()=>this.searchAddress()} className="btn btn-primary btn-lg btn-block btn-map">Search</button></Link>
+                <div>
+                    <Slider {...settings}>  
+                        <div className="imgContainer sliderImgOne">
+                            <div className="inputBox">
+                                <Search/>
+                                <Link to="/PublicGetStarted"><button onClick={()=>this.searchAddress()} className="btn btn-primary btn-lg">Search</button></Link>
+                            </div>
+                        </div>
+                        <div className="imgContainer sliderImgTwo">
+                            <div className="inputBox">
+                                <Search/>
+                                <Link to="/PublicGetStarted"><button onClick={()=>this.searchAddress()} className="btn btn-primary btn-lg">Search</button></Link>
+                            </div>
+                        </div>
+                        <div className="imgContainer sliderImgThree">
+                            <div className="inputBox">
+                                <Search/>
+                                <Link to="/PublicGetStarted"><button onClick={()=>this.searchAddress()} className="btn btn-primary btn-lg">Search</button></Link>
+                            </div>                    
+                        </div>   
+                    </Slider>
+                </div>
+                <div className="container-fluid marketing">
+                    <div className="row headers">
+                        <div className="col-lg-4">
+                            <i className="fas fa-home fa-7x"></i>
+                            <h2>Buyer</h2>
+                            <p>enter some text here to look neat</p>
+                            <button className="btn btn-secondary">Info: link to</button>
+                        </div>
+                        <div className="col-lg-4">
+                            <i className="fas fa-user-friends fa-7x"></i>
+                            <h2>Informant</h2>
+                            <p>enter some text here to look neat</p>
+                            <button className="btn btn-secondary">Info: link to</button>
+                        </div>
+                        <div className="col-lg-4">
+                            <i className="fas fa-handshake fa-7x"></i>
+                            <h2>header</h2>
+                            <p>enter some text here to look neat</p>
+                            <button className="btn btn-secondary">Info: link to</button>
                         </div>
                     </div>
-                    <div className="imgContainer sliderImgTwo">
-                        <div id="inputBox">
-                            <Search/>
-                            <Link to="/PublicGetStarted"><button onClick={()=>this.searchAddress()} className="btn btn-primary btn-lg btn-block btn-map">Search</button></Link>
-                        </div>
-                    </div>
-                    <div className="imgContainer sliderImgThree">
-                        <div id="inputBox">
-                            <Search/>
-                            <Link to="/PublicGetStarted"><button onClick={()=>this.searchAddress()} className="btn btn-primary btn-lg btn-block btn-map">Search</button></Link>
-                        </div>                    
-                    </div>   
-                </Slider>
+                </div>
             </div>
         );
       }
