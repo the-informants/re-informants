@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Redirect, Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import {getUserInfo, logout, getInformantInfo, getBuyerInfo} from '../../ducks/reducers/user';
-
+import logo from './images/logo.png'
 class Nav extends Component {
     constructor(props) {
     super(props);
@@ -49,7 +49,7 @@ class Nav extends Component {
                     {/* <Redirect to={"/"}/> */}
                     <div className="container-fluid body">
 
-                        <a className="navbar-brand" href="/">RE-Informants</a>
+                        <a className="navbar-brand" href="/"><img src={logo} alt="RE Informants"/></a>
                         <button onClick={this.toggleNavbar} className={`${classTwo}`} type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
                         </button>

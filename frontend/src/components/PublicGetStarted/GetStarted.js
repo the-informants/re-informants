@@ -87,9 +87,10 @@ class GetStarted extends Component {
                     </div>
                     <div className="row, col-md-12 container">
                         <Search />
+                        <button onClick={()=>this.searchAddress()} className=" btn btn-primary btn-lg btn-block btn-map">Search</button>
                     </div>
                         {/* <StandAloneSearch search={this.search}/> */}
-                        <button onClick={()=>this.searchAddress()} className=" btn btn-primary btn-lg btn-block btn-map">Search</button>
+                        
 
                     <div className="row, col-md-6">
                         

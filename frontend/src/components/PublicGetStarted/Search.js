@@ -21,7 +21,7 @@ class Search extends Component {
 
 render() {
     return (
-        <div>
+        <div className="row, col-md-12 container">
             <form>
                 <Field 
                     defaultValue="Enter an address or zip code"
