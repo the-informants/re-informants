@@ -3,22 +3,22 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../../App.css';
-
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import GoogleMaps from './Map' 
 import Search from './Search'
 import SearchResults from './SearchResults'
 import { addSearchCoordinates, searchAddress} from '../../ducks/reducers/search'
-
 import {connect} from 'react-redux'
 import Geocode from 'react-geocode';
-
-
 
 
 class Opening extends Component {
     constructor(props){
         super(props)
+        this.state = {
+            goToGetStarted: false,
+            searched: false
+        }
     }
     searchAddress= () =>{
         Geocode.setApiKey("AIzaSyBWRUwhKeGWx_7qra1Mw4TUSjWhZBuqrq4")
@@ -28,9 +28,15 @@ class Opening extends Component {
             this.props.addSearchCoordinates({lat, lng})
 
             this.props.searchAddress({lat, lng})
+            this.setState({searched: true})
         }).catch(e=>console.log(e));
     }
-
+    componentDidUpdate(prevProps){
+        console.log(prevProps.search.searchLat, this.props.search.searchLat)
+        if(prevProps.search.searchLat !== this.props.search.searchLat){
+            this.setState({goToGetStarted: true})
+        }
+    }
 
     render (){
         var settings = {
@@ -46,29 +52,63 @@ class Opening extends Component {
             pauseOnHover: false,
             adaptiveHeight: true
         };
+
+        if(this.state.searched){
+            return  (
+                <Redirect to={"/PublicGetStarted"}/> 
+            )
+        }        
         return (
             <div>
                 <div>
                     <Slider {...settings}>  
-                        <div className="imgContainer sliderImgOne">
-                            <div className="inputBox">
-                                <Search/>
-                                <Link to="/PublicGetStarted"><button onClick={()=>this.searchAddress()} className="btn btn-primary btn-lg">Search</button></Link>
-                            </div>
+                        <div className="imgContainer sliderImgOne justify-content-center align-items-center d-flex">
+                            <div className="container-fluid">
+                                <div className="row align-items-center justify-content-md-center mx-0">
+                                    <div className="row col-md-5 justify-content-center align-items-center white-background rounded my-2 mx-0">
+                                        <div className="d-flex col-12 col-lg-9 align-items-center justify-content-center px-0">
+                                            <Search mysubmit={this.searchAddress}/>        
+                                        </div>
+                                        <div className="col-12 col-lg-3 d-flex align-items-center justify-content-end px-0">
+                                               <Link to="/PublicGetStarted"><button onClick={()=>this.searchAddress()} className="btn-primary btn btn-lg btn-block btn-map">Search</button></Link>
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>   
                         </div>
-                        <div className="imgContainer sliderImgTwo">
-                            <div className="inputBox">
-                                <Search/>
-                                <Link to="/PublicGetStarted"><button onClick={()=>this.searchAddress()} className="btn btn-primary btn-lg">Search</button></Link>
-                            </div>
+
+                        <div className="imgContainer sliderImgTwo justify-content-center align-items-center d-flex">
+                            <div className="container-fluid">
+                                <div className="row align-items-center justify-content-md-center mx-0">
+                                    <div className="row col-md-5 justify-content-center align-items-center white-background rounded my-2 mx-0">
+                                        <div className="d-flex col-12 col-lg-9 align-items-center justify-content-center px-0">
+                                            <Search mysubmit={this.searchAddress}/>        
+                                        </div>
+                                        <div className="col-12 col-lg-3 d-flex align-items-center justify-content-end px-0">
+                                            <Link to="/PublicGetStarted"><button onClick={()=>this.searchAddress()} className="btn-primary btn btn-lg btn-block btn-map">Search</button></Link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>   
                         </div>
-                        <div className="imgContainer sliderImgThree">
-                            <div className="inputBox">
-                                <Search/>
-                                <Link to="/PublicGetStarted"><button onClick={()=>this.searchAddress()} className="btn btn-primary btn-lg">Search</button></Link>
-                            </div>                    
+
+                        <div className="imgContainer sliderImgThree justify-content-center align-items-center d-flex">
+                            <div className="container-fluid">
+                                <div className="row align-items-center justify-content-md-center mx-0">
+                                    <div className="row col-md-5 justify-content-center align-items-center white-background rounded my-2 mx-0">
+                                        <div className="d-flex col-12 col-lg-9 align-items-center justify-content-center px-0">
+                                            <Search mysubmit={this.searchAddress} />        
+                                        </div>
+                                        <div className="col-12 col-lg-3 d-flex align-items-center justify-content-end px-0">
+                                               <Link to="/PublicGetStarted"><button onClick={()=>this.searchAddress()} className="btn-primary btn btn-lg btn-block btn-map">Search</button></Link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                            
                         </div>   
+
                     </Slider>
+
                 </div>
                 <div className="container-fluid marketing">
                     <div className="row headers">

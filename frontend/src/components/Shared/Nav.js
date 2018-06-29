@@ -52,10 +52,9 @@ class Nav extends Component {
                 
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark transparent-nav">
 
-                    {/* <Redirect to={"/"}/> */}
                     <div className="container-fluid body">
-
-                        <a className="navbar-brand" href="/"><img className="logo img-responsive" src={logo} alt="RE Informants"/></a>
+                        <Link to={"/"}><img className="logo img-responsive" src={logo} alt="RE Informants"/></Link>
+                        {/* <a className="navbar-brand" href="/"><img className="logo img-responsive" src={logo} alt="RE Informants"/></a> */}
                         <button onClick={this.toggleNavbar} className={`${classTwo}`} type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
                         </button>
