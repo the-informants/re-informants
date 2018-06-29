@@ -73,20 +73,23 @@ class Opening extends Component {
                 <div className="container-fluid marketing">
                     <div className="row headers">
                         <div className="col-lg-4">
-                            <i className="fas fa-home fa-7x"></i>
+                            <i className="fas fa-user-friends fa-7x"></i>
+                            <h2>Informant</h2>
+                            <p>Help good people who are looking to buy a home in your neighborhood. Be their insider, tell them what you know about the schools, the community, the traffic flow, the neighbors, the churches and the recreation. And get paid for your time. It is easy to get started.</p>
+                            <Link to="/PublicInformant">
+                            <button className="btn btn-secondary">Learn How
+                            </button>
+                            </Link>
+                        </div>
+                        <div className="col-lg-4">
+                            <i className="fas fa-handshake fa-7x"></i>
                             <h2>Buyer</h2>
                             <p>enter some text here to look neat</p>
                             <button className="btn btn-secondary">Info: link to</button>
                         </div>
                         <div className="col-lg-4">
-                            <i className="fas fa-user-friends fa-7x"></i>
-                            <h2>Informant</h2>
-                            <p>enter some text here to look neat</p>
-                            <button className="btn btn-secondary">Info: link to</button>
-                        </div>
-                        <div className="col-lg-4">
-                            <i className="fas fa-handshake fa-7x"></i>
-                            <h2>header</h2>
+                            <i className="fas fa-home  fa-7x"></i>
+                            <h2>Seller</h2>
                             <p>enter some text here to look neat</p>
                             <button className="btn btn-secondary">Info: link to</button>
                         </div>
