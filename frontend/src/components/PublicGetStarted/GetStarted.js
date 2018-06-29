@@ -94,6 +94,7 @@ class GetStarted extends Component {
                     {/* <div className="row, col-md-4 container">
                         <Search />
 
+
                     </div> */}
                     <div className="row align-items-center justify-content-md-center mx-0">
                         <div className="row col-md-7 justify-content-center align-items-center white-background rounded mb-3 mx-0">
@@ -105,9 +106,11 @@ class GetStarted extends Component {
                             </div>
                         </div>
 
+
                     </div>
                 
                         {/* <StandAloneSearch search={this.search}/> */}
+
                     <div className="row">
                         <div className="col-12 col-md-6">
                             
@@ -122,6 +125,7 @@ class GetStarted extends Component {
                             center={{lat: this.props.search.searchLat, lng: this.props.search.searchLng}}
                             defaultCenter={{ lat: 41.00472, lng: -111.9051596 }}
                         />
+
                         
                             
                         </div>

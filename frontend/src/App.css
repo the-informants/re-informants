@@ -32,9 +32,8 @@ body {
 
 
 .btn {
-  margin: 10px;
+  margin: 5px;
 }
-
 
 /* Above were added by Keller on 6/6/18 */
 
@@ -138,6 +137,54 @@ h4 {
   margin-bottom: 15px;
 
 }
+
+
+.result {
+  /* display: flex; */
+  /* flex-direction: row; */
+  /*flex-wrap: wrap; */
+  border-bottom-color: black;
+  border-bottom: 1px solid;
+  margin: 5px;
+  font-size: 12px;
+  display: 'flex';
+  justifyContent: 'space-between';
+}
+
+.result dl {
+  font-size: 12px;
+  line-height: 1;
+  margin: 0;
+}
+
+.result .row {
+  line-height: 1;
+  padding: 0;
+}
+
+/* .result button {
+  padding: 0;
+  border: 1px solid;
+  text-align: right;
+} */
+
+.name a {
+  color: white;
+  margin: 3px;
+  
+}
+
+.image {
+  width: 50px;
+  height: 50px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.fa-user {
+  align-content: center;
+
 .review {
   border-bottom: 1px solid;
   margin-bottom: 15px;
@@ -150,4 +197,5 @@ h4 {
   padding-bottom: 10px;
   padding-top: 20px;
   box-sizing: border-box;
+
 }

@@ -8,8 +8,10 @@ class Search extends Component {
 
 render() {
     return (
+
         
             <form style={{width: "100%"}}>
+
                 <Field 
                     defaultValue="Enter an address or zip code"
                     placeholder="Search by City, Zip, or Address"
