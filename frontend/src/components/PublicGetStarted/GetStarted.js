@@ -86,36 +86,49 @@ class GetStarted extends Component {
           };
        
         return(
-            <div className="getstarted-body">
-                <div className="row container-fluid">
+            // <div className="getstarted-body">
+                <div className="container-fluid">
                     <div className="pageTitle col-md-12">
                         <h1>Find neighborhood insiders</h1>
                     </div>
-                    <div className="row, col-md-12 container">
+                    {/* <div className="row, col-md-4 container">
                         <Search />
+
+                    </div> */}
+                    <div className="row align-items-center justify-content-md-center mx-0">
+                        <div className="row col-md-7 justify-content-center align-items-center white-background rounded mb-3 mx-0">
+                            <div className="d-flex col-12 col-lg-9 align-items-center justify-content-center px-0">
+                                <Search />        
+                            </div>
+                            <div className="col-12 col-lg-3 d-flex align-items-center justify-content center px-0">
+                                    <button onClick={()=>this.searchAddress()} className="btn-primary btn-lg btn-block btn-map">Search</button>
+                            </div>
+                        </div>
+
                     </div>
+                
                         {/* <StandAloneSearch search={this.search}/> */}
-                        <button onClick={()=>this.searchAddress()} className=" btn btn-primary btn-lg btn-block btn-map">Search</button>
-
-                    <div className="row, col-md-6">
+                    <div className="row">
+                        <div className="col-12 col-md-6">
+                            
+                        <GoogleMaps
+                            containerElement={<div style={{ height: `400px` }} />}
+                            mapElement={<div style={{ height: `100%` }} />}
+                            // markers={this.state.markers}
+                            googleMapURL = {"https://maps.googleapis.com/maps/api/js?key=AIzaSyBWRUwhKeGWx_7qra1Mw4TUSjWhZBuqrq4"}
+                            markers={this.props.search.informants}
+                            loadingElement={<div style={{ height: `100%` }} />}
+                            searchFunction={this.search}
+                            center={{lat: this.props.search.searchLat, lng: this.props.search.searchLng}}
+                            defaultCenter={{ lat: 41.00472, lng: -111.9051596 }}
+                        />
                         
-                     <GoogleMaps
-                        containerElement={<div style={{ height: `400px` }} />}
-                        mapElement={<div style={{ height: `100%` }} />}
-                        // markers={this.state.markers}
-                        googleMapURL = {"https://maps.googleapis.com/maps/api/js?key=AIzaSyBWRUwhKeGWx_7qra1Mw4TUSjWhZBuqrq4"}
-                        markers={this.props.search.informants}
-                        loadingElement={<div style={{ height: `100%` }} />}
-                        searchFunction={this.search}
-                        center={{lat: this.props.search.searchLat, lng: this.props.search.searchLng}}
-                        defaultCenter={{ lat: 41.00472, lng: -111.9051596 }}
-                    />
-                    
-                        
-                    </div>
+                            
+                        </div>
 
-                    <div className="row, col-md-6" style={styles.searchResults}>
-                        <SearchResults openOrderForm={this.openCreateOrderForm}/>
+                        <div className="col-12 col-md-6" style={styles.searchResults}>
+                            <SearchResults openOrderForm={this.openCreateOrderForm}/>
+                        </div>
                     </div>
 
                     <Modal
@@ -129,7 +142,7 @@ class GetStarted extends Component {
                     </Modal>
                 </div>
 
-                <div className="container row text-center">
+                /*<div className="container row text-center">
                     <div className="container col-md-6">
                         <h2>Buyer information</h2>
                         <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h6>
@@ -139,8 +152,8 @@ class GetStarted extends Component {
                         <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h6>
                     </div>
 
-                </div>
-            </div>
+                </div> */
+            /* </div> */
         )
     }
     styles = () => {
