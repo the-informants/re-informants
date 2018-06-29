@@ -16,6 +16,7 @@ class SearchResults extends Component {
             this.props.newInformantsFalse()
         }        
      }
+    
 
     selectInformant=(informantid, distance)=>{
         // const {openOrderForm} = props;
@@ -36,7 +37,7 @@ class SearchResults extends Component {
                     console.log("informant mapping", informant )
                     return(
 
-                        <div className="container-fluid result" id='eachsearchresult'>
+                        <div className="container-fluid result" id='eachsearchresult' key={index}>
                             <div className="row" id="searchResultFirstRow">
                                 <div className="col-md-7">
                                     <h5 className="name" id={`informant${informant.informantid}`}       style={{height: 30}}

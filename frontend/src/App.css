@@ -94,6 +94,12 @@ h4 {
   background-repeat: no-repeat;
   background-position: center;
 }
+.search-opening {
+  margin-top: 200px
+}
+.imgContainer a {
+  width: 100%
+}
 
 .inputBox {
   margin-top: 30px;

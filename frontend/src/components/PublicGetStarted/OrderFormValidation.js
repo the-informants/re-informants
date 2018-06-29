@@ -58,35 +58,6 @@ const validate = values =>{
     if (!values.ordername){
         errors.ordername = 'Required'
     }
-
-    // if(!values.address1){
-    //     errors.address1 = "Required"
-    // }
-    // if (/[^a-zA-Z]/i.test(values.city)){
-    //     errors.city = "Only alphabetic characters allowed"
-    // }
-    // if(!values.city){
-    //     errors.city = "Required"
-    // }else if (/[^a-zA-Z]/i.test(values.city)){
-    //     errors.city = "Only alphabetic characters allowed"
-    // }
-
-    // if(!values.state){
-    //     errors.state = "Required"
-    // }
-    //  if(!/^([0-9]{5})$/i.test(values.zip)){
-    //     errors.zip = "Invalid Zip code, must be 5 digits"
-    // }else if (isNaN(Number(values.zip))){
-    //     errors.zip = "Must be a number"
-    // }
-    // if(!values.zip){
-    //     errors.zip = "Required"
-    // }else if(!/^([0-9]{5})$/i.test(values.zip)){
-    //     errors.zip = "Invalid Zip code, must be 5 digits"
-    // }else if (isNaN(Number(values.zip))){
-    //     errors.zip = "Must be a number"
-    // }
-
     if(!values.orderrtype){
         errors.orderrtype = "Required"
     }

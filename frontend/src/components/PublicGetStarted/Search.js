@@ -7,10 +7,12 @@ class Search extends Component {
    
 
 render() {
+    const {handleSubmit, mysubmit} = this.props
+    console.log("props", this.props)
     return (
 
         
-            <form style={{width: "100%"}}>
+            <form onSubmit={handleSubmit(mysubmit)} style={{width: "100%"}}>
 
                 <Field 
                     defaultValue="Enter an address or zip code"
@@ -29,8 +31,7 @@ const renderField = (field)=>(
         className="form-control form-control-lg borderless"
         type="text"
         placeholder={field.placeholder}
-        {...field.input}
-        
+        {...field.input}        
     />
 </div>
 )

@@ -4,7 +4,7 @@ import GoogleMaps from './Map'
 import Modal from 'react-modal';
 import Search from './Search'
 import SearchResults from './SearchResults'
-import { addSearchCoordinates, searchAddress} from '../../ducks/reducers/search'
+import { addSearchCoordinates, searchAddress, addSearchLocation} from '../../ducks/reducers/search'
 
 import StandAloneSearch from './StandAloneSearch'
 import {connect} from 'react-redux'
@@ -13,9 +13,6 @@ import Geocode from 'react-geocode';
 
 import { Field, reduxForm } from 'redux-form';
 import { renderField } from "../Shared/Forms"
-
-import {addSearchLocation} from '../../ducks/reducers/search'
-
 
 import { Link } from 'react-router-dom';
 
@@ -90,12 +87,12 @@ class GetStarted extends Component {
                 <div className="container-fluid">
                     
                     <div className="row align-items-center justify-content-md-center mx-0">
-                        <div className="row col-md-7 justify-content-center align-items-center white-background rounded mt-2 mb-2 mx-0">
+                        <div className="row col-md-5 justify-content-center align-items-center white-background rounded my-2 mx-0">
                             <div className="d-flex col-12 col-lg-9 align-items-center justify-content-center px-0">
-                                <Search />        
+                                <Search  mysubmit={this.searchAddress}/>        
                             </div>
-                            <div className="col-12 col-lg-3 d-flex align-items-center justify-content center px-0">
-                                    <button onClick={()=>this.searchAddress()} className="btn-primary btn-lg btn-block btn-map">Search</button>
+                            <div className="col-12 col-lg-3 d-flex align-items-center justify-content-end px-0">
+                                    <button onClick={()=>this.searchAddress()} className="btn-primary btn btn-block btn-lg btn-map">Search</button>
                             </div>
                         </div>
 
@@ -137,19 +134,6 @@ class GetStarted extends Component {
                                 />
                     </Modal>
                 </div>
-
-                /*<div className="container row text-center">
-                    <div className="container col-md-6">
-                        <h2>Buyer information</h2>
-                        <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h6>
-                    </div>
-                    <div className="container col-md-6">
-                        <h2>Informant information</h2>
-                        <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h6>
-                    </div>
-
-                </div> */
-            /* </div> */
         )
     }
     styles = () => {
