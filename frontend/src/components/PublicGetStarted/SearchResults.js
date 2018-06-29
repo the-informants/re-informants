@@ -26,7 +26,9 @@ class SearchResults extends Component {
     } 
     render(){
         return(
-            <div id='searchResultOutterBox' style={{height: 400, overflow: "auto", overflowX: "hidden"}}> 
+
+            <div className="search-results-container" id="searchResultOutterBox"> 
+
                 <div /* style={{ float:"left", clear: "both" }} */
                         ref={(el) => { this.searchBeginning = el; }}>
                 </div>
