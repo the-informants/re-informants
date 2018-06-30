@@ -30,9 +30,9 @@ class PrivateBuyer extends Component {
             <div className="container PageTitle">
                 <h1>Private Buyer</h1>
                     <div className="container">
-                        <Link to="/">
+                        <Link to="/PublicGetStarted">
                             <button className="btn btn-primary">
-                            New Order
+                            Search Again
                             </button>
                         </Link>
                 

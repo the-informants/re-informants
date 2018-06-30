@@ -16,7 +16,7 @@ const OrderFormValidation = props=>{
             <Field  
                 name="ordername" 
                 type = "text" 
-                placeholder="Order name" 
+                placeholder="Give your order a name" 
                 component={renderField} 
                 label="Order Name"/> 
             
@@ -32,7 +32,7 @@ const OrderFormValidation = props=>{
                     name="durationday"
                     component={renderSelectField}
                     type = "text"
-                    label="Days Valid">
+                    label="Choose how long this order is valid">
                 <option/>
                 <option value = "1">1</option>
                 <option value = "2">2</option>
