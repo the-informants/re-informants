@@ -59,11 +59,16 @@ class Cart extends Component {
             <div className="PageTitle container">
             <h1>Your Cart
                 </h1>
-                <Link to="/">
+                <div className="container"> 
+                <Link to="/PublicGetStarted">
                     <button className="btn btn-primary">
-                        Continue Shopping
+                        Continue Researching
                     </button>
                 </Link>
+                    <button className="btn btn-primary" onClick={this.openPaymentForm}>
+                        Check Out
+                    </button>
+                </div>
                 
 
 
@@ -124,7 +129,12 @@ class Cart extends Component {
                         :   <div>You don't have any order in your cart</div>
                     }
 
-               <div className="container"> 
+                <div className="container"> 
+                <Link to="/PublicGetStarted">
+                    <button className="btn btn-primary">
+                        Continue Researching
+                    </button>
+                </Link>
                     <button className="btn btn-primary" onClick={this.openPaymentForm}>
                         Check Out
                     </button>

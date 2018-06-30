@@ -66,11 +66,15 @@ class Nav extends Component {
                                     <Link className="nav-link navsize" to="/PublicGetStarted">Get Started</Link>
                                 </li>
                                 <li className="nav-item">
+                                    <Link className="nav-link navsize" to="/PublicInformant">Informant</Link>
+                                </li>  
+                                <li className="nav-item">
                                     <Link className="nav-link navsize" to="/PublicBuyer">Buyer</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link navsize" to="/PublicInformant">Informant</Link>
-                                </li>  
+                                    <Link className="nav-link navsize" to="/PublicSeller">Seller</Link>
+                                </li>
+                                
                             </ul>
                             <a href={"http://localhost:4000/auth"}><button className="btn btn-primary" >Sign Up</button></a>
                             <a href={"http://localhost:4000/auth"}><button className="btn btn-default" >Login</button></a>
@@ -84,10 +88,13 @@ class Nav extends Component {
 
                                 </li>
                                 <li className="nav-item">
+                                    <Link className="nav-link navsize" to="/PrivateInformant">Informant</Link>
+                                </li>
+                                <li className="nav-item">
                                     <Link className="nav-link navsize" to="/PrivateBuyer">Buyer</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link navsize" to="/PrivateInformant">Informant</Link>
+                                    <Link className="nav-link navsize" to="/PrivateSeller">Seller</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link navsize" to="/Account">Account</Link>

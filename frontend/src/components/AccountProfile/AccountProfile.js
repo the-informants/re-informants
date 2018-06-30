@@ -212,7 +212,8 @@ class AccountProfile extends Component {
                     </Link>
 
                     {ActiveInquiries[0]
-                        ?<div>'here are your active inquiries:'
+                        ?<div className="container">
+                        <h4>Here are your active inquiries:</h4>
                             {ActiveInquiries.map((inquiry) => {
 
                             return (

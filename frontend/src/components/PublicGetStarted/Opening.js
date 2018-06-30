@@ -119,21 +119,27 @@ class Opening extends Component {
                             <h2>Informant</h2>
                             <p>Help good people who are looking to buy a home in your neighborhood. Be their insider, tell them what you know about the schools, the community, the traffic flow, the neighbors, the churches and the recreation. And get paid for your time. It is easy to get started.</p>
                             <Link to="/PublicInformant">
-                            <button className="btn btn-secondary">Learn How
+                            <button className="btn btn-secondary">Start Sharing
                             </button>
                             </Link>
                         </div>
                         <div className="col-lg-4">
                             <i className="fas fa-handshake fa-7x"></i>
                             <h2>Buyer</h2>
-                            <p>enter some text here to look neat</p>
-                            <button className="btn btn-secondary">Info: link to</button>
+                            <p>In every other purchase we use reviews, but where is the neighborhood review when buying a home? Insider information is hard to come by. REInformants makes that possible. Search for neighborhood insiders and buy with confidence. </p>
+                            <Link to="/PublicBuyer">
+                            <button className="btn btn-secondary">Find RE Informants
+                            </button>
+                            </Link>
                         </div>
                         <div className="col-lg-4">
                             <i className="fas fa-home  fa-7x"></i>
                             <h2>Seller</h2>
-                            <p>enter some text here to look neat</p>
-                            <button className="btn btn-secondary">Info: link to</button>
+                            <p>Help your buyers find information about your neighborhood. All of us have used employment references. Why not provide a home reference. Our platform makes it easy to invite your neighbors to become real estate informants. Share that in your listing.</p>
+                            <Link to="/PublicSeller">
+                            <button className="btn btn-secondary">Improve Your Listing
+                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
