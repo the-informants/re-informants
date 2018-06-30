@@ -39,7 +39,7 @@ class SearchResults extends Component {
 
                         <div className="container-fluid result" id='eachsearchresult' key={index}>
                             <div className="row" id="searchResultFirstRow">
-                                <div className="col-md-7">
+                                <div className="col-md-12">
                                     <h5 className="name" id={`informant${informant.informantid}`}       style={{height: 30}}
                                         key={index}  ref={(el)=>{this[`informant${informant.informantid}`] = el}}
                                     >
@@ -48,7 +48,12 @@ class SearchResults extends Component {
                                         </Link>
                                     </h5>
                                 </div>
-                                <div className="star col-md-5"> 
+
+                            </div>
+                            <div className="row" id="searchResultSecondRow">
+{/* first column photo */}
+                                <div className="col-sm-5 image"  >
+                                    <div className="star" > 
                                         <StarRatings 
                                             rating={informant.avgstarrating === null? 0: parseInt(informant.avgstarrating,10)}
                                             starRatedColor="#163D57"
@@ -56,19 +61,16 @@ class SearchResults extends Component {
                                             starDimension="15px"
                                             starSpacing = "2px"
                                         />
-                                        {informant.avgstarrating}
-                                </div>
-                            </div>
-                            <div className="row" id="searchResultSecondRow">
-{/* first column photo */}
-                                <div className="col-md-2 image"  id="searchResultSecondRowFirstCol">
+                                        {Math.round(informant.avgstarrating* 10)/10}
+                                    </div>
                                     <i class="fas fa-user fa-5x image ml-3 mb-3"></i>
                                     <button className="btn btn-default ml-2 " onClick={()=>this.selectInformant(informant.informantid, informant.distance)}>
                                             Select
                                     </button>
+
                                 </div>
 {/* second column */}
-                                <div className="col-md-6" id="searchResultSecondRowSecondCol">
+                                <div className="col-sm-7" >
                                     <div className="row">
                                         <div className="col-md-12">
                                             <dl className="dl-horizontal">
