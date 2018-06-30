@@ -22,7 +22,7 @@ import Modal from 'react-modal';
             numberOfRatings: 0,
             disabled: true,
 
-            informantInfo: ""
+            informantInfo: "",
 
             selectedInformant:[],
             createOrderFormIsOpen: false
