@@ -10,6 +10,7 @@ import SearchResults from './SearchResults'
 import { addSearchCoordinates, searchAddress} from '../../ducks/reducers/search'
 import {connect} from 'react-redux'
 import Geocode from 'react-geocode';
+import Footer from './../Shared/Footer';
 
 
 class Opening extends Component {
@@ -134,6 +135,9 @@ class Opening extends Component {
                             <button className="btn btn-secondary">Info: link to</button>
                         </div>
                     </div>
+                </div>
+                <div>
+                    <Footer/>
                 </div>
             </div>
         );
