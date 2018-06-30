@@ -22,14 +22,15 @@ class Opening extends Component {
     }
     searchAddress= () =>{
         Geocode.setApiKey("AIzaSyBWRUwhKeGWx_7qra1Mw4TUSjWhZBuqrq4")
-        console.log(111, this.props.form.MapSearch.values)
-        Geocode.fromAddress(this.props.form.MapSearch.values.searchvalue).then(response=>{
-            const {lat, lng} = response.results[0].geometry.location;
-            this.props.addSearchCoordinates({lat, lng})
-
-            this.props.searchAddress({lat, lng})
-            this.setState({searched: true})
-        }).catch(e=>console.log(e));
+        if(this.props.form.MapSearch.values){
+            Geocode.fromAddress(this.props.form.MapSearch.values.searchvalue).then(response=>{
+                const {lat, lng} = response.results[0].geometry.location;
+                this.props.addSearchCoordinates({lat, lng})
+    
+                this.props.searchAddress({lat, lng})
+                this.setState({searched: true})
+            }).catch(e=>console.log(e));
+        }
     }
     componentDidUpdate(prevProps){
         console.log(prevProps.search.searchLat, this.props.search.searchLat)
