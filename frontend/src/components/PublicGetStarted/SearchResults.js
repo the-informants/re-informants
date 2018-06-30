@@ -56,14 +56,18 @@ class SearchResults extends Component {
                                     <div className="star" > 
                                         <StarRatings 
                                             rating={informant.avgstarrating === null? 0: parseInt(informant.avgstarrating,10)}
-                                            starRatedColor="#163D57"
+                                            starRatedColor="#FFBD00"
                                             numberOfStars={5}
                                             starDimension="15px"
                                             starSpacing = "2px"
                                         />
+
+                              
+
                                         {Math.round(informant.avgstarrating* 10)/10}
                                     </div>
                                     <i class="fas fa-user fa-5x image ml-3 mb-3"></i>
+
                                     <button className="btn btn-default ml-2 " onClick={()=>this.selectInformant(informant.informantid, informant.distance)}>
                                             Select
                                     </button>

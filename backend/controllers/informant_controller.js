@@ -77,7 +77,7 @@ module.exports = {
                 reviews: reviews
             }
             db.get_informant_name({id}).then(name=>{
-                response.name = name
+                response.informantinfo = name
                 db.get_informant_starrating({id}).then(rating=>{
                     response.rating = rating
                     res.status(200).send(response)

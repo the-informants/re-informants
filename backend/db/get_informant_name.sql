@@ -1,2 +1,2 @@
-select firstname, lastname from informants
+select * from informants
 where informantid = ${id}

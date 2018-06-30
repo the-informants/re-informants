@@ -31,15 +31,16 @@ class GetStarted extends Component {
 
     searchAddress= () =>{
         Geocode.setApiKey("AIzaSyBWRUwhKeGWx_7qra1Mw4TUSjWhZBuqrq4")
-
-        this.props.addSearchLocation(this.props.form.MapSearch.values.searchvalue);
-        // console.log(this.props.form.MapSearch.values.searchvalue)
-        Geocode.fromAddress(this.props.form.MapSearch.values.searchvalue).then(response=>{
-            const {lat, lng} = response.results[0].geometry.location;
-            this.props.addSearchCoordinates({lat, lng})
-
-            this.props.searchAddress({lat, lng})
-        }).catch(e=>console.log(e));
+        if(this.props.form.MapSearch.values){
+            this.props.addSearchLocation(this.props.form.MapSearch.values.searchvalue);
+            // console.log(this.props.form.MapSearch.values.searchvalue)
+            Geocode.fromAddress(this.props.form.MapSearch.values.searchvalue).then(response=>{
+                const {lat, lng} = response.results[0].geometry.location;
+                this.props.addSearchCoordinates({lat, lng})
+    
+                this.props.searchAddress({lat, lng})
+            }).catch(e=>console.log(e));
+        }
     }
 
 
