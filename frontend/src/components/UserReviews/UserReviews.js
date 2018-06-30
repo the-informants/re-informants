@@ -3,6 +3,11 @@ import axios from 'axios';
 import StarRatings from 'react-star-ratings';
 import {connect} from 'react-redux'
 import {Link, Redirect} from 'react-router-dom';
+import {addToCart, createOrderResults} from '../../ducks/reducers/order'
+import OrderFormValidation from '../PublicGetStarted/OrderFormValidation';
+import {getOrders, submitOrderInfo, getOrderResultsbyBuyer} from '../../ducks/reducers/order';
+import Modal from 'react-modal';
+
 
  class UserReviews extends Component {
     constructor(props){
@@ -16,12 +21,18 @@ import {Link, Redirect} from 'react-router-dom';
             avgrating: null,
             numberOfRatings: 0,
             disabled: true,
+
             informantInfo: ""
+
+            selectedInformant:[],
+            createOrderFormIsOpen: false
+
         }
     }
     componentDidMount(){
         // this.getName(this.props.match.params.id);
         this.getReviews(this.props.match.params.id);
+        this.setState({selectedInformant: this.props.search.informants.filter(informant => informant.informantid==this.props.match.params.id)})
     }
     componentDidUpdate(prevProps){
         if (prevProps.match.params.id !== this.props.match.params.id){
@@ -82,13 +93,70 @@ import {Link, Redirect} from 'react-router-dom';
         }
     }
     
+    selectInformant=(informantid, distance)=>{
+        // const {openOrderForm} = props;
+
+        const orderResult = {informantid, distance, buyerid: this.props.user.buyerInfo.buyerid }
+        this.props.createOrderResults(orderResult);
+        this.openCreateOrderForm();
+    }
+    openCreateOrderForm=()=>{
+        this.setState({createOrderFormIsOpen: true});
+        }
+    closeCreateOrderForm=()=>{
+        this.setState({createOrderFormIsOpen: false});
+        }
+    submitOrderInformation = ()=>{
+        const {searchLat, searchLng, searchValue, mapMoveLat, mapMoveLng} = this.props.search;
+        const {buyerid, orderresultsid} = this.props.order.orderResult;
+        console.log('orderresultid is this one',orderresultsid)
+        const newOrderInfo = Object.assign({}, this.props.form.OrderForm.values, {buyerid: buyerid, address: searchValue, lat: mapMoveLat||searchLat, lng: mapMoveLng||searchLng, orderresultid: orderresultsid})
+        console.log(newOrderInfo)
+        this.props.submitOrderInfo(newOrderInfo)
+        this.props.getOrderResultsbyBuyer()
+        this.setState({createOrderFormIsOpen: false});
+        this.props.getOrders();
+    }
+
     render(){  
         const styles = this.styles();
+
         const {city, state, knowcommunityflag, knowcrimeflag, knowschoolflag, knowreligionflag, years, informantsincedatetime, informantnotes} = this.state.informantInfo
         console.log(city, state, knowcommunityflag, knowcrimeflag, knowschoolflag, knowreligionflag, years, informantsincedatetime, informantnotes)
+        
+            
+
+        const orderformStyles = {
+            content : {
+              width                 : '50%',
+              height                : '60%',
+              top                   : '50%',
+              left                  : '50%',
+              right                 : 'auto',
+              bottom                : 'auto',
+            //   marginRight           : '-50%',
+              transform             : 'translate(-50%, -50%)'
+            }
+          };
         return (
             <div className="container">
-                <h1>{`${this.state.firstname} ${this.state.lastname}  - ${city}, ${state}`}</h1>
+                <h1>{`${this.state.firstname} ${this.state.lastname}  - ${city}, ${state}`}
+         
+                <button className="btn btn-default ml-3 " onClick={()=>this.selectInformant(this.state.selectedInformant[0].informantid, this.state.selectedInformant[0].distance)}>
+                                            Select
+                                    </button>
+                </h1>
+
+                <Modal
+                        isOpen={this.state.createOrderFormIsOpen}
+                        onRequestClose={this.closeCreateOrderForm}
+                        style={orderformStyles}
+                        >
+                                <OrderFormValidation cancel={this.closeCreateOrderForm}
+                                mysubmit={this.submitOrderInformation}  
+                                />
+                </Modal>
+
                 Avg Rating
                 <StarRatings
                             rating={this.state.avgrating === null? 0:this.state.avgrating}
@@ -213,8 +281,16 @@ import {Link, Redirect} from 'react-router-dom';
     }
 }
 function mapStateToProps(state){
-    const {user} = state;
-    return {user}   
+    return {
+        user: state.user,
+        search: state.search,
+        order: state.order,
+        form: state.form
+    }   
 }
-export default connect(mapStateToProps, {})(UserReviews);
+
+
+
+export default connect(mapStateToProps, {createOrderResults,getOrders, submitOrderInfo, getOrderResultsbyBuyer})(UserReviews);
+
 
