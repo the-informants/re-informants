@@ -76,8 +76,8 @@ class Nav extends Component {
                                 </li>
                                 
                             </ul>
-                            <a href={"http://localhost:4000/auth"}><button className="btn btn-primary" >Sign Up</button></a>
-                            <a href={"http://localhost:4000/auth"}><button className="btn btn-default" >Login</button></a>
+                            <a href={process.env.REACT_APP_LOGIN}><button className="btn btn-primary" >Sign Up</button></a>
+                            <a href={process.env.REACT_APP_LOGIN}><button className="btn btn-default" >Login</button></a>
                             </div>
                                 :
                             <div className={`${classOne}`} id="navbarResponsive">
@@ -94,7 +94,7 @@ class Nav extends Component {
                                     <Link className="nav-link navsize" to="/PrivateBuyer">Buyer</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link navsize" to="/PrivateSeller">Seller</Link>
+                                    <Link className="nav-link navsize" to="/Private">Seller</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link navsize" to="/Account">Account</Link>

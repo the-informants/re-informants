@@ -54,7 +54,7 @@ export default class Authenticate extends Component {
      
               <h2 ref={subtitle => this.subtitle = subtitle}>Login</h2>
               <button onClick={this.closeModal}>close</button>
-                <Iframe url="http://localhost:4000/auth"
+                <Iframe url={process.env.REACT_APP_LOGIN}
                 width="450px"
                 height="450px"
                 id="myId"
@@ -69,8 +69,8 @@ export default class Authenticate extends Component {
     // render (){
     //     return(
     //         <div className="container">
-    //             <a href={"http://localhost:4000/auth"}><button className="btn btn-primary" >Sign Up</button></a>
-    //                         <a href={"http://localhost:4000/auth"}><button className="btn btn-default" >Login</button></a>
+    //             <a href={process.env.REACT_APP_LOGIN}><button className="btn btn-primary" >Sign Up</button></a>
+    //                         <a href={"href={process.env.REACT_APP_LOGIN}><button className="btn btn-default" >Login</button></a>
     //                         </div>
     //         </div>
     //     )
