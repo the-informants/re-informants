@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
-import { connect } from 'react-redux'
 import '../../App.css';
-import { search } from '../../ducks/reducers/search'
 import { Field, reduxForm } from 'redux-form';
-class Search extends Component {
-   
 
+class Search extends Component {
 render() {
     const {handleSubmit, mysubmit} = this.props
     console.log("props", this.props)

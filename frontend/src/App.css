@@ -34,6 +34,10 @@ body {
   margin: 5px;
 }
 
+.opening-btn{
+  border: 0;
+  box-shadow: none;
+}
 /* Above were added by Keller on 6/6/18 */
 
 p {
@@ -210,13 +214,16 @@ h4 {
   }
   
 } 
-@media (min-width: 769px){
-  
+@media (min-width: 960px) {
+
   .white-background{
     background-color: white
   }
+}
+@media (min-width: 769px){
+  
   .btn-map {
-    margin-left: 10px;
+    /* margin-left: 10px; */
     margin-bottom: 10px;
   }
   .google-maps-container{

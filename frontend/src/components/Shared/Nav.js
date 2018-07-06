@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios'
-import { Redirect, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import {getUserInfo, logout, getInformantInfo, getBuyerInfo} from '../../ducks/reducers/user';
 
@@ -76,8 +75,8 @@ class Nav extends Component {
                                 </li>
                                 
                             </ul>
-                            <a href={"http://localhost:4000/auth"}><button className="btn btn-primary" >Sign Up</button></a>
-                            <a href={"http://localhost:4000/auth"}><button className="btn btn-default" >Login</button></a>
+                            <a href={process.env.REACT_APP_LOGIN}><button className="btn btn-primary" >Sign Up</button></a>
+                            <a href={process.env.REACT_APP_LOGIN}><button className="btn btn-default" >Login</button></a>
                             </div>
                                 :
                             <div className={`${classOne}`} id="navbarResponsive">

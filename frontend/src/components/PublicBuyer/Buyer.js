@@ -8,7 +8,7 @@ export default class PublicBuyer extends Component {
                 <div className="PageTitle">
                     <h1>Buyer</h1>
                     <div>
-                        <a href={"http://localhost:4000/auth"}>
+                        <a href={process.env.REACT_APP_LOGIN}>
                         <button className="btn btn-default">Sign Up</button></a>
                     </div>
                 </div>

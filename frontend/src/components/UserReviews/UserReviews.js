@@ -2,8 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios';
 import StarRatings from 'react-star-ratings';
 import {connect} from 'react-redux'
-import {Link, Redirect} from 'react-router-dom';
-import {addToCart, createOrderResults} from '../../ducks/reducers/order'
+import {createOrderResults} from '../../ducks/reducers/order'
 import OrderFormValidation from '../PublicGetStarted/OrderFormValidation';
 import {getOrders, submitOrderInfo, getOrderResultsbyBuyer} from '../../ducks/reducers/order';
 import Modal from 'react-modal';

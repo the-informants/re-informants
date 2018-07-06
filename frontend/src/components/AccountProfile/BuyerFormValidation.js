@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Field, reduxForm} from "redux-form"
 import { connect } from "react-redux";
 import {renderField, renderSelectField} from '../../components/Shared/Forms'
 
 const BuyerFormValidation = props=>{
-    const {handleSubmit, pristine, reset, submitting, mysubmit, cancel, buyerInfo } = props
+    const {handleSubmit, pristine, submitting, mysubmit, cancel, buyerInfo } = props
 
     return (
 
@@ -27,7 +27,7 @@ const BuyerFormValidation = props=>{
                     <Field name="buyernotes" component="textarea"/>
                 </div>
             </div>
-            <button className="btn btn-primary" type = "submit">{buyerInfo?'Submit Changes':'Submit'}</button>
+            <button className="btn btn-primary" type = "submit" disabled={pristine || submitting}>{buyerInfo?'Submit Changes':'Submit'}</button>
             <button className="btn btn-danger" onClick={cancel}>Cancel</button>
         </form>
     )
