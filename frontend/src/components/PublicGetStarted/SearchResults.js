@@ -66,7 +66,7 @@ class SearchResults extends Component {
 
                                         {Math.round(informant.avgstarrating* 10)/10}
                                     </div>
-                                    <i class="fas fa-user fa-5x image ml-3 mb-3"></i>
+                                    <i className="fas fa-user fa-5x image ml-3 mb-3"></i>
 
                                     <button className="btn btn-default ml-2 " onClick={()=>this.selectInformant(informant.informantid, informant.distance)}>
                                             Select

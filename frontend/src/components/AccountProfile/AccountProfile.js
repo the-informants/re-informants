@@ -3,9 +3,7 @@ import Modal from 'react-modal';
 import '../../App.css';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
-import Geocode from 'react-geocode';
-import InformantForm from './InformantForm'
-import BuyerForm from './BuyerForm'
+import geocoder from 'geocoder';
 import BuyerFormValidation from './BuyerFormValidation'
 import InformantFormValidation from './InformantFormValidation'
 import {getInformantInfo, getBuyerInfo, submitBuyerInfo, submitInformantInfo, updateBuyerInfo, updateInformantInfo} from '../../ducks/reducers/user';
@@ -60,22 +58,22 @@ class AccountProfile extends Component {
 
     submitInformantInformation = () =>{
         console.log("props", this.props)
-        Geocode.setApiKey("AIzaSyBWRUwhKeGWx_7qra1Mw4TUSjWhZBuqrq4")
         const {address1, city, state, zip} = this.props.form.InformantForm.values
         console.log("address", address1, city, state, zip)
-        Geocode.fromAddress(`${address1} ${city} ${state} ${zip}`).then(response=>{
+        geocoder.geocode(`${address1} ${city} ${state} ${zip}`, (err,response)=>{
+            console.log("GEOCODE", response)
             const {lat, lng} = response.results[0].geometry.location;
             console.log(lat,lng)
             console.log("props", this.props)
             let informantInfo = Object.assign({}, this.props.form.InformantForm.values, {lat: lat, lng: lng} )
-             if(this.props.user.informantInfo.informantid){
-                 informantInfo.informantid = this.props.user.informantInfo.informantid
-                 this.props.updateInformantInfo(informantInfo);
-             }else {
-                 this.props.submitInformantInfo(informantInfo);
-             }
+                if(this.props.user.informantInfo.informantid){
+                    informantInfo.informantid = this.props.user.informantInfo.informantid
+                    this.props.updateInformantInfo(informantInfo);
+                }else {
+                    this.props.submitInformantInfo(informantInfo);
+                }
             this.setState({informantFormIsOpen: false});
-        }).catch(e=>console.log(e));
+        })
     }
         
     

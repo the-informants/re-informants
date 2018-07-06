@@ -4,9 +4,9 @@
     "private": true,
     "dependencies": {
         "axios": "^0.18.0",
+        "geocoder": "^0.2.3",
         "react": "^16.4.0",
         "react-dom": "^16.4.0",
-        "react-geocode": "0.0.9",
         "react-google-maps": "^9.4.5",
         "react-iframe": "^1.2.0",
         "react-modal": "^3.4.5",

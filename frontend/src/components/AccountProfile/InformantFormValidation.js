@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Field, reduxForm} from "redux-form"
 import { connect } from "react-redux";
 import UsStates from '../../components/Shared/UsStates'
@@ -7,7 +7,7 @@ import {renderField, renderSelectField} from  '../../components/Shared/Forms'
 
 
 const InformantFormValidation = props=>{
-    const {handleSubmit, pristine, reset, submitting, mysubmit, cancel, informantInfo } = props
+    const {handleSubmit, pristine, submitting, mysubmit, cancel, informantInfo } = props
 
     return (
         <form onSubmit={handleSubmit(mysubmit)}>
@@ -109,7 +109,6 @@ const InformantFormValidation = props=>{
             <button className="btn btn-danger" onClick={cancel}>Cancel</button>
         </form>
     )
-    console.log('field',renderField)
 }
 
 const validate = values =>{

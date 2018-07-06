@@ -4,12 +4,10 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../../App.css';
 import { Link, Redirect } from 'react-router-dom';
-import GoogleMaps from './Map' 
 import Search from './Search'
-import SearchResults from './SearchResults'
-import { addSearchCoordinates, searchAddress} from '../../ducks/reducers/search'
+import { addSearchCoordinates, searchAddress, addSearchLocation} from '../../ducks/reducers/search'
 import {connect} from 'react-redux'
-import Geocode from 'react-geocode';
+import geocoder from 'geocoder';
 import Footer from './../Shared/Footer';
 
 
@@ -22,15 +20,16 @@ class Opening extends Component {
         }
     }
     searchAddress= () =>{
-        Geocode.setApiKey("AIzaSyBWRUwhKeGWx_7qra1Mw4TUSjWhZBuqrq4")
-        if(this.props.form.MapSearch.values){
-            Geocode.fromAddress(this.props.form.MapSearch.values.searchvalue).then(response=>{
+        if(this.props.form.MapSearch){
+            this.props.addSearchLocation(this.props.form.MapSearch.values.searchvalue);
+            // console.log(this.props.form.MapSearch.values.searchvalue)
+            geocoder.geocode(this.props.form.MapSearch.values.searchvalue, (err,response)=>{
+                
                 const {lat, lng} = response.results[0].geometry.location;
-                this.props.addSearchCoordinates({lat, lng})
-    
-                this.props.searchAddress({lat, lng})
-                this.setState({searched: true})
-            }).catch(e=>console.log(e));
+                    this.props.addSearchCoordinates({lat, lng})
+                    this.props.searchAddress({lat, lng})
+                    this.setState({searched: true})
+            })
         }
     }
     componentDidUpdate(prevProps){
@@ -72,7 +71,7 @@ class Opening extends Component {
                                             <Search mysubmit={this.searchAddress}/>        
                                         </div>
                                         <div className="col-12 col-lg-3 d-flex align-items-center justify-content-end px-0">
-                                               <Link to="/PublicGetStarted"><button onClick={()=>this.searchAddress()} className="btn-primary btn btn-lg btn-block btn-map">Search</button></Link>
+                                               <Link to="/PublicGetStarted"><button onClick={()=>this.searchAddress()} className="btn-primary opening-btn btn-lg btn-block btn-map">Search</button></Link>
                                         </div>
                                     </div>
                                 </div>
@@ -87,7 +86,7 @@ class Opening extends Component {
                                             <Search mysubmit={this.searchAddress}/>        
                                         </div>
                                         <div className="col-12 col-lg-3 d-flex align-items-center justify-content-end px-0">
-                                            <Link to="/PublicGetStarted"><button onClick={()=>this.searchAddress()} className="btn-primary btn btn-lg btn-block btn-map">Search</button></Link>
+                                            <Link to="/PublicGetStarted"><button onClick={()=>this.searchAddress()} className="btn-primary opening-btn btn-lg btn-block btn-map">Search</button></Link>
                                         </div>
                                     </div>
                                 </div>
@@ -102,7 +101,7 @@ class Opening extends Component {
                                             <Search mysubmit={this.searchAddress} />        
                                         </div>
                                         <div className="col-12 col-lg-3 d-flex align-items-center justify-content-end px-0">
-                                               <Link to="/PublicGetStarted"><button onClick={()=>this.searchAddress()} className="btn-primary btn btn-lg btn-block btn-map">Search</button></Link>
+                                               <Link to="/PublicGetStarted"><button onClick={()=>this.searchAddress()} className="btn-primary opening-btn btn-lg btn-block btn-map">Search</button></Link>
                                         </div>
                                     </div>
                                 </div>
@@ -150,18 +149,12 @@ class Opening extends Component {
         );
       }
     }
-    const styles = () => {
-        return {
-            searchInput: {
-                backgroundColor: 'grey'
-            }
-        }
-    }
+
     function mapStateToProps(state){
         const {search, form} = state
         return {search, form}
     }
     
-    export default connect(mapStateToProps,{addSearchCoordinates, searchAddress})(Opening)
+    export default connect(mapStateToProps,{addSearchCoordinates, searchAddress, addSearchLocation})(Opening)
     
     

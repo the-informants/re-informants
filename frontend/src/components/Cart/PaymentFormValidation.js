@@ -1,14 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Field, reduxForm} from "redux-form"
 import { connect } from "react-redux";
-import { Link } from 'react-router-dom';
 import UsStates from '../../components/Shared/UsStates';
 import {renderField, renderSelectField} from '../../components/Shared/Forms';
 
 
 
 const PaymentFormValidation = props=>{
-    const {handleSubmit, pristine, reset, submitting, mysubmit, cancel } = props
+    const {handleSubmit, pristine, submitting, mysubmit, cancel } = props
 
     return (
         <form onSubmit={handleSubmit(mysubmit)}>

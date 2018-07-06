@@ -1,5 +1,4 @@
-/*global google*/
-import { compose, withProps } from "recompose"
+// /*global google*/
 import { withScriptjs, withGoogleMap, GoogleMap, Marker} from "react-google-maps"
 import React, {Component} from 'react';
 import '../../App.css';

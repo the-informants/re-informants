@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, {Component} from 'react';
+// import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
  
 const customStyles = {
@@ -16,7 +16,7 @@ const customStyles = {
 // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
 // Modal.setAppElement('#yourAppElement')
  
-export default class ModalTest extends React.Component {
+export default class ModalTest extends Component {
   constructor() {
     super();
  

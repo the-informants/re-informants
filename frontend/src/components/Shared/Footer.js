@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import {Link } from 'react-router-dom';
 import '../../App.css';
 import logo from './../Shared/images/logo.png';
 
 
-export default class Footer extends React.Component {
+export default class Footer extends Component {
     render() {
         return (
             <div>
@@ -14,7 +14,7 @@ export default class Footer extends React.Component {
                             <Link className="footer-links" to="/">home</Link>
                             <Link className="footer-links" to="/PublicGetStarted">search</Link>
                         </div>
-                    <h6>RE Informants <i class="far fa-copyright"></i>  2018</h6> 
+                    <h6>RE Informants <i className="far fa-copyright"></i>  2018</h6> 
                 </div>
             </div>
         )
