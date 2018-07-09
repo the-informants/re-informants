@@ -39,12 +39,11 @@ class GoogleMaps extends Component {
   }
   handleClick = (informant)=>{
     this.props.addSelectedInformant(informant.informantid)
-    // console.log("click", informant)
+    console.log("click", informant)
   }
   
     render (){
       const markers = this.props.markers.map((informant, i)=>{
-        console.log(informant)
         const marker = {
           position: {
             lat: parseFloat(informant.lat),

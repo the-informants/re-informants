@@ -56,7 +56,6 @@ class GetStarted extends Component {
     render (){
 
         const styles = this.styles();
-        console.log("Props", this.props)
        
         const orderformStyles = {
             content : {
@@ -90,7 +89,7 @@ class GetStarted extends Component {
                 
 
                     <div className="row">
-                        <div className="col-12 col-md-6">
+                        <div className="col-12 col-md-6 get-started-container">
                             
                         <GoogleMaps
                             containerElement={<div className="google-maps-container" />}
@@ -108,7 +107,7 @@ class GetStarted extends Component {
                             
                         </div>
 
-                        <div className="col-12 col-md-6" style={styles.searchResults}>
+                        <div className="col-12 col-md-6 get-started-container" style={styles.searchResults}>
                             <SearchResults openOrderForm={this.openCreateOrderForm}/>
                         </div>
                     </div>
