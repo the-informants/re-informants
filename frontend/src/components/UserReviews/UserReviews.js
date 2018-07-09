@@ -235,7 +235,7 @@ import Modal from 'react-modal';
                                     <i style={{fontSize: "30px"}}className="fas fa-user-circle"></i>
                                     
                                         <span style={styles.reviewer}>
-                                            {`${review.firstname} ${review.lastname}`}
+                                            {review.firstname!==null? `${review.firstname} ${review.lastname}`: "Anonymous"}
                                         </span> 
                                 </div>
                                 <StarRatings 

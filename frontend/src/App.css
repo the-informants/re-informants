@@ -119,6 +119,7 @@ h4 {
 }
 
 
+
 /* Footer css */
 
 .footer-container {
@@ -190,14 +191,15 @@ h4 {
 }
 
 .google-maps-container{
-  height: calc((100vh - 230px)/2)
+  height: calc((100vh - 220px)/2)
 }
 .search-results-container {
-  height: calc((100vh - 230px)/2);
+  height: calc((100vh - 220px)/2);
   overflow: auto;
   overflow-x: hidden
  
 }
+
 
 
 
@@ -209,9 +211,10 @@ h4 {
   .logo{
     width: calc(100vw - 120px);
   }
-  #eachsearchresult {
-    width: 90%
-  }
+  .get-started-container{
+    padding-left: 0px;
+    padding-right: 0px
+  }   
   
 } 
 @media (min-width: 960px) {
@@ -220,7 +223,17 @@ h4 {
     background-color: white
   }
 }
-@media (min-width: 769px){
+@media (max-width: 1024px){
+  #eachsearchresult {
+    width: 100%
+  }
+}
+@media (min-width: 1025px){
+  #eachsearchresult {
+    width: 48%
+  }
+}
+@media (min-width: 768px){
   
   .btn-map {
     /* margin-left: 10px; */
@@ -232,9 +245,7 @@ h4 {
   .search-results-container{
     height: calc(100vh - 190px)
   }
-  #eachsearchresult {
-    width: 45%
-  }
+ 
 }
 
 @media (min-width: 450px) { 
@@ -259,7 +270,7 @@ h4 {
   /*flex-wrap: wrap; */
   /* border-bottom-color: black;
   border-bottom: 1px solid; */
-  margin: 5px;
+  margin: 6px;
   font-size: 12px;
   display: 'flex';
   justify-content: 'space-between';
@@ -322,14 +333,11 @@ h4 {
   border: solid 1px rgb(228, 228, 228);
   border-radius: 5px;
   min-height: 200px;
-  /* width: 45%; */
-
-  
   background-color: white;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 15px;
-  box-shadow: 2px 2px 8px rgb(160, 160, 160);
+  margin-top: 5px;
+  margin-bottom: 5px;
+  /* margin-left: 15px; */
+  box-shadow: 1px 1px 6px rgb(160, 160, 160);
   padding-left: 10px;
   padding-right: 5px;
   padding-bottom: 10px;
@@ -364,7 +372,7 @@ label {
 }
 
 .star {
-  width: 850px;
+  /* width: 850px; */
   margin-left: 5px;
   margin-bottom: 10px;
 }
