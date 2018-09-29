@@ -4,7 +4,9 @@ import {Switch, Route} from 'react-router-dom';
 
 import Account from './components/AccountProfile/AccountProfile';
 import PublicBuyer from './components/PublicBuyer/Buyer';
+import PublicSeller from './components/PublicSeller/PublicSeller';
 import PublicGetStarted from './components/PublicGetStarted/GetStarted';
+import AboutUs from './components/AboutUs/AboutUs';
 import PublicInformant from './components/PublicInformant/Informant';
 import PrivateBuyer from './components/PrivateBuyer/Buyer';
 import PrivateInformant from './components/PrivateInformant/Informant';
@@ -26,6 +28,8 @@ export default (
         <Route component={PublicGetStarted} path='/PublicGetStarted' />
         <Route component={Account} path='/Account' />
         <Route component={PublicBuyer} path='/PublicBuyer' />
+        <Route component={PublicSeller} path='/PublicSeller' />
+        <Route component={AboutUs} path='/AboutUs' />
         <Route component={PublicInformant} path='/PublicInformant' />
         <Route component={PrivateBuyer} path='/PrivateBuyer' />
         <Route component={PrivateInformant} path='/PrivateInformant' />
