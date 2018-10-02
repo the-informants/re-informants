@@ -65,13 +65,16 @@ class Nav extends Component {
                                     <Link className="nav-link navsize" to="/PublicGetStarted">Get Started</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link navsize" to="/PublicInformant">Informant</Link>
+                                    <Link className="nav-link navsize" to="/PublicInformant">Neighborhood Reference</Link>
                                 </li>  
                                 <li className="nav-item">
                                     <Link className="nav-link navsize" to="/PublicBuyer">Buyer</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link navsize" to="/PublicSeller">Seller</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link navsize" to="/AboutUs">About Us</Link>
                                 </li>
                                 
                             </ul>

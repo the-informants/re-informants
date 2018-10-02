@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import '../../App.css';
 
-export default class PublicInformant extends Component {
+export default class AboutUs extends Component {
     render (){
         return(
             <div className="container">
                 <div className="PageTitle">
-                    <h1>Become A Neighborhood Reference</h1>
+                    <h1>About Us</h1>
                 </div>
                 <p>Researching real estate either to buy or to rent has always been a challenging process. Buyers and renters have a difficult time finding reliable information to understand the characteristic of a neighborhood. 
                     </p><p>
