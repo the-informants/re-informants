@@ -13,6 +13,7 @@ import PrivateInformant from './components/PrivateInformant/Informant';
 import Cart from './components/Cart/Cart';
 import InquiryThankYou from './components/ThankYou/InquiryThankYou';
 import Modal from './components/PublicGetStarted/Modal';
+import StayInformed from './components/StayInformed/StayInformed';
 
 import Opening from './components/PublicGetStarted/Opening';
 
@@ -21,7 +22,8 @@ import UserReviews from './components/UserReviews/UserReviews';
 
 export default (
     <Switch>
-        <Route exact path = '/' component={Opening}/>
+        {/* <Route exact path = '/' component={Opening}/> */}
+        <Route exact path = '/' component={StayInformed}/>
         {/* <Route exact path = '/' component={PublicGetStarted}/> */}
         {/* <Route component={Opening} path='/Opening' /> */}
 
