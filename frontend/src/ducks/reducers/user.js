@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const initialState = {
     informantInfo: {},
+    stayInformedInfo: {},
     buyerInfo: {},
     informants: [],
     user: {
@@ -20,9 +21,13 @@ const GET_BUYER_INFO = "GET_BUYER_INFO"
 const GET_INFORMANTS = "GET_INFORMANTS"
 const GET_USER_INFO = "GET_USER_INFO"
 const LOGOUT = "LOGOUT"
+const SUBMIT_STAY_INFORMED_INFO = "SUBMIT_STAY_INFORMED_INFO"
 
 export default (state = initialState, action) =>{
     switch (action.type) {
+        case SUBMIT_STAY_INFORMED_INFO:
+            console.log("stay informed info payload",action.payload.data[0])
+            return Object.assign({}, state, {stayInformedInfo: action.payload.data[0]}) 
         case SUBMIT_INFORMANT_INFO + '_FULFILLED': 
             console.log("informnat info payload",action.payload.data[0])
             return Object.assign({}, state, {informantInfo: action.payload.data[0]}) 
@@ -68,6 +73,12 @@ export default (state = initialState, action) =>{
     }
 }
 
+export function submitStayInformedInfo(stayInformedInfo){
+    return {
+        type: SUBMIT_STAY_INFORMED_INFO,
+        payload: axios.post('/api/stayInformed', stayInformedInfo)
+    }
+}
 export function submitInformantInfo(informantInfo){
     return {
         type: SUBMIT_INFORMANT_INFO,
