@@ -9,7 +9,7 @@ const StayInformedForm = props=>{
     return (
 
         <form onSubmit={handleSubmit(mysubmit)}>
-            <h2>Stay Informed and Get Updates on the progress of Rebands Neigborhood Refrences</h2>
+            <h2>Stay Informed and Get Updates on the progress of Rebands Neigborhood References</h2>
             <Field  name="firstname" type = "text" component={renderField} label="First Name"/>
             <Field  name="lastname" type = "text" component={renderField} label="Last Name"/>
             <Field  name="email" type = "text" component={renderField} label="Email"/>

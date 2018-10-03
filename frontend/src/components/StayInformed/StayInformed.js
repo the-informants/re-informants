@@ -24,7 +24,7 @@ class StayInformed extends Component {
         
         return(
             <div className="container PageTitle">
-               <h1>Stay Informed</h1>
+               <h1>Get Updates</h1>
                <StayInformedForm mysubmit={this.submitStayInformedInformation}/>
             </div>
         )

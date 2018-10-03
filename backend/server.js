@@ -112,6 +112,7 @@ app.get('/api/logout', function(req,res){
 const informant_Controller= require('./controllers/informant_controller');
 const buyer_Controller= require('./controllers/buyer_controller');
 const order_Controller= require('./controllers/order_controller');
+const stayInformed_Controller = require('./controllers/stayInformed_controller');
 
 app.post("/api/informant", informant_Controller.createInformant);
 app.put("/api/informant", informant_Controller.updateInformant);
@@ -137,6 +138,7 @@ app.get("/api/informants/search");
 app.put('/api/payorderresult', order_Controller.payOrderResult);
 app.put('/api/payorderresult/paidflag/:orderresultsid', order_Controller.cancelOrderResult);
 
+app.post('/api/stayInformed', stayInformed_Controller.createRecord);
 
 app.get('*', (req, res)=>{
   res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
