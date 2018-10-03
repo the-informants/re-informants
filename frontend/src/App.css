@@ -377,4 +377,54 @@ label {
   margin-bottom: 10px;
 }
 
+/* neighborhood reference profile */
+.ref_photo img {
+  margin-right: 30px;
+}
 
+.faqs-getstarted {
+  background-color: #4B87CB;
+  color: white;
+  padding: 20px;
+}
+
+.faqs-why {
+  background-color: #C95B22;
+  color: white;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 992px) {
+  .faqs-getstarted {
+    margin: 10px;
+  }
+  .faqs-why {
+    margin: 10px;
+  }
+}
+
+.second {
+  margin-top: 20px;
+}
+
+.summary {
+  margin-bottom: 20px;
+}
+
+.page {
+  margin-top: 20px;
+}
+
+.satisfaction {
+  margin-bottom: 40px;
+  margin-top: 10px;
+  padding: 20px;
+  background-color: #9F9FA3;
+}
+
+.call-to-action {
+  background-color: #259B36;
+  padding: 10px;
+  color: white;
+}
