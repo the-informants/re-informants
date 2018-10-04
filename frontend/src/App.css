@@ -404,16 +404,12 @@ label {
   }
 }
 
-.second {
+.mar-top {
   margin-top: 20px;
 }
 
-.summary {
+.mar-bottom {
   margin-bottom: 20px;
-}
-
-.page {
-  margin-top: 20px;
 }
 
 .satisfaction {
