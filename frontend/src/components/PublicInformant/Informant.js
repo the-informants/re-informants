@@ -6,15 +6,19 @@ export default class PublicInformant extends Component {
         return(
             <div className="container">
                 <div className="PageTitle">
-                    <h1>Become A Neighborhood Reference</h1>
+                    <h1>Neighborhood References</h1>
                 </div>
-                <p>Researching real estate either to buy or to rent has always been a challenging process. Buyers and renters have a difficult time finding reliable information to understand the characteristic of a neighborhood. 
-                    </p><p>
-                    Do you know your neighbors, schools, community, recreation options? Have you been in your location for a while? Are you willing to spend time on the phone giving information to a buyer, answering their questions? If so, then sign up. 
-                    </p><p>
-                    We charge buyer's to get access to your insider information. You give of your time and your honest opinions. For each call you take, we pay you money. And oh by the way, this allows you to help find great people to purchase homes in your neighborhood. 
-                    
-                    </p><h4 className="lead">The process works like this:</h4>
+                <p>
+                    Researching real estate either to buy or to rent has always been a challenging process. Buyers and renters have a difficult time finding reliable information to understand the characteristic of a neighborhood. 
+                </p>
+                <p>
+                    Can you describe the feel of your neighborhood? Do you know your neighbors, the school instructors and administrators? Can you describe the community and recreation options? Have you been in your location for a while? Are you willing to spend time on the phone giving information to a buyer or renter, to answer their questions with accurate information about the good and the bad? If so, then give us your email and get notified when we expand. 
+                </p>
+                <p>
+                    Our model is driven by buyers and renters who pay for the service to ask their questions of you. You give your time and your honest opinions. For each call you take, we pay you money. And oh by the way, this allows you to help find great people to purchase homes in your neighborhood.     
+                </p>
+                {/* <h4 className="lead">
+                    The process works like this:</h4>
                     <ol className="step">
                         <li>Create an account and complete an Informant profile including all of the reasons why you might be able to help a real estate buyer.</li>
                         <li>Buyers search, see your profile  and place orders to talk.</li>
@@ -22,12 +26,13 @@ export default class PublicInformant extends Component {
                         <li>Complete a 'review' of the call to keep the quality high.</li>
                         <li>You get paid.</li>
                     </ol>
-                    <h4 className="lead">
-                        It really is that easy. Our goal is to help people buy share information so buying and selling is made easier.
-                    </h4>
-                    <div><a href={process.env.REACT_APP_LOGIN}>
-                        <button className="btn ml-3 btn-primary">Sign Up</button></a>
-                    </div>
+                <h4 className="lead">
+                    It really is that easy. Our goal is to help people buy share information so buying and selling is made easier.
+                </h4>
+                <div>
+                    <a href={process.env.REACT_APP_LOGIN}>
+                    <button className="btn ml-3 btn-primary">Sign Up</button></a>
+                </div> */}
             </div>
         )
     }

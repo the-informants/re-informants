@@ -29,7 +29,7 @@ export default (
         {/* <Route component={Opening} path='/Opening' /> */}
 
         <Route component={PublicGetStarted} path='/PublicGetStarted' />
-        <Route component={kellerchch} path='/kellerchch' />
+        <Route component={kellerchch} path='/user/kellerchch' />
         <Route component={Account} path='/Account' />
         <Route component={PublicBuyer} path='/PublicBuyer' />
         <Route component={PublicSeller} path='/PublicSeller' />
