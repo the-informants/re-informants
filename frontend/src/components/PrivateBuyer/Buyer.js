@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import '../../App.css';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
-import {getInformantInfo, getBuyerInfo, submitBuyerInfo, submitInformantInfo} from '../../ducks/reducers/user';
-import {getOrders, submitOrderInfo, getOrderResultsbyBuyer} from '../../ducks/reducers/order';
+import {getInformantInfo, getBuyerInfo} from '../../ducks/reducers/user';
+import {getOrders, getOrderResultsbyBuyer} from '../../ducks/reducers/order';
 
 
 class PrivateBuyer extends Component {
@@ -30,9 +30,9 @@ class PrivateBuyer extends Component {
             <div className="container PageTitle">
                 <h1>Private Buyer</h1>
                     <div className="container">
-                        <Link to="/">
+                        <Link to="/PublicGetStarted">
                             <button className="btn btn-primary">
-                            New Order
+                            Search Again
                             </button>
                         </Link>
                 

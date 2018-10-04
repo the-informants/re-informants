@@ -5,17 +5,8 @@ import Modal from 'react-modal';
 import Search from './Search'
 import SearchResults from './SearchResults'
 import { addSearchCoordinates, searchAddress, addSearchLocation} from '../../ducks/reducers/search'
-
-import StandAloneSearch from './StandAloneSearch'
 import {connect} from 'react-redux'
-import axios from 'axios';
-import Geocode from 'react-geocode';
-
-import { Field, reduxForm } from 'redux-form';
-import { renderField } from "../Shared/Forms"
-
-import { Link } from 'react-router-dom';
-
+import geocoder from 'geocoder';
 import OrderFormValidation from './OrderFormValidation';
 import {getOrders, submitOrderInfo, getOrderResultsbyBuyer} from '../../ducks/reducers/order';
 
@@ -30,20 +21,17 @@ class GetStarted extends Component {
     }
 
     searchAddress= () =>{
-        Geocode.setApiKey("AIzaSyBWRUwhKeGWx_7qra1Mw4TUSjWhZBuqrq4")
         if(this.props.form.MapSearch.values){
             this.props.addSearchLocation(this.props.form.MapSearch.values.searchvalue);
             // console.log(this.props.form.MapSearch.values.searchvalue)
-            Geocode.fromAddress(this.props.form.MapSearch.values.searchvalue).then(response=>{
+            geocoder.geocode(this.props.form.MapSearch.values.searchvalue, (err,response)=>{
+                console.log("GEOCODE", response)
                 const {lat, lng} = response.results[0].geometry.location;
-                this.props.addSearchCoordinates({lat, lng})
-    
-                this.props.searchAddress({lat, lng})
-            }).catch(e=>console.log(e));
+                    this.props.addSearchCoordinates({lat, lng})
+                    this.props.searchAddress({lat, lng})
+            })
         }
     }
-
-
     openCreateOrderForm=()=>{
         this.setState({createOrderFormIsOpen: true});
         }
@@ -68,7 +56,6 @@ class GetStarted extends Component {
     render (){
 
         const styles = this.styles();
-        console.log("Props", this.props)
        
         const orderformStyles = {
             content : {
@@ -102,7 +89,7 @@ class GetStarted extends Component {
                 
 
                     <div className="row">
-                        <div className="col-12 col-md-6">
+                        <div className="col-12 col-md-6 get-started-container">
                             
                         <GoogleMaps
                             containerElement={<div className="google-maps-container" />}
@@ -120,7 +107,7 @@ class GetStarted extends Component {
                             
                         </div>
 
-                        <div className="col-12 col-md-6" style={styles.searchResults}>
+                        <div className="col-12 col-md-6 get-started-container" style={styles.searchResults}>
                             <SearchResults openOrderForm={this.openCreateOrderForm}/>
                         </div>
                     </div>

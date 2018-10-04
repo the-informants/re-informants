@@ -6,7 +6,7 @@ export default class PublicInformant extends Component {
         return(
             <div className="container">
                 <div className="PageTitle">
-                    <h1>Become An Informant</h1>
+                    <h1>Become A Neighborhood Reference</h1>
                 </div>
                 <p>Researching real estate either to buy or to rent has always been a challenging process. Buyers and renters have a difficult time finding reliable information to understand the characteristic of a neighborhood. 
                     </p><p>
@@ -25,7 +25,7 @@ export default class PublicInformant extends Component {
                     <h4 className="lead">
                         It really is that easy. Our goal is to help people buy share information so buying and selling is made easier.
                     </h4>
-                    <div><a href={"http://localhost:4000/auth"}>
+                    <div><a href={process.env.REACT_APP_LOGIN}>
                         <button className="btn ml-3 btn-primary">Sign Up</button></a>
                     </div>
             </div>

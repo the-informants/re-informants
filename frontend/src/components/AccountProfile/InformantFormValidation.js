@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Field, reduxForm} from "redux-form"
 import { connect } from "react-redux";
 import UsStates from '../../components/Shared/UsStates'
@@ -7,11 +7,12 @@ import {renderField, renderSelectField} from  '../../components/Shared/Forms'
 
 
 const InformantFormValidation = props=>{
-    const {handleSubmit, pristine, reset, submitting, mysubmit, cancel, informantInfo } = props
+    const {handleSubmit, pristine, submitting, mysubmit, cancel, informantInfo } = props
 
     return (
         <form onSubmit={handleSubmit(mysubmit)}>
             <h2>Become an Informant</h2>
+            <p>Complete your profile </p>
             <Field  
                 name="firstname" 
                 type = "text" 
@@ -54,7 +55,6 @@ const InformantFormValidation = props=>{
                 placeholder="State" 
                 component={renderSelectField} 
                 label="State">
-                <option/>
                 {UsStates.map(usState=><option key = {usState.name} value = {usState.name}>{usState.abbreviation}</option>)}
             </Field>
             <Field name="years" component={renderSelectField} label="Years in Neighborhood">
@@ -71,7 +71,7 @@ const InformantFormValidation = props=>{
                 placeholder="Zip code" 
                 component={renderField} 
                 label="Zip"/>
-            Select areas you know about
+            <h4>Select Your Areas of Expertise</h4>
             <Field  
                 name="knowcommunityflag" 
                 type = "checkbox" 
@@ -97,11 +97,11 @@ const InformantFormValidation = props=>{
                 component={renderField} 
                 label="Religion"/>
             <div>
-                <label>Additional Info</label>
+                <h4>Additional Info</h4>
                 <div>
                     <Field 
                         name="informantnotes" 
-                        placeholder="Additional Info" 
+                        placeholder="Tell Buyers all about yourself" 
                         component="textarea"/>
                 </div>
             </div>
@@ -109,7 +109,6 @@ const InformantFormValidation = props=>{
             <button className="btn btn-danger" onClick={cancel}>Cancel</button>
         </form>
     )
-    console.log('field',renderField)
 }
 
 const validate = values =>{

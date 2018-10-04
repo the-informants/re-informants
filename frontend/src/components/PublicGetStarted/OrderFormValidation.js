@@ -1,14 +1,12 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Field, reduxForm} from "redux-form"
 import { connect } from "react-redux";
-import { Link } from 'react-router-dom';
-import UsStates from '../../components/Shared/UsStates';
 import {renderField, renderSelectField} from '../../components/Shared/Forms';
 
 
 
 const OrderFormValidation = props=>{
-    const {handleSubmit, pristine, reset, submitting, mysubmit, cancel, orders } = props
+    const {handleSubmit, pristine, submitting, mysubmit, cancel} = props
 
     return (
         <form onSubmit={handleSubmit(mysubmit)}>
@@ -16,7 +14,7 @@ const OrderFormValidation = props=>{
             <Field  
                 name="ordername" 
                 type = "text" 
-                placeholder="Order name" 
+                placeholder="Give your order a name" 
                 component={renderField} 
                 label="Order Name"/> 
             
@@ -32,7 +30,7 @@ const OrderFormValidation = props=>{
                     name="durationday"
                     component={renderSelectField}
                     type = "text"
-                    label="Days Valid">
+                    label="Choose how long this order is valid">
                 <option/>
                 <option value = "1">1</option>
                 <option value = "2">2</option>

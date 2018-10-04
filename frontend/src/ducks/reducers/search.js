@@ -22,7 +22,7 @@ const NEW_INFORMANTS_FALSE = "NEW_INFORMANTS_FALSE"
 export default (state = initialState, action) => {
     switch (action.type) {
         case SEARCH_ADDRESS + '_FULFILLED':
-            console.log("Informants", action.payload.data)
+            // console.log("Informants", action.payload.data)
             return { ...state, informants: action.payload.data, newInformants: true}
         case ADD_SEARCH_VALUE:
             return {...state, searchValue: action.payload}

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios'
-import { Redirect, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import {getUserInfo, logout, getInformantInfo, getBuyerInfo} from '../../ducks/reducers/user';
 
@@ -66,14 +65,21 @@ class Nav extends Component {
                                     <Link className="nav-link navsize" to="/PublicGetStarted">Get Started</Link>
                                 </li>
                                 <li className="nav-item">
+                                    <Link className="nav-link navsize" to="/PublicInformant">Neighborhood Reference</Link>
+                                </li>  
+                                <li className="nav-item">
                                     <Link className="nav-link navsize" to="/PublicBuyer">Buyer</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link navsize" to="/PublicInformant">Informant</Link>
-                                </li>  
+                                    <Link className="nav-link navsize" to="/PublicSeller">Seller</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link navsize" to="/AboutUs">About Us</Link>
+                                </li>
+                                
                             </ul>
-                            <a href={"http://localhost:4000/auth"}><button className="btn btn-primary" >Sign Up</button></a>
-                            <a href={"http://localhost:4000/auth"}><button className="btn btn-default" >Login</button></a>
+                            <a href={process.env.REACT_APP_LOGIN}><button className="btn btn-primary" >Sign Up</button></a>
+                            <a href={process.env.REACT_APP_LOGIN}><button className="btn btn-default" >Login</button></a>
                             </div>
                                 :
                             <div className={`${classOne}`} id="navbarResponsive">
@@ -84,10 +90,13 @@ class Nav extends Component {
 
                                 </li>
                                 <li className="nav-item">
+                                    <Link className="nav-link navsize" to="/PrivateInformant">Informant</Link>
+                                </li>
+                                <li className="nav-item">
                                     <Link className="nav-link navsize" to="/PrivateBuyer">Buyer</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link navsize" to="/PrivateInformant">Informant</Link>
+                                    <Link className="nav-link navsize" to="/PrivateSeller">Seller</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link navsize" to="/Account">Account</Link>
