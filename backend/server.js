@@ -89,7 +89,8 @@ app.get(
 );
 
 app.get("/auth/me", (req, res) => {
-    console.log("auth/me")
+    console.log("auth/me");
+    //console.log("isAuthenticated",req);
   if (req.isAuthenticated()) {
     //   console.log("authenticated")
     return res.send(req.user);
