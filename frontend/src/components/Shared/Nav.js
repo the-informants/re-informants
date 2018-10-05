@@ -65,7 +65,7 @@ class Nav extends Component {
                                     <Link className="nav-link navsize" to="/PublicGetStarted">Get Started</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link navsize" to="/PublicInformant">References</Link>
+                                    <Link className="nav-link navsize" to="/PublicReference">References</Link>
                                 </li>  
                                 <li className="nav-item">
                                     <Link className="nav-link navsize" to="/PublicBuyer">Buyers</Link>

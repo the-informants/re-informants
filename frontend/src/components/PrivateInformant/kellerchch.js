@@ -17,8 +17,8 @@ class PrivateInformant extends Component {
             <div className="container PageTitle">
                 <h1>Chris Keller</h1>
                 <div class="row mar-top"> 
-                    <div class ="col-md-8 ref_photo"> 
-                        <img src={keller} class="float-left img-fluid"/>
+                    <div class ="col-md-8"> 
+                        <img src={keller} class="float-left img-fluid mar-right30"/>
 
                         <div class ="mar-bottom">
                             <div><strong>Name &mdash;</strong> Chris Keller</div>
