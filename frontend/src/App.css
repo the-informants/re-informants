@@ -378,8 +378,12 @@ label {
 }
 
 /* neighborhood reference profile */
-.ref_photo img {
+.mar-right30 {
   margin-right: 30px;
+}
+
+.mar-left30 {
+  margin-left: 30px;
 }
 
 .faqs-getstarted {
