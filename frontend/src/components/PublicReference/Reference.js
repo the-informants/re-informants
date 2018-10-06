@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import '../../App.css';
 import pic1 from '../Shared/images/pexels-photo-1288482.jpeg';
 
-
 export default class PublicReference extends Component {
     render (){
         return(
@@ -13,13 +12,13 @@ export default class PublicReference extends Component {
                 <div class="row mar-top">
                     <div class="col-md-8">
                         <p>
-                            Researching real estate either to buy or to rent has always been a challenging process. Buyers and renters have a difficult time finding reliable information to understand the characteristic of a neighborhood. 
+                            Researching real estate either to buy or to rent has always been a challenging process. Buyers and renters have a difficult time finding reliable information to understand the characteristics of a neighborhood. 
                         </p>
                         <p>
-                            Can you describe the feel of your neighborhood? Do you know your neighbors, the school instructors and administrators? Can you describe the community and recreation options? Have you been in your location for a while? Are you willing to spend time on the phone giving information to a buyer or renter, to answer their questions with accurate information about the good and the bad? If so, then give us your email and get notified when we expand. 
+                            Can you describe the feel of your neighborhood? Do you know your neighbors, the school instructors and administrators? Can you describe the community and recreation options? Have you been in your location for a while? Are you willing to spend time on the phone giving information to a buyer or renter, to answer their questions with accurate information about the good and the bad? And would you like to make money for your time? If so, then give us your email and get notified when we expand. 
                         </p>
                         <p>
-                            Our model is driven by buyers and renters who pay for the service to ask their questions of you. You give your time and your honest opinions. For each call you take, we pay you money. And oh by the way, this allows you to help find great people to purchase homes in your neighborhood.     
+                            Our model is driven by sellers who provide neighborhood references and buyers and renters who pay for the service to get local insight from you. For each call you take, you get paid. And by the way, this allows you to help great people find a home in your neighborhood.      
                         </p>
                     </div>
                     <div class="col-md-4">
@@ -42,6 +41,7 @@ export default class PublicReference extends Component {
                     <a href={process.env.REACT_APP_LOGIN}>
                     <button className="btn ml-3 btn-primary">Sign Up</button></a>
                 </div> */}
+
             </div>
         )
     }

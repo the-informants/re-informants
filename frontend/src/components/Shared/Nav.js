@@ -49,7 +49,7 @@ class Nav extends Component {
             )
             return (
                 
-                <nav className="navbar navbar-expand-lg navbar-dark bg-dark transparent-nav">
+                <nav className="navbar navbar-expand-lg navbar-dark nav-container transparent-nav">
 
                     <div className="container-fluid body">
                         <Link to={"/"}><img className="logo img-responsive" src={logo} alt="RE Informants"/></Link>
@@ -78,7 +78,8 @@ class Nav extends Component {
                                 </li>
                                 
                             </ul>
-                            <a href={process.env.REACT_APP_LOGIN}><button className="btn btn-primary" >Sign Up</button></a>
+                            <a href={process.env.REACT_APP_LOGIN}><button className="btn 
+                            btn-primary" >Sign Up</button></a>
                             <a href={process.env.REACT_APP_LOGIN}><button className="btn btn-default" >Login</button></a>
                             </div>
                                 :

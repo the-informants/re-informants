@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import routes from './routes';
 import Nav from './components/Shared/Nav';
-// import Footer from './components/Shared/Footer';
+import Footer from './components/Shared/Footer';
 
 class App extends Component {
   render() {
@@ -11,7 +11,7 @@ class App extends Component {
       <div className="App">
         <Nav/>
         {routes}
-        {/* <Footer/> */}
+        <Footer/>
       </div>
     </div>
     );

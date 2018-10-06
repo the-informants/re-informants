@@ -7,16 +7,30 @@ import logo from './../Shared/images/logo.png';
 export default class Footer extends Component {
     render() {
         return (
-            <div>
-                <div className="container-fluid footer-container relative-bottom bg-dark">
-                    {/* <img src={logo} alt=""/> */}
-                        <div className="d-flex justify-content-center row">
-                            {/* <Link className="footer-links" to="/">home</Link>
-                            <Link className="footer-links" to="/PublicGetStarted">search</Link> */}
-                        </div>
-                    {/* <h6>REbands <i className="far fa-copyright"></i>  2018</h6>  */}
+            <nav className="navbar navbar-expand-lg navbar-dark nav-container transparent-nav footer">
+                <div className="container-fluid body container-footer">       
+                    <footer id="navbarResponsive">
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <Link className="nav-link navsize" to="/PublicGetStarted">Get Started</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link navsize" to="/PublicReference">References</Link>
+                            </li>  
+                            <li className="nav-item">
+                                <Link className="nav-link navsize" to="/PublicBuyer">Buyers</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link navsize" to="/PublicSeller">Sellers</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link navsize" to="/AboutUs">About Us</Link>
+                            </li>    
+                        </ul>
+                            
+                    </footer>
                 </div>
-            </div>
+            </nav>
         )
     }
 }
