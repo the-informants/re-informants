@@ -8,8 +8,9 @@
 body {
   margin: 0px;
   padding: 0px;
-  font-family: sans-serif;
-  background-color: lightgrey;   
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  background-color: #C5C6C7;   
 }
 .primary-color{
   background-color: #3984D3;
@@ -28,10 +29,19 @@ body {
   justify-content: center;
 }
 
+a {
+  color: #cc6600;
+}
+
 
 
 .btn {
   margin: 5px;
+}
+
+.btn-primary {
+  background-color: #45A29E;
+  border: #66fcf1;
 }
 
 .opening-btn{
@@ -40,18 +50,22 @@ body {
 }
 /* Above were added by Keller on 6/6/18 */
 
-p {
-  font-size: 16px;
-}
-
 h1 {
   padding-top: 30px;
-  border-bottom: solid 1px grey;
+  border-bottom: solid 1px #1F2833;
   margin-bottom: 10px;
+}
+
+h1, h2, h3, h4, h5, h6, {
+  color: #66fcf1 !important;
 }
 
 h4 {
   margin-bottom: 15px;
+}
+
+.nav-container {
+  background-color: #0B0C10 !important;
 }
 
 .container dt,.container dd {
@@ -146,7 +160,7 @@ h4 {
 
 /* ////// End of Cover Page Styling ////// */
 
-/* this is for the cool step list items */
+/* this is for the cool step list items created by Keller */
 .step {
   margin-left: 0;
   padding-left: 0;
@@ -169,7 +183,7 @@ h4 {
   font-weight: bold;
   margin-right: 10px;
   font-size: 100%;
-  background-color: #28a745;
+  background-color: #45A29E;
   color: white;
   font-weight: bold;
   padding: 6px 12px;
@@ -208,9 +222,9 @@ h4 {
   .imgContainer {
     height: 350px
   }
-  .logo{
+  /* .logo{
     width: calc(100vw - 120px);
-  }
+  Keller commented this logo breakpoint because it wasn't scaling well and was actually enlarging the logo too much.} */
   .get-started-container{
     padding-left: 0px;
     padding-right: 0px
@@ -387,13 +401,14 @@ label {
 }
 
 .faqs-getstarted {
-  background-color: #4B87CB;
+  background-color: #1F2833;
   color: white;
   padding: 20px;
 }
 
 .faqs-why {
-  background-color: #C95B22;
+  background-color: #cc6600; 
+  /* orange */
   color: white;
   padding: 20px;
   margin-top: 10px;
@@ -424,7 +439,7 @@ label {
 }
 
 .call-to-action {
-  background-color: #259B36;
+  background-color: #45a29e;
   padding: 10px;
   color: white;
 }

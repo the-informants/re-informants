@@ -91,7 +91,19 @@ class PrivateInformant extends Component {
                                 <li>Configured in-home wired internet, cable and Synology back-up storage system. Installed surround sound system.</li>
                                 <li>Sprayed interior trim paint.</li>
                             </ul>
-                            <h4 class="call-to-action">Get a Reference &mdash; Text 801.230.9223 to schedule | Venmo $50 for 30-minute call. | http://venmo.com/kellerchch</h4>
+                            <h3>Get a Reference</h3>
+                            <div>
+                            <ul className="step">
+                                <li>Text 801.230.9223 to schedule</li>
+                                <li>
+                                <a href="http://venmo.com/kellerchch">Venmo $50</a> for a 30-minute call.
+                                    
+                                </li>
+                                <li>
+                                    Satisfaction guaranteed!
+                                </li>
+                            </ul>
+                            </div>
                     </div>
                     <div class ="col-sm-4 faqs-why">
                         <h4>Why do I want a reference?</h4> 
