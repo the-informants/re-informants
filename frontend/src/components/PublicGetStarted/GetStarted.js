@@ -34,9 +34,9 @@ class GetStarted extends Component {
         }
     }
     submitStayInformedInformation = ()=>{
-        const stayInormedInfo = {...this.props.form.StayInformedForm.values}
-        console.log(stayInormedInfo);
-        this.props.submitStayInformedInfo(stayInormedInfo);
+        const stayInformedInfo = {...this.props.form.StayInformedForm.values}
+        console.log(stayInformedInfo);
+        this.props.submitStayInformedInfo(stayInformedInfo);
     }
 
     openCreateOrderForm=()=>{
