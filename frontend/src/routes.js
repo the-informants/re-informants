@@ -23,8 +23,8 @@ import UserReviews from './components/UserReviews/UserReviews';
 
 export default (
     <Switch>
-        {/* <Route exact path = '/' component={Opening}/> */}
-        <Route exact path = '/' component={StayInformed}/>
+        <Route exact path = '/' component={Opening}/>
+        {/* <Route exact path = '/' component={StayInformed}/> */}
         {/* <Route exact path = '/' component={PublicGetStarted}/> */}
         {/* <Route component={Opening} path='/Opening' /> */}
 

@@ -9,10 +9,8 @@ const StayInformedForm = props=>{
     return (
 
         <form onSubmit={handleSubmit(mysubmit)}>
-            <div class="mar-top mar-bottom">
+            <div class="mar-top mar-bottom"> 
             We are on a mission to help home buyers make better decisions and have begun working on a limited pilot providing our neighborhood reference service. If you would like to get an invitation to join our platform as we expand, please give us your information and we will send you an invitation very soon. We promise to protect your email and to communicate smartly.</div>
-            <Field  name="firstname" type = "text" component={renderField} label="First Name"/>
-            <Field  name="lastname" type = "text" component={renderField} label="Last Name"/>
             <Field  name="email" type = "text" component={renderField} label="Email"/>
           
             

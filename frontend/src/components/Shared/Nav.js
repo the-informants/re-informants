@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import {getUserInfo, logout, getInformantInfo, getBuyerInfo} from '../../ducks/reducers/user';
 
-import logo from './images/logo.png'
+import logo from './images/logo-greenish.png'
 
 import {getOrderResultsbyBuyer} from '../../ducks/reducers/order';
 

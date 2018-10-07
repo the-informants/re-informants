@@ -87,11 +87,35 @@ h4 {
   position: absolute; 
   margin: 5px 0 22px 0;
 }
+.stay-informed {
+  font-size: 1.0rem;
+  text-shadow: 0px 0px 7px rgba(27, 27, 27, 0.452)
+}
+.mission-statement{
+  font-size: 1.4rem;
+  text-shadow: 0px 0px 15px rgba(27, 27, 27, 0.452);
+}
+
+@media (min-width: 768px){
+  .stay-informed {
+      max-width: 58.333333%;
+      font-size: 1.2rem;
+  }
+  .mission-statement {
+      max-width: 66%;
+      font-size: 2.2rem
+  }
+}
+
 
 /* ////// Cover Page styling ////// */
 
 .sliderImgOne {
-  background-image: url(./components/Shared/images/neighborhood_color.jpg);
+  /* background-image: url(./components/Shared/images/apartment-architectural-design.jpg); */
+  /* background-image: url(./components/Shared/images/aerial-view-architecture-autumn-280221.jpg); */
+  background-image: url(./components/Shared/images/architecture-building-driveway-186077.jpg);
+  /* background-image: url(./components/Shared/images/neighborhood.jpg); */
+  color: white;  
 }
 .sliderImgTwo {
   background-image: url(./components/Shared/images/american_neighbor_color.jpg)
