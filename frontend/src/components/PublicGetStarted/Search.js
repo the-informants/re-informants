@@ -9,14 +9,23 @@ render() {
     return (
 
         
-            <form onSubmit={handleSubmit(mysubmit)} style={{width: "100%"}}>
+            // <form onSubmit={handleSubmit(mysubmit)} style={{width: "100%"}}>
 
-                <Field 
-                    defaultValue="Enter an address or zip code"
-                    placeholder="Search by City, Zip, or Address"
-                    name="searchvalue"
-                    component={renderField}
-            />
+            //     <Field 
+            //         defaultValue="Enter an address or zip code"
+            //         placeholder="Search by City, Zip, or Address"
+            //         name="searchvalue"
+            //         component={renderField}
+            // />
+            // </form>
+            <form onSubmit={handleSubmit(mysubmit)} style={{width: "100%"}}>
+            
+                            <Field 
+                                defaultValue="Enter an Email"
+                                placeholder="Enter your email"
+                                name="email"
+                                component={renderField}
+                        />
             </form>
         
         );
@@ -32,17 +41,31 @@ const renderField = (field)=>(
     />
 </div>
 )
+// function validate(values){
+//     const errors = {};
+//     //validate the inputs from 'values'
+//     if (!values.searchvalue){
+//         errors.searchvalue = "Enter a zip code or address";
+//     }
+//     return errors;
+// }
 function validate(values){
     const errors = {};
     //validate the inputs from 'values'
     if (!values.searchvalue){
-        errors.searchvalue = "Enter a zip code or address";
+        errors.searchvalue = "Enter an Email";
     }
     return errors;
 }
 
 
+
+// export default reduxForm({
+//     validate,
+//     form: 'MapSearch'
+// })(Search);
+
 export default reduxForm({
     validate,
-    form: 'MapSearch'
+    form: 'StayInformedForm'
 })(Search);
