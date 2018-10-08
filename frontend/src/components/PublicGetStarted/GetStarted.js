@@ -9,6 +9,7 @@ import {connect} from 'react-redux'
 import geocoder from 'geocoder';
 import OrderFormValidation from './OrderFormValidation';
 import {getOrders, submitOrderInfo, getOrderResultsbyBuyer} from '../../ducks/reducers/order';
+import {submitStayInformedInfo} from '../../ducks/reducers/user';
 
 
 class GetStarted extends Component {
@@ -32,6 +33,12 @@ class GetStarted extends Component {
             })
         }
     }
+    submitStayInformedInformation = ()=>{
+        const stayInformedInfo = {...this.props.form.StayInformedForm.values}
+        console.log(stayInformedInfo);
+        this.props.submitStayInformedInfo(stayInformedInfo);
+    }
+
     openCreateOrderForm=()=>{
         this.setState({createOrderFormIsOpen: true});
         }
@@ -77,10 +84,12 @@ class GetStarted extends Component {
                     <div className="row align-items-center justify-content-md-center mx-0">
                         <div className="row col-md-5 justify-content-center align-items-center white-background rounded my-2 mx-0">
                             <div className="d-flex col-12 col-lg-9 align-items-center justify-content-center px-0">
-                                <Search  mysubmit={this.searchAddress}/>        
+                                {/* <Search  mysubmit={this.searchAddress}/>         */}
+                                <Search  mysubmit={this.submitStayInformedInformation}/>        
                             </div>
                             <div className="col-12 col-lg-3 d-flex align-items-center justify-content-end px-0">
-                                    <button onClick={()=>this.searchAddress()} className="btn-primary btn btn-block btn-lg btn-map">Search</button>
+                                    {/* <button onClick={()=>this.searchAddress()} className="btn-primary btn btn-block btn-lg btn-map">Search</button> */}
+                                    <button onClick={()=>this.submitStayInformedInformation()} className="btn-primary btn btn-block btn-lg btn-map">Submit</button>
                             </div>
                         </div>
 
@@ -142,5 +151,5 @@ function mapStateToProps(state){
     return {search, form, order}
 }
 
-export default connect(mapStateToProps,{addSearchCoordinates, searchAddress, addSearchLocation, submitOrderInfo, getOrders, getOrderResultsbyBuyer})(GetStarted)
+export default connect(mapStateToProps,{addSearchCoordinates, searchAddress, addSearchLocation, submitOrderInfo, getOrders, getOrderResultsbyBuyer, submitStayInformedInfo})(GetStarted)
 

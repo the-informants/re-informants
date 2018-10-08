@@ -8,8 +8,9 @@
 body {
   margin: 0px;
   padding: 0px;
-  font-family: sans-serif;
-  background-color: lightgrey;   
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  background-color: #C5C6C7;   
 }
 .primary-color{
   background-color: #3984D3;
@@ -28,10 +29,19 @@ body {
   justify-content: center;
 }
 
+a {
+  color: #cc6600;
+}
+
 
 
 .btn {
   margin: 5px;
+}
+
+.btn-primary {
+  background-color: #45A29E;
+  border: #66fcf1;
 }
 
 .opening-btn{
@@ -40,18 +50,22 @@ body {
 }
 /* Above were added by Keller on 6/6/18 */
 
-p {
-  font-size: 16px;
-}
-
 h1 {
   padding-top: 30px;
-  border-bottom: solid 1px grey;
+  border-bottom: solid 1px #1F2833;
   margin-bottom: 10px;
+}
+
+h1, h2, h3, h4, h5, h6, {
+  color: #66fcf1 !important;
 }
 
 h4 {
   margin-bottom: 15px;
+}
+
+.nav-container {
+  background-color: #0B0C10 !important;
 }
 
 .container dt,.container dd {
@@ -73,11 +87,35 @@ h4 {
   position: absolute; 
   margin: 5px 0 22px 0;
 }
+.stay-informed {
+  font-size: 1.0rem;
+  text-shadow: 0px 0px 7px rgba(27, 27, 27, 0.452)
+}
+.mission-statement{
+  font-size: 1.4rem;
+  text-shadow: 0px 0px 15px rgba(27, 27, 27, 0.452);
+}
+
+@media (min-width: 768px){
+  .stay-informed {
+      max-width: 58.333333%;
+      font-size: 1.2rem;
+  }
+  .mission-statement {
+      max-width: 66%;
+      font-size: 2.2rem
+  }
+}
+
 
 /* ////// Cover Page styling ////// */
 
 .sliderImgOne {
-  background-image: url(./components/Shared/images/neighborhood_color.jpg);
+  /* background-image: url(./components/Shared/images/apartment-architectural-design.jpg); */
+  /* background-image: url(./components/Shared/images/aerial-view-architecture-autumn-280221.jpg); */
+  background-image: url(./components/Shared/images/architecture-building-driveway-186077.jpg);
+  /* background-image: url(./components/Shared/images/neighborhood.jpg); */
+  color: white;  
 }
 .sliderImgTwo {
   background-image: url(./components/Shared/images/american_neighbor_color.jpg)
@@ -146,7 +184,7 @@ h4 {
 
 /* ////// End of Cover Page Styling ////// */
 
-/* this is for the cool step list items */
+/* this is for the cool step list items created by Keller */
 .step {
   margin-left: 0;
   padding-left: 0;
@@ -169,7 +207,7 @@ h4 {
   font-weight: bold;
   margin-right: 10px;
   font-size: 100%;
-  background-color: #28a745;
+  background-color: #45A29E;
   color: white;
   font-weight: bold;
   padding: 6px 12px;
@@ -208,9 +246,9 @@ h4 {
   .imgContainer {
     height: 350px
   }
-  .logo{
+  /* .logo{
     width: calc(100vw - 120px);
-  }
+  Keller commented this logo breakpoint because it wasn't scaling well and was actually enlarging the logo too much.} */
   .get-started-container{
     padding-left: 0px;
     padding-right: 0px
@@ -378,18 +416,23 @@ label {
 }
 
 /* neighborhood reference profile */
-.ref_photo img {
+.mar-right30 {
   margin-right: 30px;
 }
 
+.mar-left30 {
+  margin-left: 30px;
+}
+
 .faqs-getstarted {
-  background-color: #4B87CB;
+  background-color: #1F2833;
   color: white;
   padding: 20px;
 }
 
 .faqs-why {
-  background-color: #C95B22;
+  background-color: #cc6600; 
+  /* orange */
   color: white;
   padding: 20px;
   margin-top: 10px;
@@ -404,16 +447,12 @@ label {
   }
 }
 
-.second {
+.mar-top {
   margin-top: 20px;
 }
 
-.summary {
+.mar-bottom {
   margin-bottom: 20px;
-}
-
-.page {
-  margin-top: 20px;
 }
 
 .satisfaction {
@@ -424,7 +463,7 @@ label {
 }
 
 .call-to-action {
-  background-color: #259B36;
+  background-color: #45a29e;
   padding: 10px;
   color: white;
 }

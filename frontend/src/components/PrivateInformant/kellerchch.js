@@ -16,11 +16,11 @@ class PrivateInformant extends Component {
         return(
             <div className="container PageTitle">
                 <h1>Chris Keller</h1>
-                <div class="row page"> 
-                    <div class ="col-md-8 ref_photo"> 
-                        <img src={keller} class="float-left img-fluid"/>
+                <div class="row mar-top"> 
+                    <div class ="col-md-8"> 
+                        <img src={keller} class="float-left img-fluid mar-right30"/>
 
-                        <div class ="summary">
+                        <div class ="mar-bottom">
                             <div><strong>Name &mdash;</strong> Chris Keller</div>
                             <div><strong>Gender &mdash;</strong> Male</div>
                             <div><strong>Age &mdash;</strong> 30-45</div>
@@ -29,7 +29,7 @@ class PrivateInformant extends Component {
                             <div><strong>Time in your South Jordan, UT neighborhood &mdash;</strong> 7 years</div>
                         </div>
 
-                            <div class="distance text-uppercase">
+                            <div class="mar-top text-uppercase">
                             I live within <strong>2 miles</strong> of the home you are considering.
                             </div>
                     </div>
@@ -91,13 +91,25 @@ class PrivateInformant extends Component {
                                 <li>Configured in-home wired internet, cable and Synology back-up storage system. Installed surround sound system.</li>
                                 <li>Sprayed interior trim paint.</li>
                             </ul>
-                            <h4 class="call-to-action">Get a Reference &mdash; Text 801.230.9223 to schedule | Venmo $50 for 30-minute call. | http://venmo.com/kellerchch</h4>
+                            <h3>Get a Reference</h3>
+                            <div>
+                            <ul className="step">
+                                <li>Text 801.230.9223 to schedule</li>
+                                <li>
+                                <a href="http://venmo.com/kellerchch">Venmo $50</a> for a 30-minute call.
+                                    
+                                </li>
+                                <li>
+                                    Satisfaction guaranteed!
+                                </li>
+                            </ul>
+                            </div>
                     </div>
                     <div class ="col-sm-4 faqs-why">
                         <h4>Why do I want a reference?</h4> 
                         <div>A neighborhood reference is an independent home owner who lives in the neighborhood you are targeting. He/she can provide insight into the ‘neighborhood personality’ something you can’t search on the internet. Employer’s call an applicant’s references. This is the smart way for home buyer’s to call a neighborhood reference prior to making a big home purchase.</div>
 
-                        <h4 class="second">But my realtor gives me this help. Do I need this?</h4>
+                        <h4 class="mar-top">But my realtor gives me this help. Do I need this?</h4>
 
                         <div>Neighborhood references are simply 3rd party confirmations of the biggest purchase most of us will make. We validate and confirm what you can only find from local people living in your new neighborhood. If you buy here, we will become neighbors in the literal sense of the word. Lifestyle is about more than a house and local references are the way to discover the real truth.</div>
 

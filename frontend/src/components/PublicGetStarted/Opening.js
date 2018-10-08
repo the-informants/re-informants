@@ -9,6 +9,8 @@ import { addSearchCoordinates, searchAddress, addSearchLocation} from '../../duc
 import {connect} from 'react-redux'
 import geocoder from 'geocoder';
 import Footer from './../Shared/Footer';
+import {submitStayInformedInfo} from '../../ducks/reducers/user';
+
 
 
 class Opening extends Component {
@@ -32,6 +34,11 @@ class Opening extends Component {
             })
         }
     }
+    submitStayInformedInformation = ()=>{
+        const stayInormedInfo = {...this.props.form.StayInformedForm.values}
+        console.log(stayInormedInfo);
+        this.props.submitStayInformedInfo(stayInormedInfo);
+    }
     componentDidUpdate(prevProps){
         console.log(prevProps.search.searchLat, this.props.search.searchLat)
         if(prevProps.search.searchLat !== this.props.search.searchLat){
@@ -40,76 +47,44 @@ class Opening extends Component {
     }
 
     render (){
-        var settings = {
-            dots: false,
-            fade: true,
-            arrows: false,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 4000,
-            pauseOnHover: false,
-            adaptiveHeight: true
-        };
+      
 
         if(this.state.searched){
             return  (
                 <Redirect to={"/PublicGetStarted"}/> 
+                // We are on a mission to help home buyers make better decisions and have begun working on a limited pilot providing our neighborhood reference service. If you would like to get an invitation to join our platform as we expand, please give us your information and we will send you an invitation very soon. We promise to protect your email and to communicate smartly.
             )
         }        
         return (
             <div>
                 <div>
-                    <Slider {...settings}>  
-                        <div className="imgContainer sliderImgOne justify-content-center align-items-center d-flex">
+                        <div className="imgContainer sliderImgOne justify-content-center align-items-center d-flex flex-column">
+                            <div className="text-center mission-statement pb-3 px-3">
+                                Changing the way you house hunt by connecting you with neighborhood references.
+                            </div>
+                            <div className="text-center stay-informed pb-2 px-3">
+                                Get an invitation to join our platform as we grow.
+                            </div>
                             <div className="container-fluid">
                                 <div className="row align-items-center justify-content-md-center mx-0">
                                     <div className="row col-md-5 justify-content-center align-items-center white-background rounded my-2 mx-0">
                                         <div className="d-flex col-12 col-lg-9 align-items-center justify-content-center px-0">
-                                            <Search mysubmit={this.searchAddress}/>        
+                                            {/* <Search mysubmit={this.searchAddress}/>         */}
+                                            <Search  mysubmit={this.submitStayInformedInformation}/>        
                                         </div>
                                         <div className="col-12 col-lg-3 d-flex align-items-center justify-content-end px-0">
-                                               <Link to="/PublicGetStarted"><button onClick={()=>this.searchAddress()} className="btn-primary opening-btn btn-lg btn-block btn-map">Search</button></Link>
+                                            
+                                               <button onClick={()=>this.submitStayInformedInformation()} className="btn-primary btn btn-block btn-lg btn-map">Submit</button>
+
                                         </div>
                                     </div>
                                 </div>
-                             </div>   
+                             </div>
+                             {/* <div className="text-center stay-informed px-3">
+                                Get an invitation to join our platform as we expand.
+                            </div>    */}
+
                         </div>
-
-                        <div className="imgContainer sliderImgTwo justify-content-center align-items-center d-flex">
-                            <div className="container-fluid">
-                                <div className="row align-items-center justify-content-md-center mx-0">
-                                    <div className="row col-md-5 justify-content-center align-items-center white-background rounded my-2 mx-0">
-                                        <div className="d-flex col-12 col-lg-9 align-items-center justify-content-center px-0">
-                                            <Search mysubmit={this.searchAddress}/>        
-                                        </div>
-                                        <div className="col-12 col-lg-3 d-flex align-items-center justify-content-end px-0">
-                                            <Link to="/PublicGetStarted"><button onClick={()=>this.searchAddress()} className="btn-primary opening-btn btn-lg btn-block btn-map">Search</button></Link>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>   
-                        </div>
-
-                        <div className="imgContainer sliderImgThree justify-content-center align-items-center d-flex">
-                            <div className="container-fluid">
-                                <div className="row align-items-center justify-content-md-center mx-0">
-                                    <div className="row col-md-5 justify-content-center align-items-center white-background rounded my-2 mx-0">
-                                        <div className="d-flex col-12 col-lg-9 align-items-center justify-content-center px-0">
-                                            <Search mysubmit={this.searchAddress} />        
-                                        </div>
-                                        <div className="col-12 col-lg-3 d-flex align-items-center justify-content-end px-0">
-                                               <Link to="/PublicGetStarted"><button onClick={()=>this.searchAddress()} className="btn-primary opening-btn btn-lg btn-block btn-map">Search</button></Link>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>                            
-                        </div>   
-
-                    </Slider>
-
                 </div>
                 <div className="container-fluid marketing">
                     <div className="row headers">
@@ -117,7 +92,7 @@ class Opening extends Component {
                             <i className="fas fa-user-friends fa-7x"></i>
                             <h2>Informant</h2>
                             <p>Help good people who are looking to buy a home in your neighborhood. Be their insider, tell them what you know about the schools, the community, the traffic flow, the neighbors, the churches and the recreation. And get paid for your time. It is easy to get started.</p>
-                            <Link to="/PublicInformant">
+                            <Link to="/PublicReference">
                             <button className="btn btn-secondary">Start Sharing
                             </button>
                             </Link>
@@ -142,19 +117,16 @@ class Opening extends Component {
                         </div>
                     </div>
                 </div>
-                <div>
-                    <Footer/>
-                </div>
             </div>
         );
       }
     }
 
     function mapStateToProps(state){
-        const {search, form} = state
-        return {search, form}
+        const {search, form, user} = state
+        return {search, form, user}
     }
     
-    export default connect(mapStateToProps,{addSearchCoordinates, searchAddress, addSearchLocation})(Opening)
+    export default connect(mapStateToProps,{addSearchCoordinates, searchAddress, addSearchLocation, submitStayInformedInfo})(Opening)
     
     

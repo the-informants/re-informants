@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import {getUserInfo, logout, getInformantInfo, getBuyerInfo} from '../../ducks/reducers/user';
 
-import logo from './images/logo.png'
+import logo from './images/logo-greenish.png'
 
 import {getOrderResultsbyBuyer} from '../../ducks/reducers/order';
 
@@ -49,7 +49,7 @@ class Nav extends Component {
             )
             return (
                 
-                <nav className="navbar navbar-expand-lg navbar-dark bg-dark transparent-nav">
+                <nav className="navbar navbar-expand-lg navbar-dark nav-container transparent-nav">
 
                     <div className="container-fluid body">
                         <Link to={"/"}><img className="logo img-responsive" src={logo} alt="RE Informants"/></Link>
@@ -65,20 +65,21 @@ class Nav extends Component {
                                     <Link className="nav-link navsize" to="/PublicGetStarted">Get Started</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link navsize" to="/PublicInformant">Neighborhood Reference</Link>
+                                    <Link className="nav-link navsize" to="/PublicReference">References</Link>
                                 </li>  
                                 <li className="nav-item">
-                                    <Link className="nav-link navsize" to="/PublicBuyer">Buyer</Link>
+                                    <Link className="nav-link navsize" to="/PublicBuyer">Buyers</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link navsize" to="/PublicSeller">Seller</Link>
+                                    <Link className="nav-link navsize" to="/PublicSeller">Sellers</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link navsize" to="/AboutUs">About Us</Link>
                                 </li>
                                 
                             </ul>
-                            <a href={process.env.REACT_APP_LOGIN}><button className="btn btn-primary" >Sign Up</button></a>
+                            <a href={process.env.REACT_APP_LOGIN}><button className="btn 
+                            btn-primary" >Sign Up</button></a>
                             <a href={process.env.REACT_APP_LOGIN}><button className="btn btn-default" >Login</button></a>
                             </div>
                                 :

@@ -25,7 +25,7 @@ const SUBMIT_STAY_INFORMED_INFO = "SUBMIT_STAY_INFORMED_INFO"
 
 export default (state = initialState, action) =>{
     switch (action.type) {
-        case SUBMIT_STAY_INFORMED_INFO:
+        case SUBMIT_STAY_INFORMED_INFO + '_FULFILLED':
             console.log("stay informed info payload",action.payload.data[0])
             return Object.assign({}, state, {stayInformedInfo: action.payload.data[0]}) 
         case SUBMIT_INFORMANT_INFO + '_FULFILLED': 

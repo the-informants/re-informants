@@ -122,7 +122,7 @@ class AccountProfile extends Component {
                 </h4>
                     <button className="btn btn-default" onClick={this.openBuyerForm}>Edit Buyer Profile</button>
                     <Link to="/">
-                                    <button className="btn btn-primary">
+                                    <button className="btn">
                                         Submit an Order
                                     </button>
                     </Link>
