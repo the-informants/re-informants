@@ -90,7 +90,7 @@ class Opening extends Component {
                     <div className="row headers">
                         <div className="col-lg-4">
                             <i className="fas fa-user-friends fa-7x"></i>
-                            <h2>Informant</h2>
+                            <h2>Reference</h2>
                             <p>Help good people who are looking to buy a home in your neighborhood. Be their insider, tell them what you know about the schools, the community, the traffic flow, the neighbors, the churches and the recreation. And get paid for your time. It is easy to get started.</p>
                             <Link to="/PublicReference">
                             <button className="btn btn-secondary">Start Sharing
