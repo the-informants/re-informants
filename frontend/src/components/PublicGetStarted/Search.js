@@ -21,7 +21,7 @@ render() {
             <form onSubmit={handleSubmit(mysubmit)} style={{width: "100%"}}>
             
                             <Field 
-                                defaultValue="Enter an Email"
+                                defaultValue="Enter your Email"
                                 placeholder="Enter your email"
                                 name="email"
                                 component={renderField}

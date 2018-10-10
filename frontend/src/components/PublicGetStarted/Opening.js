@@ -60,10 +60,7 @@ class Opening extends Component {
                 <div>
                         <div className="imgContainer sliderImgOne justify-content-center align-items-center d-flex flex-column">
                             <div className="text-center mission-statement pb-3 px-3">
-                                Changing the way you house hunt by connecting you with neighborhood references.
-                            </div>
-                            <div className="text-center stay-informed pb-2 px-3">
-                                Get an invitation to join our platform as we grow.
+                                Confirm buying or renting decisions using local neighborhood references.
                             </div>
                             <div className="container-fluid">
                                 <div className="row align-items-center justify-content-md-center mx-0">
@@ -80,38 +77,39 @@ class Opening extends Component {
                                     </div>
                                 </div>
                              </div>
-                             {/* <div className="text-center stay-informed px-3">
+
+                             <div className="text-center stay-informed px-3">
                                 Get an invitation to join our platform as we expand.
-                            </div>    */}
+                            </div>   
 
                         </div>
                 </div>
                 <div className="container-fluid marketing">
                     <div className="row headers">
                         <div className="col-lg-4">
-                            <i className="fas fa-user-friends fa-7x"></i>
-                            <h2>Reference</h2>
-                            <p>Help good people who are looking to buy a home in your neighborhood. Be their insider, tell them what you know about the schools, the community, the traffic flow, the neighbors, the churches and the recreation. And get paid for your time. It is easy to get started.</p>
+                            <i className="fas fa-user-friends fa-5x"></i>
+                            <h2 className="mar-top mar-bottom">References</h2>
+                            <p>Many things can be discovered about your neighborhood using online tools, but the personality, and the life style can't. And that 'feel' is critical to making a good home choice. You are key to helping people make good decisions about homes in your neighborhood. Be their insider, their neighborhood reference with insight into living, working and recreating where you live. You simply give of your time to answer questions and you get paid for helping. Sign up to get notified when we expand.</p>
                             <Link to="/PublicReference">
-                            <button className="btn btn-secondary">Start Sharing
+                            <button className="btn btn-primary">Learn More
                             </button>
                             </Link>
                         </div>
                         <div className="col-lg-4">
-                            <i className="fas fa-handshake fa-7x"></i>
-                            <h2>Buyer</h2>
-                            <p>In every other purchase we use reviews, but where is the neighborhood review when buying a home? Insider information is hard to come by. REInformants makes that possible. Search for neighborhood insiders and buy with confidence. </p>
+                            <i className="fas fa-handshake fa-5x"></i>
+                            <h2 className="mar-top mar-bottom">Buyers</h2>
+                            <p>Buying today typically happens after we read reviews or get references, but such is not the typical case in real estate. We think there is a better way to get quick confirmations about the intangible, qualitative characteristics of a neighborhood that are best discovered by talking to real people who live in your target neighborhood. That is what REBANDS delivers. Real people advising on real decisions so you can buy or rent with confidence. </p>
                             <Link to="/PublicBuyer">
-                            <button className="btn btn-secondary">Find RE Informants
+                            <button className="btn btn-primary">Learn More
                             </button>
                             </Link>
                         </div>
                         <div className="col-lg-4">
-                            <i className="fas fa-home  fa-7x"></i>
-                            <h2>Seller</h2>
-                            <p>Help your buyers find information about your neighborhood. All of us have used employment references. Why not provide a home reference. Our platform makes it easy to invite your neighbors to become real estate informants. Share that in your listing.</p>
+                            <i className="fas fa-home  fa-5x"></i>
+                            <h2 className="mar-top mar-bottom">Sellers</h2>
+                            <p>Sell your home in less time with less hassle to someone who is a good fit by providing neighborhood references who can give an arms length, independent perspective about your home and your neighborhood. The same approach exists today in job hiring. It is how good decisions are made and our platform makes it easy to invite your neighbors to become references. They will get paid and it costs you nothing. Sign up to got notified as we expand into your neighborhood.</p>
                             <Link to="/PublicSeller">
-                            <button className="btn btn-secondary">Improve Your Listing
+                            <button className="btn btn-primary">Learn More
                             </button>
                             </Link>
                         </div>
