@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import {getUserInfo, logout, getInformantInfo, getBuyerInfo} from '../../ducks/reducers/user';
+import Modal from 'react-modal';
+import SignupFormValidation from './SignupFormValidation';
 
 import logo from './images/logo-greenish.png'
 
@@ -14,7 +16,8 @@ class Nav extends Component {
         this.toggleNavbar = this.toggleNavbar.bind(this);
         this.state = {
             collapsed: true,
-            logout:false
+            logout:false,
+            signupFormIsOpen: false
         };
     }
 
@@ -36,9 +39,32 @@ class Nav extends Component {
             this.props.logout();
             this.setState({logout:true});
         }
-       
+    
+    openSignupForm=()=>{
+        this.setState({signupFormIsOpen: true});
+        }
+    
+    closeSignupForm=()=>{
+        this.setState({signupFormIsOpen: false});
+        }
+
+    submitUserInformation = () =>{};
 
     render() {
+
+        const signupformStyles = {
+            content : {
+              width                 : '50%',
+              height                : '60%',
+              top                   : '50%',
+              left                  : '50%',
+              right                 : 'auto',
+              bottom                : 'auto',
+            //   marginRight           : '-50%',
+              transform             : 'translate(-50%, -50%)'
+            }
+          };
+
         const collapsed = this.state.collapsed;
         const classOne = collapsed ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
         const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
@@ -62,25 +88,25 @@ class Nav extends Component {
 
                             <ul className="navbar-nav ml-auto">
                                 <li className="nav-item">
-                                    <Link className="nav-link navsize" to="/PublicGetStarted">Get Started</Link>
+                                    <Link className="nav-link navsize float-right" to="/PublicGetStarted">Get Started</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link navsize" to="/PublicReference">References</Link>
+                                    <Link className="nav-link navsize float-right" to="/PublicReference">References</Link>
                                 </li>  
                                 <li className="nav-item">
-                                    <Link className="nav-link navsize" to="/PublicBuyer">Buyers</Link>
+                                    <Link className="nav-link navsize float-right" to="/PublicBuyer">Buyers</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link navsize" to="/PublicSeller">Sellers</Link>
+                                    <Link className="nav-link navsize float-right" to="/PublicSeller">Sellers</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link navsize" to="/AboutUs">About Us</Link>
+                                    <Link className="nav-link navsize float-right" to="/AboutUs">About Us</Link>
                                 </li>
-                                
+                                 
                             </ul>
                             <a href={process.env.REACT_APP_LOGIN}><button className="btn 
-                            btn-primary" >Sign Up</button></a>
-                            <a href={process.env.REACT_APP_LOGIN}><button className="btn btn-default" >Login</button></a>
+                            btn-primary float-right" onClick={this.openSignupForm}>Sign Up</button></a>
+                            <a href={process.env.REACT_APP_LOGIN}><button className="btn btn-default float-right" >Login</button></a>
                             </div>
                                 :
                             <div className={`${classOne}`} id="navbarResponsive">
@@ -115,7 +141,16 @@ class Nav extends Component {
 
                             
 
-                        </div>
+                    </div>
+
+                    <Modal
+                    isOpen={this.state.signupFormIsOpen}
+                    onRequestClose={this.closeSignupForm}
+                    style={signupformStyles}
+                    >
+                        <SignupFormValidation mysubmit={this.submitUserInformation} cancel={this.closeSignupForm}/>
+                    </Modal>
+
                 </nav>
             )
     }
