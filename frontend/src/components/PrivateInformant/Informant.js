@@ -62,7 +62,7 @@ class PrivateInformant extends Component {
                                 <h4>You don't have any inquiries
                                 </h4>
                                 <Link to="/">
-                                <button className="btn btn-primary">
+                                <button className="btn btn-main">
                                     Search for a Buyer
                                 </button>
                                 </Link>

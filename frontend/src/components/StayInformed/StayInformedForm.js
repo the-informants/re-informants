@@ -14,7 +14,7 @@ const StayInformedForm = props=>{
             <Field  name="email" type = "text" component={renderField} label="Email"/>
           
             
-            <button className="btn btn-primary" type = "submit" disabled={pristine || submitting}>{'Get Notified'}</button>
+            <button className="btn btn-main" type = "submit" disabled={pristine || submitting}>{'Get Notified'}</button>
             
         </form>
     )

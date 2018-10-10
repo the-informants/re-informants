@@ -71,7 +71,7 @@ class Opening extends Component {
                                         </div>
                                         <div className="col-12 col-lg-3 d-flex align-items-center justify-content-end px-0">
                                             
-                                               <button onClick={()=>this.submitStayInformedInformation()} className="btn-primary btn btn-block btn-lg btn-map">Submit</button>
+                                               <button onClick={()=>this.submitStayInformedInformation()} className="btn-main btn btn-block btn-lg btn-map">Submit</button>
 
                                         </div>
                                     </div>
@@ -91,7 +91,7 @@ class Opening extends Component {
                             <h2 className="mar-top mar-bottom">References</h2>
                             <p>Many things can be discovered about your neighborhood using online tools, but the personality, and the life style can't. And that 'feel' is critical to making a good home choice. You are key to helping people make good decisions about homes in your neighborhood. Be their insider, their neighborhood reference with insight into living, working and recreating where you live. You simply give of your time to answer questions and you get paid for helping. Sign up to get notified when we expand.</p>
                             <Link to="/PublicReference">
-                            <button className="btn btn-primary">Learn More
+                            <button className="btn btn-main">Learn More
                             </button>
                             </Link>
                         </div>
@@ -100,7 +100,7 @@ class Opening extends Component {
                             <h2 className="mar-top mar-bottom">Buyers</h2>
                             <p>Buying today typically happens after we read reviews or get references, but such is not the typical case in real estate. We think there is a better way to get quick confirmations about the intangible, qualitative characteristics of a neighborhood that are best discovered by talking to real people who live in your target neighborhood. That is what REBANDS delivers. Real people advising on real decisions so you can buy or rent with confidence. </p>
                             <Link to="/PublicBuyer">
-                            <button className="btn btn-primary">Learn More
+                            <button className="btn btn-main">Learn More
                             </button>
                             </Link>
                         </div>
@@ -109,7 +109,7 @@ class Opening extends Component {
                             <h2 className="mar-top mar-bottom">Sellers</h2>
                             <p>Sell your home in less time with less hassle to someone who is a good fit by providing neighborhood references who can give an arms length, independent perspective about your home and your neighborhood. The same approach exists today in job hiring. It is how good decisions are made and our platform makes it easy to invite your neighbors to become references. They will get paid and it costs you nothing. Sign up to got notified as we expand into your neighborhood.</p>
                             <Link to="/PublicSeller">
-                            <button className="btn btn-primary">Learn More
+                            <button className="btn btn-main">Learn More
                             </button>
                             </Link>
                         </div>

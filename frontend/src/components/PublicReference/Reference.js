@@ -39,7 +39,7 @@ export default class PublicReference extends Component {
                 </h4>
                 <div>
                     <a href={process.env.REACT_APP_LOGIN}>
-                    <button className="btn ml-3 btn-primary">Sign Up</button></a>
+                    <button className="btn ml-3 btn-main">Sign Up</button></a>
                 </div> */}
 
             </div>

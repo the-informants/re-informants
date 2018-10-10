@@ -54,7 +54,7 @@ const SignupFormValidation = props=>{
                 <option value = "30">30</option>
             </Field> */}
           
-            <button className="btn btn-primary" type = "submit" disabled={pristine || submitting}>Submit</button>
+            <button className="btn btn-main" type = "submit" disabled={pristine || submitting}>Submit</button>
            
             <button className="btn btn-danger" onClick={cancel}>Cancel</button>
         </form>

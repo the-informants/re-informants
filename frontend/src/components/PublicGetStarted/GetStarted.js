@@ -88,8 +88,8 @@ class GetStarted extends Component {
                                 <Search  mysubmit={this.submitStayInformedInformation}/>        
                             </div>
                             <div className="col-12 col-lg-3 d-flex align-items-center justify-content-end px-0">
-                                    {/* <button onClick={()=>this.searchAddress()} className="btn-primary btn btn-block btn-lg btn-map">Search</button> */}
-                                    <button onClick={()=>this.submitStayInformedInformation()} className="btn-primary btn btn-block btn-lg btn-map">Submit</button>
+                                    {/* <button onClick={()=>this.searchAddress()} className="btn-main btn btn-block btn-lg btn-map">Search</button> */}
+                                    <button onClick={()=>this.submitStayInformedInformation()} className="btn-main btn btn-block btn-lg btn-map">Submit</button>
                             </div>
                         </div>
 

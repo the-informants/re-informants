@@ -5,7 +5,7 @@ import {getUserInfo, logout, getInformantInfo, getBuyerInfo} from '../../ducks/r
 import Modal from 'react-modal';
 import SignupFormValidation from './SignupFormValidation';
 
-import logo from './images/logo-greenish.png'
+import logo from './images/logo.png'
 
 import {getOrderResultsbyBuyer} from '../../ducks/reducers/order';
 
@@ -78,7 +78,7 @@ class Nav extends Component {
                 <nav className="navbar navbar-expand-lg navbar-dark nav-container transparent-nav">
 
                     <div className="container-fluid body">
-                        <Link to={"/"}><img className="logo img-responsive" src={logo} alt="RE Informants"/></Link>
+                        <Link to={"/"}><img className="logo img-responsive" src={logo} alt="REBANDS neighborhood references"/></Link>
                         {/* <a className="navbar-brand" href="/"><img className="logo img-responsive" src={logo} alt="RE Informants"/></a> */}
                         <button onClick={this.toggleNavbar} className={`${classTwo}`} type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
@@ -87,9 +87,9 @@ class Nav extends Component {
                         <div className={`${classOne}`} id="navbarResponsive">
 
                             <ul className="navbar-nav ml-auto">
-                                <li className="nav-item">
+                                {/* <li className="nav-item">
                                     <Link className="nav-link navsize float-right" to="/PublicGetStarted">Get Started</Link>
-                                </li>
+                                </li> */}
                                 <li className="nav-item">
                                     <Link className="nav-link navsize float-right" to="/PublicReference">References</Link>
                                 </li>  
@@ -104,9 +104,9 @@ class Nav extends Component {
                                 </li>
                                  
                             </ul>
-                            <a href={process.env.REACT_APP_LOGIN}><button className="btn 
-                            btn-primary float-right" onClick={this.openSignupForm}>Sign Up</button></a>
-                            <a href={process.env.REACT_APP_LOGIN}><button className="btn btn-default float-right" >Login</button></a>
+                            {/* <a href={process.env.REACT_APP_LOGIN}><button className="btn 
+                            btn-main float-right" onClick={this.openSignupForm}>Sign Up</button></a>
+                            <a href={process.env.REACT_APP_LOGIN}><button className="btn btn-default float-right" >Login</button></a> */}
                             </div>
                                 :
                             <div className={`${classOne}`} id="navbarResponsive">

@@ -105,7 +105,7 @@ const InformantFormValidation = props=>{
                         component="textarea"/>
                 </div>
             </div>
-            <button className="btn btn-primary" type = "submit" disabled={pristine || submitting}>{informantInfo?'Submit Changes':'Submit'}</button>
+            <button className="btn btn-main" type = "submit" disabled={pristine || submitting}>{informantInfo?'Submit Changes':'Submit'}</button>
             <button className="btn btn-danger" onClick={cancel}>Cancel</button>
         </form>
     )
