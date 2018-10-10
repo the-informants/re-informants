@@ -224,7 +224,7 @@ import Modal from 'react-modal';
                 
                     <textarea className="form-control" placeholder={'Write your review here'}type="text" value={this.state.addedReview} onChange={this.handleReviewChange}></textarea>
                     <div style={styles.buttonContainer}>
-                        <button className="btn btn-primary" disabled={this.state.disabled} onClick={()=>this.createReview()}>Submit</button>
+                        <button className="btn btn-main" disabled={this.state.disabled} onClick={()=>this.createReview()}>Submit</button>
                     </div>
                 </div>
                 {this.state.reviews.map((review, index)=>{

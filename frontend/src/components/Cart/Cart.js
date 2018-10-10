@@ -61,11 +61,11 @@ class Cart extends Component {
                 </h1>
                 <div className="container"> 
                 <Link to="/PublicGetStarted">
-                    <button className="btn btn-primary">
+                    <button className="btn btn-main">
                         Continue Researching
                     </button>
                 </Link>
-                    <button className="btn btn-primary" onClick={this.openPaymentForm}>
+                    <button className="btn btn-main" onClick={this.openPaymentForm}>
                         Check Out
                     </button>
                 </div>
@@ -131,11 +131,11 @@ class Cart extends Component {
 
                 <div className="container"> 
                 <Link to="/PublicGetStarted">
-                    <button className="btn btn-primary">
+                    <button className="btn btn-main">
                         Continue Researching
                     </button>
                 </Link>
-                    <button className="btn btn-primary" onClick={this.openPaymentForm}>
+                    <button className="btn btn-main" onClick={this.openPaymentForm}>
                         Check Out
                     </button>
                 </div>

@@ -69,7 +69,7 @@ export default class Authenticate extends Component {
     // render (){
     //     return(
     //         <div className="container">
-    //             <a href={"http://localhost:4000/auth"}><button className="btn btn-primary" >Sign Up</button></a>
+    //             <a href={"http://localhost:4000/auth"}><button className="btn btn-main" >Sign Up</button></a>
     //                         <a href={"http://localhost:4000/auth"}><button className="btn btn-default" >Login</button></a>
     //                         </div>
     //         </div>

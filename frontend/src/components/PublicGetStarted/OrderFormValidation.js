@@ -44,7 +44,7 @@ const OrderFormValidation = props=>{
 
  
           
-            <button className="btn btn-primary" type = "submit" disabled={pristine || submitting}>Submit</button>
+            <button className="btn btn-main" type = "submit" disabled={pristine || submitting}>Submit</button>
            
             <button className="btn btn-danger" onClick={cancel}>Cancel</button>
         </form>

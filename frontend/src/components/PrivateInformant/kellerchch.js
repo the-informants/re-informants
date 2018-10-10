@@ -26,11 +26,11 @@ class PrivateInformant extends Component {
                             <div><strong>Age &mdash;</strong> 30-45</div>
                             <div><strong>Profession &mdash;</strong> healthcare IT marketing</div>
                             <div><strong>Status &mdash;</strong> married with 2 boys and 2 girls, ages 16-8</div>
-                            <div><strong>Time in your South Jordan, UT neighborhood &mdash;</strong> 7 years</div>
+                            <div><strong>Time in neighborhood &mdash;</strong> 7 years</div>
                         </div>
 
                             <div class="mar-top text-uppercase">
-                            I live within <strong>2 miles</strong> of the home you are considering.
+                            I live in South Jordan, Utah within <strong>2 miles</strong> of the home you are considering.
                             </div>
                     </div>
                     <div class ="col-md-4 faqs-getstarted">
@@ -38,7 +38,8 @@ class PrivateInformant extends Component {
                             <ol>
                                 <li>Search for a neighborhood reference.</li> 
                                 <li>Text to schedule a call. </li>
-                                <li>Have the call. Ask all your questions. Get quick feedback.</li>
+                                <li>Have the call. Ask all your questions.</li>
+                                <li>Get quick feedback.</li>
                                 <li>Pay a flat fee with Venmo.  </li>
                                 <li>Make your purchase decision</li>
                                 <li>Satisfaction guaranteed. </li>
@@ -68,7 +69,7 @@ class PrivateInformant extends Component {
                         </ul>
                         <h3>Real Estate Experience </h3>
                         <ul>
-                            <li>Bought and sold 3 houses and rented 5 years over 18 years.</li>
+                            <li>Owned 3 homes and was a renter 9 times over the past 18 years.</li>
                             <li>Bought first home in 2005 in Meridian, ID; Sold in 2007 with realtors.</li>
                             <li>Sourced commercial real estate deal in 2006 for large out-of-town investor.</li>
                             <li>Lost money on a speculative venture home in 2006.</li>
@@ -191,7 +192,7 @@ class PrivateInformant extends Component {
                                 <h4>You don't have any inquiries
                                 </h4>
                                 <Link to="/">
-                                <button className="btn btn-primary">
+                                <button className="btn btn-main">
                                     Search for a Buyer
                                 </button>
                                 </Link>

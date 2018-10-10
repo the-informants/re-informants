@@ -37,9 +37,9 @@ export default class Footer extends Component {
 
                     <footer id="navbarResponsive" className={`${classOne}`}>
                         <ul className="navbar-nav ml-auto">
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <Link className="nav-link navsize float-right" to="/PublicGetStarted">Get Started</Link>
-                            </li>
+                            </li> */}
                             <li className="nav-item">
                                 <Link className="nav-link navsize float-right" to="/PublicReference">References</Link>
                             </li>  

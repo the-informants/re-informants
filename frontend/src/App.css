@@ -10,7 +10,8 @@ body {
   padding: 0px;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;
-  background-color: #C5C6C7;   
+  background-color: #C5C6C7;
+  color: #0b0c10;
 }
 .primary-color{
   background-color: #3984D3;
@@ -33,15 +34,33 @@ a {
   color: #cc6600;
 }
 
+a:hover {
+  color: #45A29E;
+}
 
+.col-lg-4{
+  padding-right: 30px;
+  padding-left: 30px;
+}
 
 .btn {
   margin: 5px;
 }
 
-.btn-primary {
+.btn:active:focus {
+  outline: none;
+}
+
+.btn-main {
   background-color: #45A29E;
-  border: #66fcf1;
+  color: white;
+}
+.btn-main:hover {
+  background-color: #254e58;
+}
+
+.btn-main:active {
+  background-color: #2B7A78;
 }
 
 .opening-btn{
@@ -166,6 +185,7 @@ h4 {
   height: 65px;
   text-align: center;
   color: white;
+
 }
 .footer-links {
   padding-bottom: 15px;
@@ -426,14 +446,15 @@ label {
 }
 
 .faqs-getstarted {
-  background-color: #1F2833;
+  /* background-color: #1F2833; */
+  background-color: #4f4a41;
   color: white;
   padding: 20px;
 }
 
 .faqs-why {
-  background-color: #cc6600; 
-  /* orange */
+  background-color: #45A29E; 
+  /* orange was the last color #cc6600 */
   color: white;
   padding: 20px;
   margin-top: 10px;
@@ -460,7 +481,9 @@ label {
   margin-bottom: 40px;
   margin-top: 10px;
   padding: 20px;
-  background-color: #9F9FA3;
+  /* background-color: #9F9FA3; */
+  background-color: #6E6658;
+  color: white;
 }
 
 .call-to-action {

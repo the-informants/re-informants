@@ -204,7 +204,7 @@ class AccountProfile extends Component {
                 </h4>
                     <button className="btn btn-default" onClick={this.openInformantForm}>Edit Informant Profile</button>
                     <Link to="/">
-                                    <button className="btn btn-primary">
+                                    <button className="btn btn-main">
                                         Search for a buyer
                                     </button>
                     </Link>
