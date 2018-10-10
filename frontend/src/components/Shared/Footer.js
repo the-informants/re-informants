@@ -25,7 +25,7 @@ export default class Footer extends Component {
 
         const collapsed = this.state.collapsed;
         const classOne = collapsed ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
-        const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
+        const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right collapsed ml-auto' : 'navbar-toggler navbar-toggler-right ml-auto';
 
         return (
             <nav className="navbar navbar-expand-lg navbar-dark nav-container transparent-nav footer">
@@ -36,21 +36,21 @@ export default class Footer extends Component {
                     </button>
 
                     <footer id="navbarResponsive" className={`${classOne}`}>
-                        <ul className="navbar-nav">
+                        <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
-                                <Link className="nav-link navsize" to="/PublicGetStarted">Get Started</Link>
+                                <Link className="nav-link navsize float-right" to="/PublicGetStarted">Get Started</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link navsize" to="/PublicReference">References</Link>
+                                <Link className="nav-link navsize float-right" to="/PublicReference">References</Link>
                             </li>  
                             <li className="nav-item">
-                                <Link className="nav-link navsize" to="/PublicBuyer">Buyers</Link>
+                                <Link className="nav-link navsize float-right" to="/PublicBuyer">Buyers</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link navsize" to="/PublicSeller">Sellers</Link>
+                                <Link className="nav-link navsize float-right" to="/PublicSeller">Sellers</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link navsize" to="/AboutUs">About Us</Link>
+                                <Link className="nav-link navsize float-right" to="/AboutUs">About Us</Link>
                             </li>    
                         </ul>
                             
