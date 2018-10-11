@@ -60,7 +60,7 @@ class Opening extends Component {
                 <div>
                         <div className="imgContainer sliderImgOne justify-content-center align-items-center d-flex flex-column">
                             <div className="text-center mission-statement pb-3 px-3">
-                                Confirm buying or renting decisions using local neighborhood references.
+                                Confirm your buying or renting decisions by connecting with local neighborhood references.
                             </div>
                             <div className="container-fluid">
                                 <div className="row align-items-center justify-content-md-center mx-0">
