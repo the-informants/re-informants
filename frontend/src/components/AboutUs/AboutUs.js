@@ -37,7 +37,7 @@ export default class AboutUs extends Component {
                     Chris has spent more than a decade building five other people's high tech startups while incubating his own across nearly 30 years. Chris has a BA in Marketing Communications, an MBA and a number of years studying real estate. He is a product, content and demand generation marketer with a keen eye for user experience design.
                 </p>
                 <p>
-                    Lin is a SQL datawarehouse and business intelligence genius having spent nearly a decade in BI, analytics and data warehousing. Lin speaks SQL as fluently as English and Mandarin. Lin is a data analyst, architect and BI visualizatiion developer. Lin has a BS in finance. Lin is also a landlord owning several investment properties. 
+                    Lin is a SQL datawarehouse and business intelligence genius having spent nearly a decade in BI, analytics and data warehousing. Lin speaks SQL as fluently as English and Mandarin. Lin is a data analyst, architect and BI visualizatiion developer. Lin has a MS and BS in finance. Lin is also a landlord owning several investment properties. 
                 </p>
                 <p>
                     Shane is perhaps the smartest guy in whichever circle he finds himself though he won't confirm this truth. With honors, he graduated with a BS in Mechanical Engineering. Shane is a math whiz with a unique knack for solving the most grueling logic problems in no time flat. Shane has expertise using apis to ingest external data. 
