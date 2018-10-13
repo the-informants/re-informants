@@ -12,6 +12,7 @@ body {
   font-size: 16px;
   background-color: #C5C6C7;
   color: #0b0c10;
+  min-height: 875px;
 }
 .primary-color{
   background-color: #3984D3;
