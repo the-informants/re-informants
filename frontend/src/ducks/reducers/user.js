@@ -2,7 +2,9 @@ import axios from 'axios';
 
 const initialState = {
     informantInfo: {},
-    stayInformedInfo: {},
+    stayInformedInfo: {
+        id: ""
+    },
     buyerInfo: {},
     informants: [],
     user: {

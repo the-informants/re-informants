@@ -23,7 +23,6 @@ import UserReviews from './components/UserReviews/UserReviews';
 
 export default (
     <Switch>
-        <Route exact path = '/' component={Opening}/>
         {/* <Route exact path = '/' component={StayInformed}/> */}
         {/* <Route exact path = '/' component={PublicGetStarted}/> */}
         {/* <Route component={Opening} path='/Opening' /> */}
@@ -41,6 +40,7 @@ export default (
         <Route component={InquiryThankYou} path='/ThankYou' />
         <Route component={Modal} path='/Modal' />
         <Route component={UserReviews} path = '/UserReviews/:id'/>
+        <Route path = '/' component={Opening}/>
      
     </Switch>
 )

@@ -118,6 +118,32 @@ h4 {
   text-shadow: 3px 3px 5px rgba(27, 27, 27, 1);
 }
 
+.thank-you-check {
+  color: #45A29E;
+  font-size: 100px;
+}
+
+.thank-you-container{
+  height: 100%
+}
+.thank-you {
+  font-size: 40px;
+  font-weight: bold;
+}
+@media (min-width: 768px){
+  .thank-you-check {
+    font-size: 130px;
+  }
+  
+  .thank-you {
+    font-size: 60px;
+    font-weight: bold;
+  }
+  .thank-you-message {
+    font-size: 20px;
+  }
+}
+
 @media (min-width: 768px){
   .stay-informed {
       max-width: 58.333333%;

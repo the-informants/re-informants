@@ -1,14 +1,12 @@
 import React, {Component} from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import '../../App.css';
 import { Link, Redirect } from 'react-router-dom';
 import Search from './Search'
 import { addSearchCoordinates, searchAddress, addSearchLocation} from '../../ducks/reducers/search'
 import {connect} from 'react-redux'
+import Modal from 'react-modal';
 import geocoder from 'geocoder';
 import Footer from './../Shared/Footer';
+import ThankYou from './ThankYou';
 import {submitStayInformedInfo} from '../../ducks/reducers/user';
 
 
@@ -18,7 +16,8 @@ class Opening extends Component {
         super(props)
         this.state = {
             goToGetStarted: false,
-            searched: false
+            searched: false,
+            showThankYou: false
         }
     }
     searchAddress= () =>{
@@ -44,6 +43,18 @@ class Opening extends Component {
         if(prevProps.search.searchLat !== this.props.search.searchLat){
             this.setState({goToGetStarted: true})
         }
+        if(prevProps.user.stayInformedInfo.id !== this.props.user.stayInformedInfo.id){
+            this.showThankYou();
+        }
+    }
+    showThankYou = ()=>{
+        this.setState({showThankYou: true})
+        setTimeout(() => {
+            this.closeThankYou();
+        }, 3500);
+    }
+    closeThankYou = ()=>{
+        this.setState({showThankYou: false})
     }
 
     render (){
@@ -54,7 +65,28 @@ class Opening extends Component {
                 <Redirect to={"/PublicGetStarted"}/> 
                 // We are on a mission to help home buyers make better decisions and have begun working on a limited pilot providing our neighborhood reference service. If you would like to get an invitation to join our platform as we expand, please give us your information and we will send you an invitation very soon. We promise to protect your email and to communicate smartly.
             )
-        }        
+        }
+        
+         const thankYouStyles = {
+            overlay: {
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundColor: 'rgba(150, 150, 150, 0.75)'
+              },
+             content : {
+               width                 : '80%',
+               height                : '60%',
+               top                   : '50%',
+               left                  : '50%',
+               right                 : 'auto',
+               bottom                : 'auto',
+               transform             : 'translate(-50%, -50%)',
+               boxShadow: "0px 2px 10px rgb(50, 50, 50)"
+             }
+           };        
         return (
             <div>
                 <div>
@@ -114,6 +146,9 @@ class Opening extends Component {
                             </Link>
                         </div>
                     </div>
+                    <Modal isOpen={this.state.showThankYou} style={thankYouStyles}>
+                        <ThankYou></ThankYou>
+                    </Modal>
                 </div>
             </div>
         );
