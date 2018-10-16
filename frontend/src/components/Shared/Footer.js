@@ -31,11 +31,11 @@ export default class Footer extends Component {
             <nav className="navbar navbar-expand-lg navbar-dark nav-container transparent-nav footer">
                 <div className="container-fluid body container-footer">  
                         
-                    <button onClick={this.toggleNavbar} className={`${classTwo}`} type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <button onClick={this.toggleNavbar} className={`${classTwo}`} type="button" data-toggle="collapse" data-target="#footerbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
                     </button>
 
-                    <footer id="navbarResponsive" className={`${classOne}`}>
+                    <footer id="footerbarResponsive" className={`${classOne}`}>
                         <ul className="navbar-nav ml-auto">
                             {/* <li className="nav-item">
                                 <Link className="nav-link navsize float-right" to="/PublicGetStarted">Get Started</Link>
