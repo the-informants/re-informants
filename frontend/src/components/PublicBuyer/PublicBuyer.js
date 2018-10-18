@@ -27,7 +27,7 @@ export default class PublicBuyer extends Component {
                         </strong> 
                         
                         <p>
-                            You bet they do and knowing them provides confirmation and peace of mind to your home offer. Rebands puts you in touch with a local neighborhood reference who can give you her or his first hand experience and even if making an offer on this target home is imminent, engaging a neighbor is a smart way to kick start your engagement in the new neighborhood. 
+                            You bet they do and knowing them provides confirmation and peace of mind to your home offer. REBANDS puts you in touch with a local neighborhood reference who can give you her or his first hand experience and even if making an offer on this target home is imminent, engaging a neighbor is a smart way to kick start your engagement in the new neighborhood. 
                         </p>
                         <p>
                             Employers wouldn't consider hiring employees without first calling their references. Why is it then that so many of us are willing to make the most expensive purchase of our lives without connecting locally with real people who have first hand experience as your target area.

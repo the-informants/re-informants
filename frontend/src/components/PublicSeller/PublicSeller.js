@@ -16,7 +16,7 @@ export default class PublicSeller extends Component {
                         But the only way for them to know the 'feel', the 'personality' of the neighborhood is to talk to people.
                     </p>
                     <p>
-                        That is why we developed rebands.com
+                        That is why we developed REBANDS.com
                     </p>
                     <p>
                         We are here to give your buyers an independent neighborhood review from a local person living within 2 miles of your home. That review will assist you in selling your home because it gives your buyers a way to confirm what they hope about your neighborhood. 
