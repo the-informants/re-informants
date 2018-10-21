@@ -11,11 +11,11 @@ export default class AboutUs extends Component {
                     <h1>About Us</h1>
                 </div>
                 <p class="mar-top">
-                    Rebands is a mission-driven organization helping home buyers, sellers, renters and landlords to confirm their transactions after talking with real people who live in their target neighborhoods. The three founders of Rebands come together with a unique blend of engineering, sales, marketing and operational experience. 
+                    REBANDS is a mission-driven organization helping home buyers, sellers, renters and landlords to confirm their transactions after talking with real people who live in their target neighborhoods. The three founders of REBANDS come together with a unique blend of engineering, sales, marketing and operational experience. 
                 </p>
                 <h3 class="mar-top">Origin Story</h3>
                 <p>
-                    The idea behind Rebands began in 2005 when Chris, bought his first home. At that time, homes were selling days or hours after being listed and buyers had to act quick or risk losing the home to another. Within 1.5 days of arriving in his target city, Chris and his wife had searched through 50 home listing printouts, looked at 16 homes and had made an offer that was accepted. Wow! Prior to that moment, the most expensive thing Chris had ever purchased was his BA degree, a quarter of the home price. The sticker shock was painful and left Chris hoping they made the right decision. He knew no more about his new neighborhood than what he saw in that brief visit.
+                    The idea behind REBANDS began in 2005 when Chris, bought his first home. At that time, homes were selling days or hours after being listed and buyers had to act quick or risk losing the home to another. Within 1.5 days of arriving in his target city, Chris and his wife had searched through 50 home listing printouts, looked at 16 homes and had made an offer that was accepted. Wow! Prior to that moment, the most expensive thing Chris had ever purchased was his BA degree, a quarter of the home price. The sticker shock was painful and left Chris hoping they made the right decision. He knew no more about his new neighborhood than what he saw in that brief visit.
                 </p>
                 <p>
                     <div>
@@ -43,7 +43,7 @@ export default class AboutUs extends Component {
                     Shane is perhaps the smartest guy in whichever circle he finds himself though he won't confirm this truth. With honors, he graduated with a BS in Mechanical Engineering. Shane is a math whiz with a unique knack for solving the most grueling logic problems in no time flat. Shane has expertise using apis to ingest external data. 
                 </p>
                 <p>
-                    The three founders met in a local bootcamp and united around the rebands mission and vison. Each are home owners and have unique, but similar perspective about the challenging of information dissonance when it comes to making good real estate decisions. 
+                    The three founders met in a local bootcamp and united around the REBANDS mission and vison. Each are home owners and have unique, but similar perspective about the challenging of information dissonance when it comes to making good real estate decisions. 
                 </p>
             </div>
         )
